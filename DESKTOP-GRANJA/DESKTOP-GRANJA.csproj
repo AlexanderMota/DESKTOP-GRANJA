@@ -10,11 +10,12 @@
 
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="7.1.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="RestSharp" Version="107.3.0" />
     <PackageReference Include="Syncfusion.SfTextInputLayout.WPF" Version="20.1.0.50" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="modelos\" />
     <Folder Include="assets\" />
     <Folder Include="vistas\" />
   </ItemGroup>

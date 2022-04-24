@@ -31,7 +31,6 @@ namespace DESKTOP_GRANJA
         private void Aceptar_Click(object sender, RoutedEventArgs e)
         {
             vm.Aceptar();
-            this.DialogResult = true;
         }
     }
 }
