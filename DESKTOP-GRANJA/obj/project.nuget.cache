@@ -1,13 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "ObJsx0HuGDmxiQFqLfxt6pKX5ZvUo6XTSYMZnz2IIZxsTiIBWeZ8CRVp/Yg8nBl+uUJMQtgRjX1SZVJcSuerLw==",
+  "dgSpecHash": "HRYdmrci7d8Gq0Dui/B2dmL6mojJ/AOY+NRGVjwOxbezOKUSbWI2nQxXZ+HiGmBQQ9Iml9Qhh8Dv4pIopfy3gQ==",
   "success": true,
   "projectFilePath": "E:\\Desarrollo\\1Proyectos\\TFG_DAM\\AppDesktopDAMGranja\\DESKTOP-GRANJA\\DESKTOP-GRANJA.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alexa\\.nuget\\packages\\communitytoolkit.mvvm\\7.1.2\\communitytoolkit.mvvm.7.1.2.nupkg.sha512",
     "C:\\Users\\Alexa\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\Alexa\\.nuget\\packages\\restsharp\\107.3.0\\restsharp.107.3.0.nupkg.sha512",
+    "C:\\Users\\Alexa\\.nuget\\packages\\syncfusion.data.wpf\\20.1.0.50\\syncfusion.data.wpf.20.1.0.50.nupkg.sha512",
     "C:\\Users\\Alexa\\.nuget\\packages\\syncfusion.licensing\\20.1.0.50\\syncfusion.licensing.20.1.0.50.nupkg.sha512",
+    "C:\\Users\\Alexa\\.nuget\\packages\\syncfusion.sfgrid.wpf\\20.1.0.50\\syncfusion.sfgrid.wpf.20.1.0.50.nupkg.sha512",
     "C:\\Users\\Alexa\\.nuget\\packages\\syncfusion.sftextinputlayout.wpf\\20.1.0.50\\syncfusion.sftextinputlayout.wpf.20.1.0.50.nupkg.sha512",
     "C:\\Users\\Alexa\\.nuget\\packages\\syncfusion.shared.wpf\\20.1.0.50\\syncfusion.shared.wpf.20.1.0.50.nupkg.sha512"
   ],

@@ -11,7 +11,12 @@
 
 using DESKTOP_GRANJA.vistas;
 using Syncfusion;
+using Syncfusion.UI.Xaml.Controls.DataPager;
+using Syncfusion.UI.Xaml.Grid;
+using Syncfusion.UI.Xaml.Grid.RowFilter;
 using Syncfusion.UI.Xaml.TextInputLayout;
+using Syncfusion.UI.Xaml.TreeGrid;
+using Syncfusion.UI.Xaml.TreeGrid.Filtering;
 using Syncfusion.Windows;
 using Syncfusion.Windows.Shared;
 using Syncfusion.Windows.Tools.Controls;

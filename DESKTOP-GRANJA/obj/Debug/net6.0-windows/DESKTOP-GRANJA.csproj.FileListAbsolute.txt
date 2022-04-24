@@ -31,3 +31,7 @@ E:\Desarrollo\1Proyectos\TFG_DAM\AppDesktopDAMGranja\DESKTOP-GRANJA\obj\Debug\ne
 E:\Desarrollo\1Proyectos\TFG_DAM\AppDesktopDAMGranja\DESKTOP-GRANJA\obj\Debug\net6.0-windows\vistas\LoginUC.baml
 E:\Desarrollo\1Proyectos\TFG_DAM\AppDesktopDAMGranja\DESKTOP-GRANJA\obj\Debug\net6.0-windows\DESKTOP_GRANJA.Properties.Resources.resources
 E:\Desarrollo\1Proyectos\TFG_DAM\AppDesktopDAMGranja\DESKTOP-GRANJA\obj\Debug\net6.0-windows\DESKTOP-GRANJA.csproj.GenerateResource.cache
+E:\Desarrollo\1Proyectos\TFG_DAM\AppDesktopDAMGranja\DESKTOP-GRANJA\bin\Debug\net6.0-windows\Syncfusion.Data.WPF.dll
+E:\Desarrollo\1Proyectos\TFG_DAM\AppDesktopDAMGranja\DESKTOP-GRANJA\bin\Debug\net6.0-windows\Syncfusion.SfGrid.WPF.dll
+E:\Desarrollo\1Proyectos\TFG_DAM\AppDesktopDAMGranja\DESKTOP-GRANJA\obj\Debug\net6.0-windows\vistas\ListaTareasUC.g.cs
+E:\Desarrollo\1Proyectos\TFG_DAM\AppDesktopDAMGranja\DESKTOP-GRANJA\obj\Debug\net6.0-windows\vistas\ListaTareasUC.baml

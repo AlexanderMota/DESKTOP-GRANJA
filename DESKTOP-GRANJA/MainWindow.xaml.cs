@@ -21,12 +21,13 @@ namespace DESKTOP_GRANJA
     /// </summary>
     public partial class MainWindow : Window
     {
-        private MainWindowVM vm = new MainWindowVM();
 
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = vm;
+            this.DataContext = new MainWindowVM(this.PanelNavegacion);
         }
+
+        
     }
 }

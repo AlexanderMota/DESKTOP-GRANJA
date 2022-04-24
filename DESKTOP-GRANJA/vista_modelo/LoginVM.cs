@@ -1,5 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Messaging;
 using DESKTOP_GRANJA.apiREST;
+using DESKTOP_GRANJA.mensajeria;
 using DESKTOP_GRANJA.modelos;
 using System;
 using System.Collections.Generic;
@@ -25,17 +27,16 @@ namespace DESKTOP_GRANJA.vista_modelo
             get { return this.password; }
             set { SetProperty(ref this.password, value); }
         }
-        internal void Aceptar()
+        internal async void Aceptar()
         {
-            //DBApi.Post("auth/signin",new Usuario(Nombre,Password));
-            Task<System.Collections.ObjectModel.ObservableCollection<modelos.Tarea>> tar = 
-                new DBApi().GetAll("tareas/", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsZWFkbyI6eyJpZEVtcGxlYWRvIjo2LCJub21icmUiOiJMaXNhIn0sImlhdCI6MTY1MDgzMDM2NiwiZXhwIjoxNjUwODMzOTY2fQ.EK_GI5-48Yejg4N_clUmNFibak2luysqSLaOtkBYHaY");
-            /*
-            List<Tarea> lista = tar.Result.ToList();
-            foreach (modelos.Tarea tarea in lista)
+            ApiResponse ar = await new DBApi().Post("auth/signin", new Usuario(Nombre, Password));
+            if(ar.Status == 201)
             {
-                Trace.WriteLine(tarea.Nombre);
-            }*/
+                Properties.Settings.Default.Token = ar.Message;
+                Trace.WriteLine(Properties.Settings.Default.Token);
+
+                WeakReferenceMessenger.Default.Send(new ConfirmaTokenMessage(true));
+            }
         }
     }
 }

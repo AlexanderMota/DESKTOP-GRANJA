@@ -53,13 +53,13 @@ namespace DESKTOP_GRANJA.apiREST
         {
             var client = new RestClient();
             
-            var request = new RestRequest($"{BaseUrl+base_url + url}", Method.Post);
+            var request = new RestRequest($"{BaseUrl + url}", Method.Post);
             request.AddJsonBody(json);
 
             var restResponse = await client.ExecutePostAsync(request);
 
             ApiResponse ap = JsonConvert.DeserializeObject<ApiResponse>(restResponse.Content);
-            Trace.WriteLine(ap.Message);
+            //Trace.WriteLine(ap.Message);
             return ap;
         }
     }

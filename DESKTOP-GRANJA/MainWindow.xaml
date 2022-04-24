@@ -4,8 +4,25 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DESKTOP_GRANJA" 
-        xmlns:inputLayout="clr-namespace:Syncfusion.UI.Xaml.TextInputLayout;assembly=Syncfusion.SfTextInputLayout.WPF"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="500">
-    <ContentControl Content="{Binding Path=UserControl}"></ContentControl>
+    <DockPanel >
+        <StackPanel DockPanel.Dock="Top" Visibility="Collapsed" x:Name="PanelNavegacion">
+
+            <syncfusion:MenuAdv Height="30" Width="auto" VerticalAlignment="Top">
+                <Grid Width="auto">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition ></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <syncfusion:MenuItemAdv Header="Tareas"  Command="{Binding Path=CargaListaTareasCommand}" Grid.Column="0" />
+                    <syncfusion:MenuItemAdv Header="Empleados"  Command="{Binding Path=CargaListaEmpleadosCommand}" Grid.Column="1" />
+                </Grid>
+
+                <syncfusion:MenuItemAdv/>
+            </syncfusion:MenuAdv>
+        </StackPanel>
+        <ContentControl Content="{Binding Path=UserControl}"></ContentControl>
+        </DockPanel >
 </Window>

@@ -11,6 +11,7 @@
           "CommunityToolkit.Mvvm": "7.1.2",
           "Newtonsoft.Json": "13.0.1",
           "RestSharp": "107.3.0",
+          "Syncfusion.SfGrid.WPF": "20.1.0.50",
           "Syncfusion.SfTextInputLayout.WPF": "20.1.0.50"
         },
         "runtime": {
@@ -41,11 +42,32 @@
           }
         }
       },
+      "Syncfusion.Data.WPF/20.1.0.50": {
+        "runtime": {
+          "lib/net5.0-windows7.0/Syncfusion.Data.WPF.dll": {
+            "assemblyVersion": "20.1500.0.50",
+            "fileVersion": "20.1500.0.50"
+          }
+        }
+      },
       "Syncfusion.Licensing/20.1.0.50": {
         "runtime": {
           "lib/net6.0/Syncfusion.Licensing.dll": {
             "assemblyVersion": "20.1.0.50",
             "fileVersion": "20.1.0.50"
+          }
+        }
+      },
+      "Syncfusion.SfGrid.WPF/20.1.0.50": {
+        "dependencies": {
+          "Syncfusion.Data.WPF": "20.1.0.50",
+          "Syncfusion.Licensing": "20.1.0.50",
+          "Syncfusion.Shared.WPF": "20.1.0.50"
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Syncfusion.SfGrid.WPF.dll": {
+            "assemblyVersion": "20.1500.0.50",
+            "fileVersion": "20.1500.0.50"
           }
         }
       },
@@ -101,12 +123,26 @@
       "path": "restsharp/107.3.0",
       "hashPath": "restsharp.107.3.0.nupkg.sha512"
     },
+    "Syncfusion.Data.WPF/20.1.0.50": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-k5nYcSDk5lAS17806NoV7zOVpKakPQgdgT23HooINYmTnGHVEaPtke5ezqZSkm+PxCUJ1XBMry+nvvIn3OYO7w==",
+      "path": "syncfusion.data.wpf/20.1.0.50",
+      "hashPath": "syncfusion.data.wpf.20.1.0.50.nupkg.sha512"
+    },
     "Syncfusion.Licensing/20.1.0.50": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-sQBaysAP2fQ0ISeJjowl7wpiLjAwTUKxvQrft+QYTtjYbaUSxfoEh7tYi2/Pgs8qnGIrp+6PzIALI9bcVFPflw==",
       "path": "syncfusion.licensing/20.1.0.50",
       "hashPath": "syncfusion.licensing.20.1.0.50.nupkg.sha512"
+    },
+    "Syncfusion.SfGrid.WPF/20.1.0.50": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+S05rOSqcuJ1TjLo7SgE8aakAPQVWEK14i4Rqih+eVQ2BDRItG5iPsaj84G+P8FoCxNGAMMHxOTjLdeSE7WcWw==",
+      "path": "syncfusion.sfgrid.wpf/20.1.0.50",
+      "hashPath": "syncfusion.sfgrid.wpf.20.1.0.50.nupkg.sha512"
     },
     "Syncfusion.SfTextInputLayout.WPF/20.1.0.50": {
       "type": "package",

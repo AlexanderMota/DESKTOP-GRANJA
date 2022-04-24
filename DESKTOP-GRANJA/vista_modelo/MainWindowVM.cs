@@ -1,5 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Messaging;
 using DESKTOP_GRANJA.apiREST;
+using DESKTOP_GRANJA.mensajeria;
 using DESKTOP_GRANJA.modelos;
 using DESKTOP_GRANJA.nav;
 using DESKTOP_GRANJA.vistas;
@@ -14,6 +16,12 @@ namespace DESKTOP_GRANJA.vista_modelo
 {
     internal class MainWindowVM : ObservableObject
     {
+        bool tokenRecibido = false;
+        private bool TokenRecibido
+        {
+            get => this.tokenRecibido;
+            set => this.SetProperty(ref this.tokenRecibido, value);
+        }
         private Navegacion nav;
         private UserControl userControl = new LoginUC();
         public UserControl UserControl
@@ -22,13 +30,26 @@ namespace DESKTOP_GRANJA.vista_modelo
             set => SetProperty(ref userControl, value);
         }
 
-        public MainWindowVM()
+        public MainWindowVM(StackPanel panelNavegacion)
         {
             this.nav = new Navegacion();
+            WeakReferenceMessenger.Default.Register<ConfirmaTokenMessage>(this, (r, m) =>
+            {
+                TokenRecibido = m.Value;
+                if (TokenRecibido)
+                {
+                    CargaListaTareasUC();
+                    panelNavegacion.Visibility = System.Windows.Visibility.Visible;
+                }
+            });
         }
         private void CargaLoginUC()
         {
             this.UserControl = nav.CargaLoginUC();
+        }
+        private void CargaListaTareasUC()
+        {
+            this.UserControl = nav.CargaListaTareasUC();
         }
     }
 }
