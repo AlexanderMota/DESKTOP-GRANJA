@@ -28,9 +28,5 @@ namespace DESKTOP_GRANJA
             InitializeComponent();
             this.DataContext = vm;
         }
-        private void Aceptar_Click(object sender, RoutedEventArgs e)
-        {
-            vm.Aceptar();
-        }
     }
 }

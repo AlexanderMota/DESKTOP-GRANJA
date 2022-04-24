@@ -1,37 +1,34 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using DESKTOP_GRANJA.apiREST;
 using DESKTOP_GRANJA.modelos;
+using DESKTOP_GRANJA.nav;
+using DESKTOP_GRANJA.vistas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace DESKTOP_GRANJA.vista_modelo
 {
     internal class MainWindowVM : ObservableObject
     {
-        private string nombre = "";
-        public string Nombre
+        private Navegacion nav;
+        private UserControl userControl = new LoginUC();
+        public UserControl UserControl
         {
-            get { return this.nombre; }
-            set { SetProperty(ref this.nombre, value); }
-        }
-        private string password = "";
-        public string Password
-        {
-            get { return this.password; }
-            set { SetProperty(ref this.password, value); }
+            get => userControl;
+            set => SetProperty(ref userControl, value);
         }
 
         public MainWindowVM()
         {
-
+            this.nav = new Navegacion();
         }
-        internal void Aceptar()
+        private void CargaLoginUC()
         {
-            DBApi.Post("/auth/signin",new Usuario(Nombre,Password));
+            this.UserControl = nav.CargaLoginUC();
         }
     }
-
 }

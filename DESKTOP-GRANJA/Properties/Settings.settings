@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="DESKTOP_GRANJA.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="LisenciaSyncfusion" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">NTY2OTI3QDMxMzkyZTM0MmUzMG85Q0toWFI2U2dGcVIwdjlXRHBDVGlHanpxZFlWVEJLcnZWUWtuSE5EekU9</Value>
+    </Setting>
+    <Setting Name="BaseURLApiLocal" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://localhost:4300/api/</Value>
+    </Setting>
+    <Setting Name="BaseURLApiAzure" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://api-granja.azurewebsites.net/api/</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
