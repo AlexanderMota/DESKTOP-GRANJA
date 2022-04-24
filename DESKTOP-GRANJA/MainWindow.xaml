@@ -3,10 +3,21 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DESKTOP_GRANJA"
+        xmlns:local="clr-namespace:DESKTOP_GRANJA" 
+        xmlns:inputLayout="clr-namespace:Syncfusion.UI.Xaml.TextInputLayout;assembly=Syncfusion.SfTextInputLayout.WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+        Title="MainWindow" Height="400" Width="500">
+    <StackPanel Margin="5" Height="200" Width="300">
+        <inputLayout:SfTextInputLayout Hint="Nombre">
+            <TextBox/>
+        </inputLayout:SfTextInputLayout>
+        <inputLayout:SfTextInputLayout Hint="Password">
+            <TextBox/>
+        </inputLayout:SfTextInputLayout>
+        
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button Margin="20,0" Width="100" IsDefault="True" Click="Aceptar_Click">Aceptar</Button>
+            <Button Width="100" IsCancel="True">Cancelar</Button>
+        </StackPanel>
+    </StackPanel>
 </Window>

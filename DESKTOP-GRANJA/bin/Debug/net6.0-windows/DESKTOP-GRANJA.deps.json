@@ -6,6 +6,15 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
+      "DESKTOP-GRANJA/1.0.0": {
+        "dependencies": {
+          "CommunityToolkit.Mvvm": "7.1.2",
+          "Syncfusion.SfTextInputLayout.WPF": "20.1.0.50"
+        },
+        "runtime": {
+          "DESKTOP-GRANJA.dll": {}
+        }
+      },
       "CommunityToolkit.Mvvm/7.1.2": {
         "runtime": {
           "lib/net5.0/CommunityToolkit.Mvvm.dll": {
@@ -48,6 +57,11 @@
     }
   },
   "libraries": {
+    "DESKTOP-GRANJA/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "CommunityToolkit.Mvvm/7.1.2": {
       "type": "package",
       "serviceable": true,

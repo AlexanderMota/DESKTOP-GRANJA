@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DESKTOP_GRANJA.vista_modelo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,17 @@ namespace DESKTOP_GRANJA
     /// </summary>
     public partial class MainWindow : Window
     {
+        private MainWindowVM vm = new MainWindowVM();
+
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = vm;
+        }
+        private void Aceptar_Click(object sender, RoutedEventArgs e)
+        {
+            vm.Aceptar();
+            this.DialogResult = true;
         }
     }
 }

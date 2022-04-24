@@ -1,11 +1,208 @@
 {
   "version": 3,
   "targets": {
-    "net6.0-windows7.0": {}
+    "net6.0-windows7.0": {
+      "CommunityToolkit.Mvvm/7.1.2": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/CommunityToolkit.Mvvm.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/CommunityToolkit.Mvvm.dll": {}
+        }
+      },
+      "Syncfusion.Licensing/20.1.0.50": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Syncfusion.Licensing.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Syncfusion.Licensing.dll": {}
+        }
+      },
+      "Syncfusion.SfTextInputLayout.WPF/20.1.0.50": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Licensing": "20.1.0.50",
+          "Syncfusion.Shared.WPF": "20.1.0.50"
+        },
+        "compile": {
+          "lib/net5.0-windows7.0/Syncfusion.SfTextInputLayout.WPF.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Syncfusion.SfTextInputLayout.WPF.dll": {}
+        }
+      },
+      "Syncfusion.Shared.WPF/20.1.0.50": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Licensing": "20.1.0.50"
+        },
+        "compile": {
+          "lib/net5.0-windows7.0/Syncfusion.Shared.WPF.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Syncfusion.Shared.WPF.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "CommunityToolkit.Mvvm/7.1.2": {
+      "sha512": "/zEpNH3FIBFY2iZRBi+S3Sia3q2yJgy1IQHnWRW7MdhQIe3IGcA1TGqJdbtjiJBmNy4v7kkPdNzgYlvvNDjXZg==",
+      "type": "package",
+      "path": "communitytoolkit.mvvm/7.1.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "License.md",
+        "ThirdPartyNotices.txt",
+        "analyzers/dotnet/cs/CommunityToolkit.Mvvm.SourceGenerators.dll",
+        "analyzers/dotnet/cs/CommunityToolkit.Mvvm.SourceGenerators.pdb",
+        "analyzers/dotnet/cs/CommunityToolkit.Mvvm.SourceGenerators.xml",
+        "communitytoolkit.mvvm.7.1.2.nupkg.sha512",
+        "communitytoolkit.mvvm.nuspec",
+        "lib/net5.0/CommunityToolkit.Mvvm.dll",
+        "lib/net5.0/CommunityToolkit.Mvvm.pdb",
+        "lib/net5.0/CommunityToolkit.Mvvm.xml",
+        "lib/netstandard2.0/CommunityToolkit.Mvvm.dll",
+        "lib/netstandard2.0/CommunityToolkit.Mvvm.pdb",
+        "lib/netstandard2.0/CommunityToolkit.Mvvm.xml",
+        "lib/netstandard2.1/CommunityToolkit.Mvvm.dll",
+        "lib/netstandard2.1/CommunityToolkit.Mvvm.pdb",
+        "lib/netstandard2.1/CommunityToolkit.Mvvm.xml"
+      ]
+    },
+    "Syncfusion.Licensing/20.1.0.50": {
+      "sha512": "sQBaysAP2fQ0ISeJjowl7wpiLjAwTUKxvQrft+QYTtjYbaUSxfoEh7tYi2/Pgs8qnGIrp+6PzIALI9bcVFPflw==",
+      "type": "package",
+      "path": "syncfusion.licensing/20.1.0.50",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "lib/MonoAndroid10.0/Syncfusion.Licensing.dll",
+        "lib/MonoAndroid90/Syncfusion.Licensing.dll",
+        "lib/Xamarin.Mac/Syncfusion.Licensing.dll",
+        "lib/Xamarin.iOS10/Syncfusion.Licensing.dll",
+        "lib/net20/Syncfusion.Licensing.dll",
+        "lib/net35/Syncfusion.Licensing.dll",
+        "lib/net40/Syncfusion.Licensing.dll",
+        "lib/net45/Syncfusion.Licensing.dll",
+        "lib/net451/Syncfusion.Licensing.dll",
+        "lib/net46/Syncfusion.Licensing.dll",
+        "lib/net5.0/Syncfusion.Licensing.dll",
+        "lib/net6.0/Syncfusion.Licensing.dll",
+        "lib/netcoreapp3.1/Syncfusion.Licensing.dll",
+        "lib/netstandard1.0/Syncfusion.Licensing.dll",
+        "lib/netstandard1.2/Syncfusion.Licensing.dll",
+        "lib/netstandard1.4/Syncfusion.Licensing.dll",
+        "lib/netstandard2.0/Syncfusion.Licensing.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.Licensing.dll",
+        "lib/uap10.0/Syncfusion.Licensing.dll",
+        "syncfusion.licensing.20.1.0.50.nupkg.sha512",
+        "syncfusion.licensing.nuspec",
+        "syncfusion_logo.png"
+      ]
+    },
+    "Syncfusion.SfTextInputLayout.WPF/20.1.0.50": {
+      "sha512": "Rj/K9y9InuOkkU7u3Fww5KokAiTDJf6yMlUvxIuVLd5GM3ZhMO0HRr2DKNASXdd4U8uLDd4LfokAMzoBXxHCag==",
+      "type": "package",
+      "path": "syncfusion.sftextinputlayout.wpf/20.1.0.50",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "README.md",
+        "lib/net40/Design/Syncfusion.SfTextInputLayout.WPF.DesignTools.dll",
+        "lib/net40/Syncfusion.SfTextInputLayout.WPF.dll",
+        "lib/net40/Syncfusion.SfTextInputLayout.WPF.xml",
+        "lib/net45/Design/Syncfusion.SfTextInputLayout.WPF.DesignTools.dll",
+        "lib/net45/Syncfusion.SfTextInputLayout.WPF.dll",
+        "lib/net45/Syncfusion.SfTextInputLayout.WPF.xml",
+        "lib/net451/Design/Syncfusion.SfTextInputLayout.WPF.DesignTools.dll",
+        "lib/net451/Syncfusion.SfTextInputLayout.WPF.dll",
+        "lib/net451/Syncfusion.SfTextInputLayout.WPF.xml",
+        "lib/net46/Design/Syncfusion.SfTextInputLayout.WPF.DesignTools.dll",
+        "lib/net46/Syncfusion.SfTextInputLayout.WPF.dll",
+        "lib/net46/Syncfusion.SfTextInputLayout.WPF.xml",
+        "lib/net5.0-windows7.0/Design/Syncfusion.SfTextInputLayout.WPF.DesignTools.dll",
+        "lib/net5.0-windows7.0/Syncfusion.SfTextInputLayout.WPF.dll",
+        "lib/net5.0-windows7.0/Syncfusion.SfTextInputLayout.WPF.xml",
+        "lib/netcoreapp3.1/Design/Syncfusion.SfTextInputLayout.WPF.DesignTools.dll",
+        "lib/netcoreapp3.1/Syncfusion.SfTextInputLayout.WPF.dll",
+        "lib/netcoreapp3.1/Syncfusion.SfTextInputLayout.WPF.xml",
+        "syncfusion.sftextinputlayout.wpf.20.1.0.50.nupkg.sha512",
+        "syncfusion.sftextinputlayout.wpf.nuspec",
+        "syncfusion_logo.png",
+        "tools/VisualStudioToolsManifest.xml"
+      ]
+    },
+    "Syncfusion.Shared.WPF/20.1.0.50": {
+      "sha512": "64OFsyOHhmL01ifezqXnXf2VihCUvcpg9KbxAuYiUzXle8p7NDY186z37mW8rIYiNGU2ZQIHTwi0GpZvRsAuZQ==",
+      "type": "package",
+      "path": "syncfusion.shared.wpf/20.1.0.50",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "README.md",
+        "lib/net35/Design/Syncfusion.Design.Wpf.dll",
+        "lib/net35/Design/Syncfusion.Shared.WPF.DesignTools.dll",
+        "lib/net35/Design/Syncfusion.Shared.Wpf.Expression.Design.dll",
+        "lib/net35/Design/Syncfusion.Shared.Wpf.VisualStudio.Design.dll",
+        "lib/net35/Design/Syncfusion.Shared.Wpf.dll.Design.dll",
+        "lib/net35/Syncfusion.Shared.WPF.dll",
+        "lib/net35/Syncfusion.Shared.WPF.xml",
+        "lib/net40/Design/Syncfusion.Design.Wpf.dll",
+        "lib/net40/Design/Syncfusion.Shared.WPF.DesignTools.dll",
+        "lib/net40/Design/Syncfusion.Shared.Wpf.Expression.Design.dll",
+        "lib/net40/Design/Syncfusion.Shared.Wpf.VisualStudio.Design.dll",
+        "lib/net40/Design/Syncfusion.Shared.Wpf.dll.Design.dll",
+        "lib/net40/Syncfusion.Shared.WPF.dll",
+        "lib/net40/Syncfusion.Shared.WPF.xml",
+        "lib/net45/Design/Syncfusion.Design.Wpf.dll",
+        "lib/net45/Design/Syncfusion.Shared.WPF.DesignTools.dll",
+        "lib/net45/Design/Syncfusion.Shared.Wpf.Expression.Design.dll",
+        "lib/net45/Design/Syncfusion.Shared.Wpf.VisualStudio.Design.dll",
+        "lib/net45/Design/Syncfusion.Shared.Wpf.dll.Design.dll",
+        "lib/net45/Syncfusion.Shared.WPF.dll",
+        "lib/net45/Syncfusion.Shared.WPF.xml",
+        "lib/net451/Design/Syncfusion.Design.Wpf.dll",
+        "lib/net451/Design/Syncfusion.Shared.WPF.DesignTools.dll",
+        "lib/net451/Design/Syncfusion.Shared.Wpf.Expression.Design.dll",
+        "lib/net451/Design/Syncfusion.Shared.Wpf.VisualStudio.Design.dll",
+        "lib/net451/Design/Syncfusion.Shared.Wpf.dll.Design.dll",
+        "lib/net451/Syncfusion.Shared.WPF.dll",
+        "lib/net451/Syncfusion.Shared.WPF.xml",
+        "lib/net46/Design/Syncfusion.Design.Wpf.dll",
+        "lib/net46/Design/Syncfusion.Shared.WPF.DesignTools.dll",
+        "lib/net46/Design/Syncfusion.Shared.Wpf.Expression.Design.dll",
+        "lib/net46/Design/Syncfusion.Shared.Wpf.VisualStudio.Design.dll",
+        "lib/net46/Design/Syncfusion.Shared.Wpf.dll.Design.dll",
+        "lib/net46/Syncfusion.Shared.WPF.dll",
+        "lib/net46/Syncfusion.Shared.WPF.xml",
+        "lib/net5.0-windows7.0/Design/Syncfusion.Shared.WPF.DesignTools.dll",
+        "lib/net5.0-windows7.0/Syncfusion.Shared.WPF.dll",
+        "lib/net5.0-windows7.0/Syncfusion.Shared.WPF.xml",
+        "lib/netcoreapp3.1/Design/Syncfusion.Shared.WPF.DesignTools.dll",
+        "lib/netcoreapp3.1/Syncfusion.Shared.WPF.dll",
+        "lib/netcoreapp3.1/Syncfusion.Shared.WPF.xml",
+        "syncfusion.shared.wpf.20.1.0.50.nupkg.sha512",
+        "syncfusion.shared.wpf.nuspec",
+        "syncfusion_logo.png",
+        "tools/VisualStudioToolsManifest.xml"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0-windows7.0": []
+    "net6.0-windows7.0": [
+      "CommunityToolkit.Mvvm >= 7.1.2",
+      "Syncfusion.SfTextInputLayout.WPF >= 20.1.0.50"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Alexa\\.nuget\\packages\\": {},
@@ -15,11 +212,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Desarrollo\\1Proyectos\\TFG_DAM\\AppDesktopDAMGranja\\DESKTOP-GRANJA\\DESKTOP-GRANJA\\DESKTOP-GRANJA\\DESKTOP-GRANJA.csproj",
+      "projectUniqueName": "E:\\Desarrollo\\1Proyectos\\TFG_DAM\\AppDesktopDAMGranja\\DESKTOP-GRANJA\\DESKTOP-GRANJA.csproj",
       "projectName": "DESKTOP-GRANJA",
-      "projectPath": "E:\\Desarrollo\\1Proyectos\\TFG_DAM\\AppDesktopDAMGranja\\DESKTOP-GRANJA\\DESKTOP-GRANJA\\DESKTOP-GRANJA\\DESKTOP-GRANJA.csproj",
+      "projectPath": "E:\\Desarrollo\\1Proyectos\\TFG_DAM\\AppDesktopDAMGranja\\DESKTOP-GRANJA\\DESKTOP-GRANJA.csproj",
       "packagesPath": "C:\\Users\\Alexa\\.nuget\\packages\\",
-      "outputPath": "E:\\Desarrollo\\1Proyectos\\TFG_DAM\\AppDesktopDAMGranja\\DESKTOP-GRANJA\\DESKTOP-GRANJA\\DESKTOP-GRANJA\\obj\\",
+      "outputPath": "E:\\Desarrollo\\1Proyectos\\TFG_DAM\\AppDesktopDAMGranja\\DESKTOP-GRANJA\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -53,6 +250,16 @@
     "frameworks": {
       "net6.0-windows7.0": {
         "targetAlias": "net6.0-windows",
+        "dependencies": {
+          "CommunityToolkit.Mvvm": {
+            "target": "Package",
+            "version": "[7.1.2, )"
+          },
+          "Syncfusion.SfTextInputLayout.WPF": {
+            "target": "Package",
+            "version": "[20.1.0.50, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
