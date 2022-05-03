@@ -77,7 +77,7 @@ namespace DESKTOP_GRANJA.modelos
             NumeroTrabajadores = numeroTrabajadores;
         }
         public override string ToString()
-            => $"> | {this.IdTarea} | {this.Nombre} | {this.Fechainicio} |  | {this.Terminada} |  | {this.NumeroTrabajadores} |";
+            => $"> | {this.IdTarea} | {this.Nombre} | {this.Fechainicio} | {this.Terminada} | {this.NumeroTrabajadores} |";
         
 
         /*

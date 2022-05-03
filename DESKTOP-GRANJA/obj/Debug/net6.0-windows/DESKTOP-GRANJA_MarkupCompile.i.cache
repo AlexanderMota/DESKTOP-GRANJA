@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 E:\Desarrollo\1Proyectos\TFG_DAM\AppDesktopDAMGranja\DESKTOP-GRANJA\App.xaml
-3-1240424459
+5811250066
 1-1974576709
-181539503781
+241704639085
 2021560578742
-MainWindow.xaml;vistas\ListaTareasUC.xaml;vistas\LoginUC.xaml;
+MainWindow.xaml;vistas\ListaEmpleadosUC.xaml;vistas\ListaSolicitudesUC.xaml;vistas\ListaTareasUC.xaml;vistas\LoginUC.xaml;
 
-False
+True
 

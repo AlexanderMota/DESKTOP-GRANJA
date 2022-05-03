@@ -15,12 +15,13 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition ></ColumnDefinition>
+                        <ColumnDefinition ></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <syncfusion:MenuItemAdv Header="Tareas"  Command="{Binding Path=CargaListaTareasCommand}" Grid.Column="0" />
-                    <syncfusion:MenuItemAdv Header="Empleados"  Command="{Binding Path=CargaListaEmpleadosCommand}" Grid.Column="1" />
+                    <syncfusion:MenuItemAdv Header="Tareas"  Command="{Binding Path=ListaTareasCommand}" Grid.Column="0" />
+                    <syncfusion:MenuItemAdv Header="Empleados"  Command="{Binding Path=ListaEmpleadosCommand}" Grid.Column="1" />
+                    <syncfusion:MenuItemAdv Header="Solicitudes"  Command="{Binding Path=ListaSolicitudesCommand}" Grid.Column="2" />
                 </Grid>
 
-                <syncfusion:MenuItemAdv/>
             </syncfusion:MenuAdv>
         </StackPanel>
         <ContentControl Content="{Binding Path=UserControl}"></ContentControl>

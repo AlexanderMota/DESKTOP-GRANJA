@@ -2,6 +2,12 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="vistas\ListaEmpleadosUC.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="vistas\ListaSolicitudesUC.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="vistas\ListaTareasUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -10,6 +16,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="vistas\ListaEmpleadosUC.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="vistas\ListaSolicitudesUC.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="vistas\ListaTareasUC.xaml">
       <SubType>Designer</SubType>
     </Page>

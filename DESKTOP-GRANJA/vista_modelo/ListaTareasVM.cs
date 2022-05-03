@@ -36,11 +36,11 @@ namespace DESKTOP_GRANJA.vista_modelo
         private async void GetAllTareasApi()
         {
 
-            ListaTareas =
-                await new DBApi().GetAll("tareas/", Properties.Settings.Default.Token);
+            this.ListaTareas =
+                await new DBApi().GetAllTareas(Properties.Settings.Default.Token);
 
             Trace.WriteLine("===================> cargando lista: ");
-            foreach (modelos.Tarea tarea in ListaTareas)
+            foreach (Tarea tarea in this.ListaTareas)
             {
                 Trace.WriteLine(tarea.Nombre);
             }

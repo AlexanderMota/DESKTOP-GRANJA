@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using DESKTOP_GRANJA.apiREST;
 using DESKTOP_GRANJA.mensajeria;
@@ -30,6 +31,10 @@ namespace DESKTOP_GRANJA.vista_modelo
             set => SetProperty(ref userControl, value);
         }
 
+        public RelayCommand ListaTareasCommand { get; }
+        public RelayCommand ListaEmpleadosCommand { get; }
+        public RelayCommand ListaSolicitudesCommand { get; }
+
         public MainWindowVM(StackPanel panelNavegacion)
         {
             this.nav = new Navegacion();
@@ -42,7 +47,16 @@ namespace DESKTOP_GRANJA.vista_modelo
                     panelNavegacion.Visibility = System.Windows.Visibility.Visible;
                 }
             });
+            this.ListaTareasCommand = new RelayCommand(CargaListaTareasUC);
+            this.ListaEmpleadosCommand = new RelayCommand(CargaListaEmpleadosUC);
+            this.ListaSolicitudesCommand = new RelayCommand(CargaListaSolicitudesUC);
         }
+
+        private void CargaListaSolicitudesUC()
+        {
+            this.UserControl = nav.CargaListaSolicitudesUC();
+        }
+
         private void CargaLoginUC()
         {
             this.UserControl = nav.CargaLoginUC();
@@ -50,6 +64,10 @@ namespace DESKTOP_GRANJA.vista_modelo
         private void CargaListaTareasUC()
         {
             this.UserControl = nav.CargaListaTareasUC();
+        }
+        private void CargaListaEmpleadosUC()
+        {
+            this.UserControl = nav.CargaListaEmpleadosUC();
         }
     }
 }

@@ -29,7 +29,7 @@ namespace DESKTOP_GRANJA.vistas
         }
         private void Aceptar_Click(object sender, RoutedEventArgs e)
         {
-            vm.Aceptar();
+            vm.Aceptar(feedbackLogin);
         }
     }
 }

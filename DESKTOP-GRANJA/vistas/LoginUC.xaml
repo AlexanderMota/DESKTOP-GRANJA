@@ -19,5 +19,10 @@
             <Button Margin="20,0" Width="100" IsDefault="True" Click="Aceptar_Click">Aceptar</Button>
             <Button Width="100" IsCancel="True">Cancelar</Button>
         </StackPanel>
+        <TextBlock x:Name="feedbackLogin"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Margin="0,40,0,0"
+                   Foreground="Red"/>
     </StackPanel>
 </UserControl>
