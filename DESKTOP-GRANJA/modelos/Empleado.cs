@@ -45,7 +45,9 @@ namespace DESKTOP_GRANJA.modelos
             get => this.email;
             set => SetProperty(ref this.email, value);
         }
-
+        public Empleado()
+        {
+        }
         public Empleado(string id, int idEmpleado, string nombre, string apellidos, string telefono, string email)
         {
             Id = id;

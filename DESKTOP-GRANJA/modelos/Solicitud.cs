@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,51 +10,41 @@ namespace DESKTOP_GRANJA.modelos
 {
     internal class Solicitud : ObservableObject
     {
-        private string _id = "";
-        public string Id
+        private Tarea tarea/* = new Tarea()*/;
+        public Tarea TareaSol
         {
-            get => this._id;
-            set => SetProperty(ref this._id, value);
+            get => this.tarea;
+            set => SetProperty(ref this.tarea, value);
         }
-        private int idSolicitud = 0;
-        public int IdSolicitud
+        private Empleado empleado/* = new Empleado()*/;
+        public Empleado EmpleadoSol
         {
-            get => this.idSolicitud;
-            set => SetProperty(ref this.idSolicitud, value);
+            get => this.empleado;
+            set => SetProperty(ref this.empleado, value);
         }
-        private string idEmpleado = "";
-        public string IdEmpleado
+        private DateTime fecha;
+        public DateTime FechaSolicitud 
+        { 
+            get => this.fecha; 
+            set => SetProperty(ref this.fecha, value); 
+        }
+        public Solicitud(Tarea tarea, Empleado empleado, string fechaSolicitud)
         {
-            get => this.idEmpleado;
-            set => SetProperty(ref this.idEmpleado, value);
-        }
-        private string idTarea = "";
-        public string IdTarea
-        {
-            get => this.idTarea;
-            set => SetProperty(ref this.idTarea, value);
-        }
-        private string fechaSolicitud = "";
-        public string FechaSolicitud
-        {
-            get => this.fechaSolicitud;
-            set => SetProperty(ref this.fechaSolicitud, value);
-        }
-        private bool aprovada = false;
-        public bool Aprovada
-        {
-            get => this.aprovada;
-            set => SetProperty(ref this.aprovada, value);
-        }
+            this.TareaSol = tarea;
+            this.EmpleadoSol = empleado;
+            try
+            {
 
-        public Solicitud(string _id, int idSolicitud, string idEmpleado, string idTarea, string fechaSolicitud, bool aprovada)
-        {
-            Id = _id;
-            IdSolicitud = idSolicitud;
-            IdEmpleado = idEmpleado;
-            IdTarea = idTarea;
-            FechaSolicitud = fechaSolicitud;
-            Aprovada = aprovada;
+                Trace.WriteLine(fechaSolicitud);
+                this.FechaSolicitud = DateTime.Parse(fechaSolicitud);
+
+            }catch(FormatException ex)
+            {
+                Trace.WriteLine("============>"+ex.Message);
+            }
         }
+        /*public Solicitud()
+        {
+        }*/
     }
 }

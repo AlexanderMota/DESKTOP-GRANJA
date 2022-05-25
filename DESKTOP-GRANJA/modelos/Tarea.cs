@@ -9,6 +9,13 @@ namespace DESKTOP_GRANJA.modelos
 {
     internal class Tarea : ObservableObject
     {
+        public enum GradoImportancia
+        {
+            Critica,
+            Alta,
+            Media,
+            Baja
+        }
         private string _id = "";
         public string Id
         {
@@ -33,20 +40,20 @@ namespace DESKTOP_GRANJA.modelos
             get => this.descripcion;
             set => SetProperty(ref this.descripcion, value);
         }
-        private string importancia = "";
-        public string Importancia
+        private GradoImportancia importancia;
+        public GradoImportancia Importancia
         {
             get => this.importancia;
             set => SetProperty(ref this.importancia, value);
         }
-        private string fechainicio = "";
-        public string Fechainicio
+        private DateTime fechainicio = new DateTime();
+        public DateTime Fechainicio
         {
             get => this.fechainicio;
             set => SetProperty(ref this.fechainicio, value);
         }
-        private string fechafin = "";
-        public string Fechafin
+        private DateTime fechafin = new DateTime();
+        public DateTime Fechafin
         {
             get => this.fechafin;
             set => SetProperty(ref this.fechafin, value);
@@ -63,8 +70,7 @@ namespace DESKTOP_GRANJA.modelos
             get => this.numeroTrabajadores;
             set => SetProperty(ref this.numeroTrabajadores, value);
         }
-        public Tarea() {}
-        public Tarea(string _id, int idTarea, string nombre, string descripcion, string importancia, string fechainicio, string fechafin, bool terminada, int numeroTrabajadores)
+        public Tarea(string _id, int idTarea, string nombre, string descripcion, GradoImportancia importancia, DateTime fechainicio, DateTime fechafin, bool terminada, int numeroTrabajadores)
         {
             Id = _id;
             IdTarea = idTarea;
@@ -76,6 +82,7 @@ namespace DESKTOP_GRANJA.modelos
             Terminada = terminada;
             NumeroTrabajadores = numeroTrabajadores;
         }
+        public Tarea() { }
         public override string ToString()
             => $"> | {this.IdTarea} | {this.Nombre} | {this.Fechainicio} | {this.Terminada} | {this.NumeroTrabajadores} |";
         

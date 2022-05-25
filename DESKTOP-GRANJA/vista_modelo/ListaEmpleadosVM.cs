@@ -1,13 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using DESKTOP_GRANJA.apiREST;
 using DESKTOP_GRANJA.modelos;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DESKTOP_GRANJA.vista_modelo
 {

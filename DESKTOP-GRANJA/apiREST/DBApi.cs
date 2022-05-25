@@ -2,14 +2,10 @@
 using Newtonsoft.Json;
 using RestSharp;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Sockets;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace DESKTOP_GRANJA.apiREST
@@ -34,7 +30,7 @@ namespace DESKTOP_GRANJA.apiREST
 
             var restResponse = await client.ExecuteAsync(request);
 
-            Trace.WriteLine(restResponse.Content);
+            //Trace.WriteLine(restResponse.Content);
         }
         public async Task<ObservableCollection<Tarea>> GetAllTareas( string token)
         {
@@ -47,26 +43,26 @@ namespace DESKTOP_GRANJA.apiREST
             try
             {
 
-                ObservableCollection<Tarea> ap = JsonConvert.DeserializeObject<ObservableCollection<Tarea>>(restResponse.Content);
-                foreach (Tarea t in ap)
+                /*ObservableCollection<Tarea> ap =*/return JsonConvert.DeserializeObject<ObservableCollection<Tarea>>(restResponse.Content);
+                /*foreach (Tarea t in ap)
                 {
-                    Trace.WriteLine(t.Nombre);
+                    Trace.WriteLine(t.Fechainicio);
                 }
-                return ap;
+                return ap;*/
             }
             catch (SocketException ex)
             {
-                Console.WriteLine(ex.Message);
+                Trace.WriteLine(ex.Message);
                 return new ObservableCollection<Tarea>();
             }
             catch (HttpRequestException ex)
             {
-                Console.WriteLine(ex.Message);
+                Trace.WriteLine(ex.Message);
                 return new ObservableCollection<Tarea>();
             }
             catch (ArgumentNullException ex)
             {
-                Console.WriteLine(ex.Message);
+                Trace.WriteLine(ex.Message);
                 return new ObservableCollection<Tarea>();
             }
         }
@@ -80,27 +76,26 @@ namespace DESKTOP_GRANJA.apiREST
             var restResponse = await client.ExecuteAsync(request);
             try
             {
-
-                ObservableCollection<Empleado> ap = JsonConvert.DeserializeObject<ObservableCollection<Empleado>>(restResponse.Content);
-                foreach (Empleado t in ap)
+                /*ObservableCollection<Empleado> ap =*/return JsonConvert.DeserializeObject<ObservableCollection<Empleado>>(restResponse.Content);
+                /*foreach (Empleado t in ap)
                 {
                     Trace.WriteLine(t.Nombre);
                 }
-                return ap;
+                return ap;*/
             }
             catch (SocketException ex)
             {
-                Console.WriteLine(ex.Message);
+                Trace.WriteLine(ex.Message);
                 return new ObservableCollection<Empleado>();
             }
             catch (HttpRequestException ex)
             {
-                Console.WriteLine(ex.Message);
+                Trace.WriteLine(ex.Message);
                 return new ObservableCollection<Empleado>();
             }
             catch (ArgumentNullException ex)
             {
-                Console.WriteLine(ex.Message);
+                Trace.WriteLine(ex.Message);
                 return new ObservableCollection<Empleado>();
             }
         }
@@ -115,26 +110,26 @@ namespace DESKTOP_GRANJA.apiREST
             try
             {
 
-                ObservableCollection<Solicitud> ap = JsonConvert.DeserializeObject<ObservableCollection<Solicitud>>(restResponse.Content);
-                foreach (Solicitud t in ap)
+                /*ObservableCollection<Solicitud> ap =*/return JsonConvert.DeserializeObject<ObservableCollection<Solicitud>>(restResponse.Content);
+                /*foreach (Solicitud t in ap)
                 {
                     Trace.WriteLine(t.FechaSolicitud);
                 }
-                return ap;
+                return ap;*/
             }
             catch (SocketException ex)
             {
-                Console.WriteLine(ex.Message);
+                Trace.WriteLine(ex.Message);
                 return new ObservableCollection<Solicitud>();
             }
             catch (HttpRequestException ex)
             {
-                Console.WriteLine(ex.Message);
+                Trace.WriteLine(ex.Message);
                 return new ObservableCollection<Solicitud>();
             }
             catch (ArgumentNullException ex)
             {
-                Console.WriteLine(ex.Message);
+                Trace.WriteLine(ex.Message);
                 return new ObservableCollection<Solicitud>();
             }
         }
@@ -147,9 +142,8 @@ namespace DESKTOP_GRANJA.apiREST
 
             var restResponse = await client.ExecutePostAsync(request);
 
-            ApiResponse ap = JsonConvert.DeserializeObject<ApiResponse>(restResponse.Content);
+            return JsonConvert.DeserializeObject<ApiResponse>(restResponse.Content);
             //Trace.WriteLine(ap.Message);
-            return ap;
         }
     }
 }

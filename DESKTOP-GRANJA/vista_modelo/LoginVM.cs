@@ -4,14 +4,8 @@ using DESKTOP_GRANJA.apiREST;
 using DESKTOP_GRANJA.mensajeria;
 using DESKTOP_GRANJA.modelos;
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
-using System.Windows.Media;
 using System.Windows.Media.Animation;
 
 namespace DESKTOP_GRANJA.vista_modelo
@@ -38,7 +32,7 @@ namespace DESKTOP_GRANJA.vista_modelo
                 if (ar.Status == 201)
                 {
                     Properties.Settings.Default.Token = ar.Message;
-                    Trace.WriteLine(Properties.Settings.Default.Token);
+                    //Trace.WriteLine(Properties.Settings.Default.Token);
 
                     WeakReferenceMessenger.Default.Send(new ConfirmaTokenMessage(true));
                 }
@@ -70,8 +64,6 @@ namespace DESKTOP_GRANJA.vista_modelo
                 feedbackLogin.Text = "Api desconectada";
                 feedbackLogin.BeginAnimation(TextBlock.OpacityProperty, fadeAnimationM);
                 //feedbackLogin.BeginAnimation(TextBlock.MarginProperty, fadeAnimation);
-
-
             }
         }
     }

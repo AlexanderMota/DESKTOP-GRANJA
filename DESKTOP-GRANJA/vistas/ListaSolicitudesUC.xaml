@@ -19,7 +19,7 @@
 
     <DockPanel>
         <StackPanel Background="Aquamarine" Height="50" DockPanel.Dock="Bottom" Orientation="Horizontal">
-            <Button Height="25" Command="{Binding Path=Command}">VER</Button>
+            <Button IsEnabled="True" Height="25" Width="60" Margin="30,0,0,0" Command="{Binding Path=VerSolicitudCommand}">VER</Button>
         </StackPanel>
         <syncfusion:SfDataGrid 
             ItemsSource="{Binding Path=ListaSolicitudes}" 
@@ -29,11 +29,10 @@
             AutoGenerateColumns="False">
 
             <syncfusion:SfDataGrid.Columns>
-                <syncfusion:GridTextColumn MappingName="Id"/>
-                <syncfusion:GridTextColumn MappingName="Aprovada"/>
+                <syncfusion:GridTextColumn MappingName="TareaSol.Nombre"/>
+                <syncfusion:GridTextColumn MappingName="EmpleadoSol.Nombre"/>
                 <syncfusion:GridTextColumn MappingName="FechaSolicitud"/>
             </syncfusion:SfDataGrid.Columns>
         </syncfusion:SfDataGrid>
-
     </DockPanel>
 </UserControl>
