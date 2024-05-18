@@ -10,7 +10,6 @@ namespace DESKTOP_GRANJA.mensajeria
     internal class ConfirmaTokenMessage : ValueChangedMessage<bool>
     {
         public ConfirmaTokenMessage(bool value) : base(value)
-        {
-        }
+        { }
     }
 }

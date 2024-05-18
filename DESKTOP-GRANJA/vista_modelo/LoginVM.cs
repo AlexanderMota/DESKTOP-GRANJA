@@ -12,13 +12,13 @@ namespace DESKTOP_GRANJA.vista_modelo
 {
     internal class LoginVM : ObservableObject
     {
-        private string nombre = "";
-        public string Nombre
+        private string email = "admin@mail";
+        public string Email
         {
-            get { return this.nombre; }
-            set { SetProperty(ref this.nombre, value); }
+            get { return this.email; }
+            set { SetProperty(ref this.email, value); }
         }
-        private string password = "";
+        private string password = "admin";
         public string Password
         {
             get { return this.password; }
@@ -28,11 +28,11 @@ namespace DESKTOP_GRANJA.vista_modelo
         {
             try
             {
-                ApiResponse ar = await new DBApi().Post("auth/signin", new Usuario(Nombre, Password));
+                ApiResponse ar = await new DBApi().Post("auth/signin", new Usuario(Email, Password));
+                    Trace.WriteLine(ar.Message);
                 if (ar.Status == 201)
                 {
                     Properties.Settings.Default.Token = ar.Message;
-                    //Trace.WriteLine(Properties.Settings.Default.Token);
 
                     WeakReferenceMessenger.Default.Send(new ConfirmaTokenMessage(true));
                 }

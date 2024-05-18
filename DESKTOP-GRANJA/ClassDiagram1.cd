@@ -1,2 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DESKTOP_GRANJA.mensajeria.ConfirmaTokenMessage">
+    <Position X="2" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>mensajeria\ConfirmaTokenMessage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DESKTOP_GRANJA.nav.Navegacion">
+    <Position X="1.75" Y="3.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAACAAAAAAAAoAAAAAAAAAQAAAA=</HashCode>
+      <FileName>nav\Navegacion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DESKTOP_GRANJA.vista_modelo.ListaSolicitudesVM">
+    <Position X="3.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAACAAAAAAAAAAAAAQACAAAAAgABAAgCAA=</HashCode>
+      <FileName>vista_modelo\ListaSolicitudesVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DESKTOP_GRANJA.vista_modelo.LoginVM">
+    <Position X="3.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAgAAAAAABAAACAAAAAgAAAAA=</HashCode>
+      <FileName>vista_modelo\LoginVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DESKTOP_GRANJA.apiREST.DBApi">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAggCAQAAAAgIAAAAAAAAAA=</HashCode>
+      <FileName>apiREST\DBApi.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

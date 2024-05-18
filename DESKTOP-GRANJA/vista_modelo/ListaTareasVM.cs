@@ -21,9 +21,9 @@ namespace DESKTOP_GRANJA.vista_modelo
         }
         private async void GetAllTareasApi()
         {
+            Trace.WriteLine("===================> cargando lista: GetAllTareasApi()");
 
-            this.ListaTareas =
-                await new DBApi().GetAllTareas(Properties.Settings.Default.Token);
+            this.ListaTareas = await new DBApi().GetAllTareas(Properties.Settings.Default.Token);
 
             Trace.WriteLine("===================> cargando lista: ");
             foreach (Tarea tarea in this.ListaTareas)

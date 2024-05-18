@@ -33,7 +33,6 @@
                 <syncfusion:GridTextColumn MappingName="Importancia"/>
                 <syncfusion:GridTextColumn MappingName="Fechainicio"/>
                 <syncfusion:GridTextColumn MappingName="Terminada"/>
-                <syncfusion:GridTextColumn MappingName="NumeroTrabajadores" />
             </syncfusion:SfDataGrid.Columns>
         </syncfusion:SfDataGrid>
 

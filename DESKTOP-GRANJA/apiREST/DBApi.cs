@@ -43,12 +43,12 @@ namespace DESKTOP_GRANJA.apiREST
             try
             {
 
-                /*ObservableCollection<Tarea> ap =*/return JsonConvert.DeserializeObject<ObservableCollection<Tarea>>(restResponse.Content);
-                /*foreach (Tarea t in ap)
+                ObservableCollection<Tarea> ap =JsonConvert.DeserializeObject<ObservableCollection<Tarea>>(restResponse.Content);
+                foreach (Tarea t in ap)
                 {
-                    Trace.WriteLine(t.Fechainicio);
+                    Trace.WriteLine(t.Nombre);
                 }
-                return ap;*/
+                return ap;
             }
             catch (SocketException ex)
             {

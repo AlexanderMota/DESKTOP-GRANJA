@@ -9,7 +9,7 @@
 
     <StackPanel Margin="5" Height="200" Width="300">
         <inputLayout:SfTextInputLayout Hint="Nombre">
-            <TextBox Text="{Binding Path=Nombre}"/>
+            <TextBox Text="{Binding Path=Email}"/>
         </inputLayout:SfTextInputLayout>
         <inputLayout:SfTextInputLayout Hint="Password">
             <TextBox Text="{Binding Path=Password}"/>
