@@ -26,7 +26,7 @@ namespace DESKTOP_GRANJA.vista_modelo
             set => SetProperty(ref this.listaSolicitudes, value);
         }
         //private RelayCommand verSolicitudCommand;
-        public RelayCommand VerSolicitudCommand { get;}
+        public RelayCommand VerSolicitudCommand { get; }
         public ListaSolicitudesVM()
         {
             //GetAllSolicitudes(); esto da error
@@ -34,8 +34,8 @@ namespace DESKTOP_GRANJA.vista_modelo
         }
         private async void GetAllSolicitudes()
         {
-            this.ListaSolicitudes =
-                await new DBApi().GetAllSolicitudes(Properties.Settings.Default.Token);
+            /*this.ListaSolicitudes =
+                await new DBApi().GetAllSolicitudes(Properties.Settings.Default.Token);*/
         }
     }
 }

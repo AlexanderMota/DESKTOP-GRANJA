@@ -21,7 +21,7 @@ namespace DESKTOP_GRANJA.apiREST
         public DBApi()
         {
             this.BaseUrl = Properties.Settings.Default.BaseURLApiLocal;
-        }
+        }/*
         public async void GetTarea(int id,string token)
         {
             var client = new RestClient();
@@ -31,7 +31,8 @@ namespace DESKTOP_GRANJA.apiREST
             var restResponse = await client.ExecuteAsync(request);
 
             //Trace.WriteLine(restResponse.Content);
-        }
+        }*/
+        /*
         public async Task<ObservableCollection<Tarea>> GetAllTareas( string token)
         {
             var client = new RestClient();
@@ -65,7 +66,7 @@ namespace DESKTOP_GRANJA.apiREST
                 Trace.WriteLine(ex.Message);
                 return new ObservableCollection<Tarea>();
             }
-        }
+        }*//*
         public async Task<ObservableCollection<Empleado>> GetAllEmpleados(string token)
         {
             var client = new RestClient();
@@ -76,12 +77,12 @@ namespace DESKTOP_GRANJA.apiREST
             var restResponse = await client.ExecuteAsync(request);
             try
             {
-                /*ObservableCollection<Empleado> ap =*/return JsonConvert.DeserializeObject<ObservableCollection<Empleado>>(restResponse.Content);
-                /*foreach (Empleado t in ap)
+                ObservableCollection<Empleado> ap =return JsonConvert.DeserializeObject<ObservableCollection<Empleado>>(restResponse.Content);
+                foreach (Empleado t in ap)
                 {
                     Trace.WriteLine(t.Nombre);
                 }
-                return ap;*/
+                return ap;
             }
             catch (SocketException ex)
             {
@@ -98,7 +99,7 @@ namespace DESKTOP_GRANJA.apiREST
                 Trace.WriteLine(ex.Message);
                 return new ObservableCollection<Empleado>();
             }
-        }
+        }*//*
         public async Task<ObservableCollection<Solicitud>> GetAllSolicitudes(string token)
         {
             var client = new RestClient();
@@ -110,12 +111,12 @@ namespace DESKTOP_GRANJA.apiREST
             try
             {
 
-                /*ObservableCollection<Solicitud> ap =*/return JsonConvert.DeserializeObject<ObservableCollection<Solicitud>>(restResponse.Content);
-                /*foreach (Solicitud t in ap)
+                ObservableCollection<Solicitud> ap =return JsonConvert.DeserializeObject<ObservableCollection<Solicitud>>(restResponse.Content);
+                foreach (Solicitud t in ap)
                 {
                     Trace.WriteLine(t.FechaSolicitud);
                 }
-                return ap;*/
+                return ap;
             }
             catch (SocketException ex)
             {
@@ -132,7 +133,7 @@ namespace DESKTOP_GRANJA.apiREST
                 Trace.WriteLine(ex.Message);
                 return new ObservableCollection<Solicitud>();
             }
-        }
+        }*//*
         public async Task<ApiResponse> Post(string url, Object json, string auth = "")
         {
             var client = new RestClient();
@@ -144,6 +145,6 @@ namespace DESKTOP_GRANJA.apiREST
 
             return JsonConvert.DeserializeObject<ApiResponse>(restResponse.Content);
             //Trace.WriteLine(ap.Message);
-        }
+        }*/
     }
 }

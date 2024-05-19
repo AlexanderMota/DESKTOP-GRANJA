@@ -18,6 +18,7 @@ namespace DESKTOP_GRANJA.vista_modelo
             get { return this.usu; }
             set { SetProperty(ref this.usu, value); }
         }
+        private AuthService authServ = new AuthService();
         //private string email = "admin@mail";
         /*public string Email
         {
@@ -34,7 +35,7 @@ namespace DESKTOP_GRANJA.vista_modelo
         {
             try
             {
-                ApiResponse ar = await new DBApi().Post("auth/signin", this.Usu);
+                ApiResponse ar = await this.authServ.LogIn(this.Usu);
                     Trace.WriteLine(ar.Message);
                 if (ar.Status == 201)
                 {

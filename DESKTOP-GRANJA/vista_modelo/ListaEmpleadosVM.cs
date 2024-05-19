@@ -7,6 +7,7 @@ namespace DESKTOP_GRANJA.vista_modelo
 {
     internal class ListaEmpleadosVM : ObservableObject
     {
+        private EmpleadoService empServ = new EmpleadoService();
         private ObservableCollection<Empleado> listaEmpleados;
         public ObservableCollection<Empleado> ListaEmpleados
         {
@@ -18,12 +19,6 @@ namespace DESKTOP_GRANJA.vista_modelo
         {
             GetAllEmpleadosApi();
         }
-        private async void GetAllEmpleadosApi()
-        {
-
-            this.ListaEmpleados =
-                await new DBApi().GetAllEmpleados(Properties.Settings.Default.Token);
-
-        }
+        private async void GetAllEmpleadosApi() => this.ListaEmpleados = await empServ.GetAllEmpleados();
     }
 }
