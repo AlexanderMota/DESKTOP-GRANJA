@@ -29,8 +29,8 @@
             AutoGenerateColumns="False">
 
             <syncfusion:SfDataGrid.Columns>
-                <syncfusion:GridTextColumn MappingName="TareaSol.Nombre"/>
-                <syncfusion:GridTextColumn MappingName="EmpleadoSol.Nombre"/>
+                <syncfusion:GridTextColumn MappingName="IdTarea"/>
+                <syncfusion:GridTextColumn MappingName="IdEmpleado"/>
                 <syncfusion:GridTextColumn MappingName="FechaSolicitud"/>
             </syncfusion:SfDataGrid.Columns>
         </syncfusion:SfDataGrid>

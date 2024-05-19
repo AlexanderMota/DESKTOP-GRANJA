@@ -9,7 +9,7 @@ namespace DESKTOP_GRANJA.modelos
 {
     internal class ApiResponse : ObservableObject
     {
-        private Int32 status;
+        private Int32 status = 0;
         private String message;
         public Int32 Status { get { return status; } }
         public String Message { get { return message; } }

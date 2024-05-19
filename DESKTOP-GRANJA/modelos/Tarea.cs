@@ -14,13 +14,13 @@ namespace DESKTOP_GRANJA.modelos
     }
     internal class Tarea : ObservableObject
     {
-        /*public enum GradoImportancia
+        public enum GradoImportancia
         {
             Critica,
             Alta,
             Media,
             Baja
-        }*/
+        }
         private string _id = "";
         public string Id
         {
@@ -51,7 +51,7 @@ namespace DESKTOP_GRANJA.modelos
             get => this.descripcion;
             set => SetProperty(ref this.descripcion, value);
         }
-        private string importancia;
+        private string importancia = "";
         public string Importancia
         {
             get => this.importancia;

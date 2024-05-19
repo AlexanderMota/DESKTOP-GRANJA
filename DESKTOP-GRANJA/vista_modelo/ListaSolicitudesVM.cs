@@ -29,27 +29,13 @@ namespace DESKTOP_GRANJA.vista_modelo
         public RelayCommand VerSolicitudCommand { get;}
         public ListaSolicitudesVM()
         {
-            GetAllSolicitudes();
-            this.VerSolicitudCommand = new RelayCommand(VerSolicitud);
+            //GetAllSolicitudes(); esto da error
             this.navegacion = new Navegacion();
         }
         private async void GetAllSolicitudes()
         {
             this.ListaSolicitudes =
                 await new DBApi().GetAllSolicitudes(Properties.Settings.Default.Token);
-        }
-        private void VerSolicitud()
-        {
-            //WeakReferenceMessenger.Default.Send(new VerSolicitudMessage(this.SolicitudActual));
-            Trace.WriteLine("ListaSolicitudesVM  =====> "+this.SolicitudActual.TareaSol.Nombre);
-            WeakReferenceMessenger.Default.Send(new VerSolicitudMessage(this.SolicitudActual));
-            bool? dialogResult = navegacion.AbrirVerSolicitudW();
-            //WeakReferenceMessenger.Default.Send(new VerSolicitudMessage(this.SolicitudActual));
-            /*if (dialogResult == true)
-            {
-                WeakReferenceMessenger.Default.Send(new VerSolicitudMessage(this.SolicitudActual));
-            }*/
-
         }
     }
 }

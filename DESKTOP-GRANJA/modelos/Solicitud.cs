@@ -10,33 +10,33 @@ namespace DESKTOP_GRANJA.modelos
 {
     internal class Solicitud : ObservableObject
     {
-        private Tarea tarea/* = new Tarea()*/;
-        public Tarea TareaSol
+        private string idTarea = ""/* = new Tarea()*/;
+        public string IdTarea
         {
-            get => this.tarea;
-            set => SetProperty(ref this.tarea, value);
+            get => this.idTarea;
+            set => SetProperty(ref this.idTarea, value);
         }
-        private Empleado empleado/* = new Empleado()*/;
-        public Empleado EmpleadoSol
+        private string idEmpleado = ""/* = new Empleado()*/;
+        public string IdEmpleadoSol
         {
-            get => this.empleado;
-            set => SetProperty(ref this.empleado, value);
+            get => this.idEmpleado;
+            set => SetProperty(ref this.idEmpleado, value);
         }
-        private DateTime fecha;
-        public DateTime FechaSolicitud 
+        private DateTime? fechaRegistro;
+        public DateTime? FechaSolicitud 
         { 
-            get => this.fecha; 
-            set => SetProperty(ref this.fecha, value); 
+            get => this.fechaRegistro; 
+            set => SetProperty(ref this.fechaRegistro, value); 
         }
-        public Solicitud(Tarea tarea, Empleado empleado, string fechaSolicitud)
+        public Solicitud( string idTarea, string idEmpleado, string fechaRegistro )
         {
-            this.TareaSol = tarea;
-            this.EmpleadoSol = empleado;
+            this.IdTarea = idTarea;
+            this.idEmpleado = idEmpleado;
             try
             {
 
-                Trace.WriteLine(fechaSolicitud);
-                this.FechaSolicitud = DateTime.Parse(fechaSolicitud);
+                Trace.WriteLine(fechaRegistro); 
+                this.FechaSolicitud = DateTime.Parse(fechaRegistro);
 
             }catch(FormatException ex)
             {

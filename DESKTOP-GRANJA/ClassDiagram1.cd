@@ -1,39 +1,222 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="DESKTOP_GRANJA.mensajeria.ConfirmaTokenMessage">
-    <Position X="2" Y="1.75" Width="1.5" />
+  <Class Name="DESKTOP_GRANJA.mensajeria.ConfirmaTokenMessage" Collapsed="true">
+    <Position X="15.25" Y="1" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>mensajeria\ConfirmaTokenMessage.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="DESKTOP_GRANJA.nav.Navegacion">
-    <Position X="1.75" Y="3.75" Width="2.5" />
+  <Class Name="DESKTOP_GRANJA.nav.Navegacion" Collapsed="true">
+    <Position X="7.5" Y="2.75" Width="1.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAACAAAAAAAAAACAAAAAAAAoAAAAAAAAAQAAAA=</HashCode>
       <FileName>nav\Navegacion.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="DESKTOP_GRANJA.vista_modelo.ListaSolicitudesVM">
-    <Position X="3.25" Y="5.75" Width="1.5" />
+  <Class Name="DESKTOP_GRANJA.vista_modelo.ListaSolicitudesVM" Collapsed="true">
+    <Position X="10.25" Y="1.75" Width="1.75" />
+    <AssociationLine Name="navegacion" Type="DESKTOP_GRANJA.nav.Navegacion" ManuallyRouted="true">
+      <Path>
+        <Point X="10.25" Y="2.096" />
+        <Point X="9.907" Y="2.096" />
+        <Point X="9.907" Y="2.922" />
+        <Point X="8.75" Y="2.922" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAEAAAACAAAAAAAAAAAAAQACAAAAAgABAAgCAA=</HashCode>
       <FileName>vista_modelo\ListaSolicitudesVM.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="navegacion" />
+      <Field Name="solicitudActual" />
+    </ShowAsAssociation>
   </Class>
-  <Class Name="DESKTOP_GRANJA.vista_modelo.LoginVM">
-    <Position X="3.25" Y="2.5" Width="1.5" />
+  <Class Name="DESKTOP_GRANJA.vista_modelo.LoginVM" Collapsed="true">
+    <Position X="10.25" Y="0.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAACAAAAAgAAAAAABAAACAAAAAgAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAABAAAAAAAAAA=</HashCode>
       <FileName>vista_modelo\LoginVM.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="usu" />
+    </ShowAsAssociation>
   </Class>
-  <Class Name="DESKTOP_GRANJA.apiREST.DBApi">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+  <Class Name="DESKTOP_GRANJA.apiREST.DBApi" Collapsed="true">
+    <Position X="17.75" Y="1" Width="1.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAQAAAAAAAAAggCAQAAAAgIAAAAAAAAAA=</HashCode>
       <FileName>apiREST\DBApi.cs</FileName>
     </TypeIdentifier>
+  </Class>
+  <Class Name="DESKTOP_GRANJA.vistas.ListaEmpleadosUC" Collapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>vistas\ListaEmpleadosUC.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DESKTOP_GRANJA.mensajeria.VerSolicitudMessage" Collapsed="true">
+    <Position X="15.25" Y="2.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>mensajeria\VerSolicitudMessage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DESKTOP_GRANJA.modelos.ApiResponse" Collapsed="true">
+    <Position X="12.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACA=</HashCode>
+      <FileName>modelos\ApiResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DESKTOP_GRANJA.modelos.Empleado" Collapsed="true">
+    <Position X="12.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACACAAACQgAACkAABAgAAAAAAAAAAAAAAAAgAAAAI=</HashCode>
+      <FileName>modelos\Empleado.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DESKTOP_GRANJA.modelos.Solicitud" Collapsed="true">
+    <Position X="12.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAQAAQAAAAAAAAAAgAAAAQAABAAAAAAAAAAA=</HashCode>
+      <FileName>modelos\Solicitud.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DESKTOP_GRANJA.modelos.RolCantidad" Collapsed="true">
+    <Position X="15" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>modelos\Tarea.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DESKTOP_GRANJA.modelos.Tarea" Collapsed="true">
+    <Position X="12.75" Y="5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="DESKTOP_GRANJA.modelos.Tarea.GradoImportancia" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>modelos\Tarea.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>ABACAAQQIAQEADCEAAFSgAABAgAAAAAAACAAAAAgAAA=</HashCode>
+      <FileName>modelos\Tarea.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="plantilla" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="DESKTOP_GRANJA.modelos.Usuario" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAgAAAAE=</HashCode>
+      <FileName>modelos\Usuario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DESKTOP_GRANJA.vista_modelo.ListaEmpleadosVM" Collapsed="true">
+    <Position X="10.25" Y="5.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAgAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>vista_modelo\ListaEmpleadosVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DESKTOP_GRANJA.vista_modelo.ListaTareasVM" Collapsed="true">
+    <Position X="10.25" Y="6.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AgAAAIAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>vista_modelo\ListaTareasVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DESKTOP_GRANJA.vista_modelo.MainWindowVM" Collapsed="true">
+    <Position X="10.25" Y="2.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAwAAACEAAAAAAAEAAAAAAAAAQiAAAEAgAAAQAAQA=</HashCode>
+      <FileName>vista_modelo\MainWindowVM.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="nav" />
+      <Field Name="solicitudActual" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DESKTOP_GRANJA.vista_modelo.VerSolicitudVM" Collapsed="true">
+    <Position X="10.25" Y="4" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAECAAA=</HashCode>
+      <FileName>vista_modelo\VerSolicitudVM.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="solicitud" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DESKTOP_GRANJA.vistas.ListaSolicitudesUC" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>vistas\ListaSolicitudesUC.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DESKTOP_GRANJA.vistas.ListaTareasUC" Collapsed="true">
+    <Position X="5.25" Y="3" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>vistas\ListaTareasUC.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DESKTOP_GRANJA.vistas.LoginUC" Collapsed="true">
+    <Position X="5.25" Y="4.25" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>vistas\LoginUC.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DESKTOP_GRANJA.vistas.VerSolicitudW" Collapsed="true">
+    <Position X="0.5" Y="5.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>vistas\VerSolicitudW.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DESKTOP_GRANJA.MainWindow" Collapsed="true">
+    <Position X="1" Y="2" Width="1.25" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <InheritanceLine Type="System.Windows.Window" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="1.5" Y="3.75" />
+        <Point X="1.5" Y="3.498" />
+        <Point X="1.5" Y="3.498" />
+        <Point X="1.5" Y="2.691" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.123" />
+  </Class>
+  <Class Name="System.Windows.Window" Collapsed="true">
+    <Position X="0.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="System.Windows.Controls.UserControl" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="CommunityToolkit.Mvvm.Messaging.Messages.ValueChangedMessage&lt;T&gt;" Collapsed="true">
+    <Position X="17.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier />
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

@@ -12,23 +12,29 @@ namespace DESKTOP_GRANJA.vista_modelo
 {
     internal class LoginVM : ObservableObject
     {
-        private string email = "admin@mail";
-        public string Email
+        private Usuario usu = new Usuario("admin@mail", "admin");
+        public Usuario Usu
         {
-            get { return this.email; }
+            get { return this.usu; }
+            set { SetProperty(ref this.usu, value); }
+        }
+        //private string email = "admin@mail";
+        /*public string Email
+        {
+            get { return this.usu.email; }
             set { SetProperty(ref this.email, value); }
         }
-        private string password = "admin";
+        //private string password = "admin";
         public string Password
         {
             get { return this.password; }
             set { SetProperty(ref this.password, value); }
-        }
+        }*/
         internal async void Aceptar(TextBlock feedbackLogin)
         {
             try
             {
-                ApiResponse ar = await new DBApi().Post("auth/signin", new Usuario(Email, Password));
+                ApiResponse ar = await new DBApi().Post("auth/signin", this.Usu);
                     Trace.WriteLine(ar.Message);
                 if (ar.Status == 201)
                 {

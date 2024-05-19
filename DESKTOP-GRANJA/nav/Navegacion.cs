@@ -10,10 +10,5 @@ namespace DESKTOP_GRANJA.nav
         internal UserControl CargaListaTareasUC() => new ListaTareasUC();
         internal UserControl CargaListaEmpleadosUC() => new ListaEmpleadosUC();
         internal UserControl CargaListaSolicitudesUC() => new ListaSolicitudesUC(); 
-        public bool? AbrirVerSolicitudW()
-        {
-            VerSolicitudW dialogo = new VerSolicitudW();
-            return dialogo.ShowDialog();
-        }
     }
 }
