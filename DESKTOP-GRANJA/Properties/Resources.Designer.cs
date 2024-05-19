@@ -79,7 +79,7 @@ namespace DESKTOP_GRANJA.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a NTY2OTI3QDMxMzkyZTM0MmUzMG85Q0toWFI2U2dGcVIwdjlXRHBDVGlHanpxZFlWVEJLcnZWUWtuSE5EekU9.
+        ///   Busca una cadena traducida similar a Ngo9BigBOggjHTQxAR8/V1NBaF1cXmhPYVJNgo9BigBOggjHTQxAR8/V1NBaF1cXmhPYVJ+WmFZfVpgcl9CYlZQRmY/P1ZhSXxXdkBiUH5WdHZURWhYU0A=.
         /// </summary>
         internal static string LisenciaSyncfusion {
             get {

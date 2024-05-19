@@ -6,63 +6,66 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "CommunityToolkit.Mvvm/7.1.2": {
+      "CommunityToolkit.Mvvm/8.2.2": {
         "runtime": {
-          "lib/net5.0/CommunityToolkit.Mvvm.dll": {
-            "assemblyVersion": "7.1.0.0",
-            "fileVersion": "7.1.2.1"
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "assemblyVersion": "8.2.0.0",
+            "fileVersion": "8.2.2.1"
           }
         }
       },
-      "Newtonsoft.Json/13.0.1": {
+      "Newtonsoft.Json/13.0.3": {
         "runtime": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
             "assemblyVersion": "13.0.0.0",
-            "fileVersion": "13.0.1.25517"
+            "fileVersion": "13.0.3.27908"
           }
         }
       },
-      "RestSharp/107.3.0": {
-        "runtime": {
-          "lib/net6.0/RestSharp.dll": {
-            "assemblyVersion": "107.3.0.0",
-            "fileVersion": "107.3.0.0"
-          }
-        }
-      },
-      "Syncfusion.Data.WPF/20.1.0.50": {
-        "runtime": {
-          "lib/net5.0-windows7.0/Syncfusion.Data.WPF.dll": {
-            "assemblyVersion": "20.1500.0.50",
-            "fileVersion": "20.1500.0.50"
-          }
-        }
-      },
-      "Syncfusion.Licensing/20.1.0.50": {
-        "runtime": {
-          "lib/net6.0/Syncfusion.Licensing.dll": {
-            "assemblyVersion": "20.1.0.50",
-            "fileVersion": "20.1.0.50"
-          }
-        }
-      },
-      "Syncfusion.SfGrid.WPF/20.1.0.50": {
+      "RestSharp/110.2.0": {
         "dependencies": {
-          "Syncfusion.Data.WPF": "20.1.0.50",
-          "Syncfusion.Licensing": "20.1.0.50",
-          "Syncfusion.Shared.WPF": "20.1.0.50"
+          "System.Text.Json": "7.0.2"
         },
         "runtime": {
-          "lib/net5.0-windows7.0/Syncfusion.SfGrid.WPF.dll": {
-            "assemblyVersion": "20.1500.0.50",
-            "fileVersion": "20.1500.0.50"
+          "lib/net6.0/RestSharp.dll": {
+            "assemblyVersion": "110.2.0.0",
+            "fileVersion": "110.2.0.0"
+          }
+        }
+      },
+      "Syncfusion.Data.WPF/25.2.4": {
+        "runtime": {
+          "lib/net6.0-windows7.0/Syncfusion.Data.WPF.dll": {
+            "assemblyVersion": "25.2.4.0",
+            "fileVersion": "25.2.4.0"
+          }
+        }
+      },
+      "Syncfusion.Licensing/25.2.4": {
+        "runtime": {
+          "lib/net6.0/Syncfusion.Licensing.dll": {
+            "assemblyVersion": "25.2.4.0",
+            "fileVersion": "25.2.4.0"
+          }
+        }
+      },
+      "Syncfusion.SfGrid.WPF/25.2.4": {
+        "dependencies": {
+          "Syncfusion.Data.WPF": "25.2.4",
+          "Syncfusion.Licensing": "25.2.4",
+          "Syncfusion.Shared.WPF": "25.2.4"
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/Syncfusion.SfGrid.WPF.dll": {
+            "assemblyVersion": "25.2.4.0",
+            "fileVersion": "25.2.4.0"
           }
         }
       },
       "Syncfusion.SfTextInputLayout.WPF/20.1.0.50": {
         "dependencies": {
-          "Syncfusion.Licensing": "20.1.0.50",
-          "Syncfusion.Shared.WPF": "20.1.0.50"
+          "Syncfusion.Licensing": "25.2.4",
+          "Syncfusion.Shared.WPF": "25.2.4"
         },
         "runtime": {
           "lib/net5.0-windows7.0/Syncfusion.SfTextInputLayout.WPF.dll": {
@@ -71,61 +74,100 @@
           }
         }
       },
-      "Syncfusion.Shared.WPF/20.1.0.50": {
+      "Syncfusion.Shared.WPF/25.2.4": {
         "dependencies": {
-          "Syncfusion.Licensing": "20.1.0.50"
+          "Syncfusion.Licensing": "25.2.4"
         },
         "runtime": {
-          "lib/net5.0-windows7.0/Syncfusion.Shared.WPF.dll": {
-            "assemblyVersion": "20.1500.0.50",
-            "fileVersion": "20.1500.0.50"
+          "lib/net6.0-windows7.0/Syncfusion.Shared.WPF.dll": {
+            "assemblyVersion": "25.2.4.0",
+            "fileVersion": "25.2.4.0"
+          }
+        }
+      },
+      "System.Runtime.CompilerServices.Unsafe/6.0.0": {
+        "runtime": {
+          "lib/net6.0/System.Runtime.CompilerServices.Unsafe.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        }
+      },
+      "System.Text.Encodings.Web/7.0.0": {
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/System.Text.Encodings.Web.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.22.51805"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/browser/lib/net6.0/System.Text.Encodings.Web.dll": {
+            "rid": "browser",
+            "assetType": "runtime",
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.22.51805"
+          }
+        }
+      },
+      "System.Text.Json/7.0.2": {
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0",
+          "System.Text.Encodings.Web": "7.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/System.Text.Json.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.323.6910"
           }
         }
       }
     }
   },
   "libraries": {
-    "CommunityToolkit.Mvvm/7.1.2": {
+    "CommunityToolkit.Mvvm/8.2.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-/zEpNH3FIBFY2iZRBi+S3Sia3q2yJgy1IQHnWRW7MdhQIe3IGcA1TGqJdbtjiJBmNy4v7kkPdNzgYlvvNDjXZg==",
-      "path": "communitytoolkit.mvvm/7.1.2",
-      "hashPath": "communitytoolkit.mvvm.7.1.2.nupkg.sha512"
+      "sha512": "sha512-r0g0k9tGYdrnz8R7T3x5UiokDffeevzK/2P/9SBL6fqLgN8B157MIi/bVUWI1KAz6ZorZrK9AdABCWUeXZZsvA==",
+      "path": "communitytoolkit.mvvm/8.2.2",
+      "hashPath": "communitytoolkit.mvvm.8.2.2.nupkg.sha512"
     },
-    "Newtonsoft.Json/13.0.1": {
+    "Newtonsoft.Json/13.0.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
-      "path": "newtonsoft.json/13.0.1",
-      "hashPath": "newtonsoft.json.13.0.1.nupkg.sha512"
+      "sha512": "sha512-HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
+      "path": "newtonsoft.json/13.0.3",
+      "hashPath": "newtonsoft.json.13.0.3.nupkg.sha512"
     },
-    "RestSharp/107.3.0": {
+    "RestSharp/110.2.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-qu+A+VAnVLX3OeWVNm11UJz0aVErqSfYqIiOUbJM9x98uLymCOoL/oXRAjMb6XHra27WXxHmzy9EKEOKXWR6Pw==",
-      "path": "restsharp/107.3.0",
-      "hashPath": "restsharp.107.3.0.nupkg.sha512"
+      "sha512": "sha512-FXGw0IMcqY7yO/hzS9QrD3iNswNgb9UxJnxWmfOxmGs4kRlZWqdtBoGPLuhlbgsDzX1RFo4WKui8TGGKXWKalw==",
+      "path": "restsharp/110.2.0",
+      "hashPath": "restsharp.110.2.0.nupkg.sha512"
     },
-    "Syncfusion.Data.WPF/20.1.0.50": {
+    "Syncfusion.Data.WPF/25.2.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-k5nYcSDk5lAS17806NoV7zOVpKakPQgdgT23HooINYmTnGHVEaPtke5ezqZSkm+PxCUJ1XBMry+nvvIn3OYO7w==",
-      "path": "syncfusion.data.wpf/20.1.0.50",
-      "hashPath": "syncfusion.data.wpf.20.1.0.50.nupkg.sha512"
+      "sha512": "sha512-M1f5Ed44KgEag/2kJLJwASKDAUl+cB4RnKAzYUtE1iNVKASTZTBrJhTs2J1D7pJqp6d1xtWV0dGcDTPaDz0ieg==",
+      "path": "syncfusion.data.wpf/25.2.4",
+      "hashPath": "syncfusion.data.wpf.25.2.4.nupkg.sha512"
     },
-    "Syncfusion.Licensing/20.1.0.50": {
+    "Syncfusion.Licensing/25.2.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-sQBaysAP2fQ0ISeJjowl7wpiLjAwTUKxvQrft+QYTtjYbaUSxfoEh7tYi2/Pgs8qnGIrp+6PzIALI9bcVFPflw==",
-      "path": "syncfusion.licensing/20.1.0.50",
-      "hashPath": "syncfusion.licensing.20.1.0.50.nupkg.sha512"
+      "sha512": "sha512-0IIre+PQHFxpYL+i3a3wYDSGWLkdoDA/ulB8DHuK2DeTEQeBe/qsVkYc6DHCRpR7nHAd02cHS4V6CYGDuMDYWw==",
+      "path": "syncfusion.licensing/25.2.4",
+      "hashPath": "syncfusion.licensing.25.2.4.nupkg.sha512"
     },
-    "Syncfusion.SfGrid.WPF/20.1.0.50": {
+    "Syncfusion.SfGrid.WPF/25.2.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-+S05rOSqcuJ1TjLo7SgE8aakAPQVWEK14i4Rqih+eVQ2BDRItG5iPsaj84G+P8FoCxNGAMMHxOTjLdeSE7WcWw==",
-      "path": "syncfusion.sfgrid.wpf/20.1.0.50",
-      "hashPath": "syncfusion.sfgrid.wpf.20.1.0.50.nupkg.sha512"
+      "sha512": "sha512-tu3uOQpFnu5iyTkSeM0FIu0xW1mDlQFaiuR+HqOKYRSgYDt3fxDzn92EKYZnVehN8y5+sB6gJfNTAxtdW2WV3g==",
+      "path": "syncfusion.sfgrid.wpf/25.2.4",
+      "hashPath": "syncfusion.sfgrid.wpf.25.2.4.nupkg.sha512"
     },
     "Syncfusion.SfTextInputLayout.WPF/20.1.0.50": {
       "type": "package",
@@ -134,12 +176,33 @@
       "path": "syncfusion.sftextinputlayout.wpf/20.1.0.50",
       "hashPath": "syncfusion.sftextinputlayout.wpf.20.1.0.50.nupkg.sha512"
     },
-    "Syncfusion.Shared.WPF/20.1.0.50": {
+    "Syncfusion.Shared.WPF/25.2.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-64OFsyOHhmL01ifezqXnXf2VihCUvcpg9KbxAuYiUzXle8p7NDY186z37mW8rIYiNGU2ZQIHTwi0GpZvRsAuZQ==",
-      "path": "syncfusion.shared.wpf/20.1.0.50",
-      "hashPath": "syncfusion.shared.wpf.20.1.0.50.nupkg.sha512"
+      "sha512": "sha512-38a9O+/v7Si72cmo/TaUs8LB5D5L0bg2QJrBOavOAYROctrZkE84BwRDzSpLG212SACfz2/UTWrVzlnaItFTPw==",
+      "path": "syncfusion.shared.wpf/25.2.4",
+      "hashPath": "syncfusion.shared.wpf.25.2.4.nupkg.sha512"
+    },
+    "System.Runtime.CompilerServices.Unsafe/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/iUeP3tq1S0XdNNoMz5C9twLSrM/TH+qElHkXWaPvuNOt+99G75NrV0OS2EqHx5wMN7popYjpc8oTjC1y16DLg==",
+      "path": "system.runtime.compilerservices.unsafe/6.0.0",
+      "hashPath": "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+    },
+    "System.Text.Encodings.Web/7.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OP6umVGxc0Z0MvZQBVigj4/U31Pw72ITihDWP9WiWDm+q5aoe0GaJivsfYGq53o6dxH7DcXWiCTl7+0o2CGdmg==",
+      "path": "system.text.encodings.web/7.0.0",
+      "hashPath": "system.text.encodings.web.7.0.0.nupkg.sha512"
+    },
+    "System.Text.Json/7.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/LZf/JrGyilojqwpaywb+sSz8Tew7ij4K/Sk+UW8AKfAK7KRhR6mKpKtTm06cYA7bCpGTWfYksIW+mVsdxPegQ==",
+      "path": "system.text.json/7.0.2",
+      "hashPath": "system.text.json.7.0.2.nupkg.sha512"
     }
   }
 }

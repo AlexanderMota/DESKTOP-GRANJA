@@ -48,23 +48,23 @@
           "dependencies": {
             "CommunityToolkit.Mvvm": {
               "target": "Package",
-              "version": "[7.1.2, )"
+              "version": "[8.2.2, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
-              "version": "[13.0.1, )"
+              "version": "[13.0.3, )"
             },
             "RestSharp": {
               "target": "Package",
-              "version": "[107.3.0, )"
+              "version": "[110.2.0, )"
             },
             "Syncfusion.SfGrid.WPF": {
               "target": "Package",
-              "version": "[20.1.0.50, )"
+              "version": "[25.2.4, )"
             },
             "Syncfusion.SfTextInputLayout.WPF": {
               "target": "Package",
-              "version": "[20.1.0.50, )"
+              "version": "[25.2.4, )"
             }
           },
           "imports": [

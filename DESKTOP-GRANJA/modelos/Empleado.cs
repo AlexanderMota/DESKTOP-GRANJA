@@ -15,12 +15,12 @@ namespace DESKTOP_GRANJA.modelos
             get => this._id;
             set => SetProperty(ref this._id, value);
         }
-        private int idEmpleado = 0;
+        /*private int idEmpleado = 0;
         public int IdEmpleado
         {
             get => this.idEmpleado;
             set => SetProperty(ref this.idEmpleado, value);
-        }
+        }*/
         private string nombre = "";
         public string Nombre
         {
@@ -45,13 +45,19 @@ namespace DESKTOP_GRANJA.modelos
             get => this.email;
             set => SetProperty(ref this.email, value);
         }
+        private string rol = "";
+        public string Rol
+        {
+            get => this.rol;
+            set => SetProperty(ref this.rol, value);
+        }
         public Empleado()
         {
         }
-        public Empleado(string id, int idEmpleado, string nombre, string apellidos, string telefono, string email)
+        public Empleado(string id/*, int idEmpleado*/, string nombre, string apellidos, string telefono, string email)
         {
             Id = id;
-            IdEmpleado = idEmpleado;
+            //IdEmpleado = idEmpleado;
             Nombre = nombre;
             Apellidos = apellidos;
             Telefono = telefono;
