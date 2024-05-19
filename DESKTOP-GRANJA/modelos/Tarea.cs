@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -88,6 +89,7 @@ namespace DESKTOP_GRANJA.modelos
         }
         public Tarea(string _id, int idTarea, string nombre, string descripcion, string importancia, DateTime fechainicio, DateTime fechafin, bool terminada, List<RolCantidad> plantilla)
         {
+            Trace.WriteLine(_id);
             Id = _id;
             IdTarea = idTarea;
             Nombre = nombre;

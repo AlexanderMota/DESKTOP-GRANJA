@@ -21,7 +21,7 @@ namespace DESKTOP_GRANJA.apiREST
         {
             //this.BaseUrl = Properties.Settings.Default.BaseURLApiLocal;
         }
-        public async Task<modelos.ApiResponse> LogIn( Object json )
+        public async Task<ApiResponse> LogIn( Object json )
         {
             var client = new RestClient();
 

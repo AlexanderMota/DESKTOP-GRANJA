@@ -26,8 +26,7 @@ namespace DESKTOP_GRANJA
         {
             InitializeComponent();
             this.DataContext = new MainWindowVM(this.PanelNavegacion);
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(Properties.Settings.Default.LisenciaSyncfusion);
         }
-
-        
     }
 }

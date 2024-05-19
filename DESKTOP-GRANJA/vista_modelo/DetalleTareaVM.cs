@@ -17,6 +17,7 @@ namespace DESKTOP_GRANJA.vista_modelo
     {
         private EmpleadoService empServ = new EmpleadoService();
         private TareaService tarServ = new TareaService();
+        private ComentarioService comServ = new ComentarioService();
         private string numPlant = "";
         private Tarea tareaActual = new Tarea();
         public Tarea TareaActual
@@ -41,8 +42,8 @@ namespace DESKTOP_GRANJA.vista_modelo
             get => empleados;
             set => SetProperty(ref empleados, value);
         }
-        private ObservableCollection<Tarea> comentarios;
-        public ObservableCollection<Tarea> Comentarios
+        private ObservableCollection<Comentario> comentarios;
+        public ObservableCollection<Comentario> Comentarios
         {
             get => comentarios;
             set => SetProperty(ref comentarios, value);
@@ -53,6 +54,8 @@ namespace DESKTOP_GRANJA.vista_modelo
                 NumPlant = "Plantilla: 0 / " + TareaActual.Plantilla.Count.ToString();
                 Empleados = await empServ.GetAllEmpleados();
                 Subtareas = await tarServ.GetAllTareasAsync();
+                Trace.WriteLine("TareaActual.Id: ===================> " + TareaActual.Id);
+                Comentarios = await comServ.GetComentariosByIdTareaAsync(TareaActual.Id);
             });
     }
 }

@@ -25,8 +25,7 @@ namespace DESKTOP_GRANJA.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("NTY2OTI3QDMxMzkyZTM0MmUzMG85Q0toWFI2U2dGcVIwdjlXRHBDVGlHanpxZFlWVEJLcnZWUWtuSE5Ee" +
-            "kU9")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string LisenciaSyncfusion {
             get {
                 return ((string)(this["LisenciaSyncfusion"]));

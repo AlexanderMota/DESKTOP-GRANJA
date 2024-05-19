@@ -14,6 +14,8 @@ namespace DESKTOP_GRANJA.vistas
         {
             InitializeComponent();
             this.DataContext = vm;
+
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(Properties.Settings.Default.LisenciaSyncfusion);
         }
         private void Aceptar_Click(object sender, RoutedEventArgs e)
         {

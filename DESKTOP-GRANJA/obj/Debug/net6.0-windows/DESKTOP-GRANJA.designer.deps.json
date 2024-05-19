@@ -62,15 +62,15 @@
           }
         }
       },
-      "Syncfusion.SfTextInputLayout.WPF/20.1.0.50": {
+      "Syncfusion.SfTextInputLayout.WPF/25.2.4": {
         "dependencies": {
           "Syncfusion.Licensing": "25.2.4",
           "Syncfusion.Shared.WPF": "25.2.4"
         },
         "runtime": {
-          "lib/net5.0-windows7.0/Syncfusion.SfTextInputLayout.WPF.dll": {
-            "assemblyVersion": "20.1500.0.50",
-            "fileVersion": "20.1500.0.50"
+          "lib/net6.0-windows7.0/Syncfusion.SfTextInputLayout.WPF.dll": {
+            "assemblyVersion": "25.2.4.0",
+            "fileVersion": "25.2.4.0"
           }
         }
       },
@@ -169,12 +169,12 @@
       "path": "syncfusion.sfgrid.wpf/25.2.4",
       "hashPath": "syncfusion.sfgrid.wpf.25.2.4.nupkg.sha512"
     },
-    "Syncfusion.SfTextInputLayout.WPF/20.1.0.50": {
+    "Syncfusion.SfTextInputLayout.WPF/25.2.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Rj/K9y9InuOkkU7u3Fww5KokAiTDJf6yMlUvxIuVLd5GM3ZhMO0HRr2DKNASXdd4U8uLDd4LfokAMzoBXxHCag==",
-      "path": "syncfusion.sftextinputlayout.wpf/20.1.0.50",
-      "hashPath": "syncfusion.sftextinputlayout.wpf.20.1.0.50.nupkg.sha512"
+      "sha512": "sha512-EeaoSqWLwxNx8kJEUPlhX28XgG0HSuwujpdtnKBKI43x7N1WkK85szUgtZvQr8+8aaW5S6BFqwUeC5Z/QFa5PQ==",
+      "path": "syncfusion.sftextinputlayout.wpf/25.2.4",
+      "hashPath": "syncfusion.sftextinputlayout.wpf.25.2.4.nupkg.sha512"
     },
     "Syncfusion.Shared.WPF/25.2.4": {
       "type": "package",
