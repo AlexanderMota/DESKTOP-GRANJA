@@ -11,34 +11,35 @@ namespace DESKTOP_GRANJA.vista_modelo
     internal class ListaTareasVM : ObservableObject
     {
         private TareaService tarServ = new TareaService();
+
         private Tarea tareaActual;
         public Tarea TareaActual
         {
             get => tareaActual;
             set => SetProperty(ref this.tareaActual, value);
         }
-        private ObservableCollection<Tarea> listaTareas;
-        public ObservableCollection<Tarea> ListaTareas
+        private ObservableCollection<Tarea> listaTareas = new ObservableCollection<Tarea>();
+        public ObservableCollection<Tarea>? ListaTareas
         {
             get => listaTareas;
-            set => SetProperty(ref this.listaTareas, value);
+            set => SetProperty(ref this.listaTareas!, value);
         }
 
         public ListaTareasVM()
         {
-            GetAllTareasApi();
-        }
-        private async void GetAllTareasApi()
-        {
-           // Trace.WriteLine("===================> cargando lista: GetAllTareasApi()");
-
-            this.ListaTareas = await tarServ.GetAllTareasAsync();
-
-            //Trace.WriteLine("===================> cargando lista: ");
-            /*foreach (Tarea tarea in this.ListaTareas)
+            WeakReferenceMessenger.Default.Register<CambiaCentroMessage>(this, async ( r, m ) =>
             {
-                Trace.WriteLine(tarea.Nombre);
-            }*/
+                if(m.Value.Length > 0)
+                {
+                    Properties.Settings.Default.MiCentro = m.Value;
+                    GetAllTareasApi(Properties.Settings.Default.MiCentro);
+                }
+            });
+            GetAllTareasApi(Properties.Settings.Default.MiCentro);
+        }
+        private async void GetAllTareasApi(string centro)
+        {
+            this.ListaTareas = await tarServ.GetSubtareasAsync(Properties.Settings.Default.Token, centro);
         }
         public void SfDataGrid_MouseDoubleClick() =>
             WeakReferenceMessenger.Default.Send(new DetalleTareaMessage(TareaActual));

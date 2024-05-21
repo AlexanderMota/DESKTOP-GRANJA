@@ -1,18 +1,8 @@
-﻿using DESKTOP_GRANJA.vista_modelo;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DESKTOP_GRANJA.modelos;
+using DESKTOP_GRANJA.vista_modelo;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace DESKTOP_GRANJA
 {
@@ -21,12 +11,33 @@ namespace DESKTOP_GRANJA
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        private MainWindowVM vm;
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = new MainWindowVM(this.PanelNavegacion);
+            vm = new MainWindowVM(this.PanelNavegacion);
+            this.DataContext = vm;
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(Properties.Settings.Default.LisenciaSyncfusion);
+        }
+        private void MuestraCentros( object sender, RoutedEventArgs e )
+        {
+            Button? button = sender as Button;
+            if (button != null)
+            {
+                ContextMenu? menu = FindResource("ProfileMenu") as ContextMenu;
+                if (menu != null)
+                {
+                    menu.PlacementTarget = button;
+                    menu.IsOpen = true;
+                }
+            }
+        }
+
+        private void MenuItem_Click( object sender, RoutedEventArgs e )
+        {
+            if (sender is MenuItem menuItem)
+                if (menuItem.DataContext is Tarea tarea)
+                    vm.SeleccionaCentro(tarea);
         }
     }
 }

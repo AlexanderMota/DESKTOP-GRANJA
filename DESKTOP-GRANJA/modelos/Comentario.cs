@@ -1,4 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using DESKTOP_GRANJA.apiREST;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +11,9 @@ namespace DESKTOP_GRANJA.modelos
 {
     internal class Comentario : ObservableObject
     {
+        private EmpleadoService empServ = new EmpleadoService();
         private string _id = "";
+        [JsonProperty("_id")]
         public string Id
         {
             get => this._id;
@@ -26,6 +30,12 @@ namespace DESKTOP_GRANJA.modelos
         {
             get => this.idAutor;
             set => SetProperty(ref this.idAutor, value);
+        }
+        private string nombreAutor = "";
+        public string NombreAutor
+        {
+            get => this.nombreAutor;
+            set => SetProperty(ref this.nombreAutor, value);
         }
         private string nombre = "";
         public string Nombre
@@ -54,5 +64,19 @@ namespace DESKTOP_GRANJA.modelos
             Descripcion = descripcion;
             FechaRegistro = fechaRegistro;
         }
+
+        public Comentario()
+        {
+        }
+        public async void GetNombreAutor()
+        {
+            Empleado? autor = await empServ.GetEmpleadoByIdAsync(Properties.Settings.Default.Token, IdAutor);
+            NombreAutor = (autor == null) ? "" : autor.Nombre + " " + autor.Apellidos;
+
+        }
+
+        public override string ToString()
+            => $"> | {this.Id} | {this.Nombre} | {this.Descripcion} | {this.IdAutor} | {this.IdTarea} |";
+
     }
 }

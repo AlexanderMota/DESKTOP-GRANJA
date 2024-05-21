@@ -6,24 +6,66 @@
         xmlns:local="clr-namespace:DESKTOP_GRANJA" 
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1200" MinWidth="750" MinHeight="400">
-    <DockPanel >
-        <StackPanel DockPanel.Dock="Top" Visibility="Collapsed" x:Name="PanelNavegacion">
+        Title="MainWindow" Height="800" Width="1200" MinWidth="850" MinHeight="400">
+    <Window.Resources>
+        <Style x:Key="RoundedButton" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="7">
+                            <!-- Ajusta el radio de las esquinas según tu preferencia -->
+                            <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
-            <syncfusion:MenuAdv Height="30" Width="auto" VerticalAlignment="Top">
-                <Grid Width="auto">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition ></ColumnDefinition>
-                        <ColumnDefinition ></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <syncfusion:MenuItemAdv Header="Tareas"  Command="{Binding Path=ListaTareasCommand}" Grid.Column="0" />
-                    <syncfusion:MenuItemAdv Header="Empleados"  Command="{Binding Path=ListaEmpleadosCommand}" Grid.Column="1" />
-                    <syncfusion:MenuItemAdv Header="Solicitudes"  Command="{Binding Path=ListaSolicitudesCommand}" Grid.Column="2" />
-                </Grid>
+        <!-- Define el ContextMenu en los recursos -->
+        <ContextMenu x:Key="ProfileMenu" ItemsSource="{Binding SuperTareas}">
+            <ContextMenu.ItemTemplate>
+                <DataTemplate>
+                    <MenuItem Header="{Binding Nombre}"  
+                              Click="MenuItem_Click"/>
+                </DataTemplate>
+            </ContextMenu.ItemTemplate>
+        </ContextMenu>
+    </Window.Resources>
+    <DockPanel LastChildFill="True" >
+        <Grid DockPanel.Dock="Top" x:Name="PanelNavegacion" Visibility="Hidden">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
 
+            <syncfusion:MenuAdv Height="30" VerticalAlignment="Center"  >
+
+
+                <Button Content="v" Style="{StaticResource RoundedButton}" Click="MuestraCentros" Width="30" Height="25"/>
+                <Button Content="Tareas" Style="{StaticResource RoundedButton}" Command="{Binding Path=ListaTareasCommand}" Width="100" Height="25"/>
+                <Button Content="Empleados" Style="{StaticResource RoundedButton}" Command="{Binding Path=ListaEmpleadosCommand}" Width="100" Height="25"/>
+                <Button Content="Solicitudes" Style="{StaticResource RoundedButton}" Command="{Binding Path=ListaSolicitudesCommand}" Width="100" Height="25"/>
+
+
+                <!-- Right aligned button -->
             </syncfusion:MenuAdv>
-        </StackPanel>
-        <ContentControl Content="{Binding Path=UserControl}"></ContentControl>
+            <syncfusion:MenuAdv Height="30" VerticalAlignment="Center" HorizontalAlignment="Right" >
+
+
+                <Button Content="Perfil" Style="{StaticResource RoundedButton}"  Width="100" Height="25"/>
+
+
+                <!-- Right aligned button -->
+            </syncfusion:MenuAdv>
+        </Grid>
+
+        <!-- <Button Padding="5" Content="Perfil" Grid.Column="1"/> -->
+
+        <ContentControl DockPanel.Dock="Bottom" Content="{Binding Path=UserControl}"></ContentControl>
+
     </DockPanel >
 </Window>

@@ -15,35 +15,32 @@ namespace DESKTOP_GRANJA.apiREST
         private readonly string _baseUrl;
         private readonly string _urlComentarios;
         private readonly string _urlAddComentario;
-
-        private readonly string _userToken;
         public ComentarioService()
         {
-            _userToken = Properties.Settings.Default.Token;
             _baseUrl = Properties.Settings.Default.BaseURLApiLocal + "tareas/";
             _urlComentarios = _baseUrl + "comentarios/";
             _urlAddComentario = _baseUrl + "addcomentario/";
         }
-        public async Task<ObservableCollection<Comentario>?> GetComentariosByIdTareaAsync( string id/*, string token*/ )
+        public async Task<ObservableCollection<Comentario>?> GetComentariosByIdTareaAsync( string userToken, string id/*, string token*/ )
         {
             var client = new RestClient();
-            var request = new RestRequest($"{ _baseUrl + id }");
-            request.AddHeader("Authorization", _userToken);
+            var request = new RestRequest($"{ _urlComentarios + id }");
+            request.AddHeader("Authorization", userToken);
 
             var restResponse = await client.ExecuteAsync(request);
 
             return JsonConvert.DeserializeObject<ObservableCollection<Comentario>>(restResponse.Content);
         }
-        public async Task<ObservableCollection<Comentario>?> postComentarioByIdTarea( string id, Comentario comment )
+        public async Task<ApiResponse?> postComentarioByIdTarea( string userToken, string id, Comentario comment )
         {
             var client = new RestClient();
             var request = new RestRequest($"{ _urlAddComentario + id }", Method.Post);
-            request.AddHeader("Authorization", _userToken);
+            request.AddHeader("Authorization", userToken);
             request.AddJsonBody(comment);
 
             var restResponse = await client.ExecuteAsync(request);
 
-            return JsonConvert.DeserializeObject<ObservableCollection<Comentario>>(restResponse.Content);
+            return JsonConvert.DeserializeObject<ApiResponse>(restResponse.Content);
         }
     }
 }

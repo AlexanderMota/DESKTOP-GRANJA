@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,6 +11,14 @@ namespace DESKTOP_GRANJA.modelos
 {
     internal class Solicitud : ObservableObject
     {
+
+        private string _id = "";
+        [JsonProperty("_id")]
+        public string Id
+        {
+            get => this._id;
+            set => SetProperty(ref this._id, value);
+        }
         private string idTarea = ""/* = new Tarea()*/;
         public string IdTarea
         {
@@ -17,7 +26,7 @@ namespace DESKTOP_GRANJA.modelos
             set => SetProperty(ref this.idTarea, value);
         }
         private string idEmpleado = ""/* = new Empleado()*/;
-        public string IdEmpleadoSol
+        public string IdEmpleado
         {
             get => this.idEmpleado;
             set => SetProperty(ref this.idEmpleado, value);
@@ -30,13 +39,13 @@ namespace DESKTOP_GRANJA.modelos
         }
         public Solicitud( string idTarea, string idEmpleado, string fechaRegistro )
         {
-            this.IdTarea = idTarea;
-            this.idEmpleado = idEmpleado;
+            IdTarea = idTarea;
+            IdEmpleado = idEmpleado;
             try
             {
 
                 Trace.WriteLine(fechaRegistro); 
-                this.FechaSolicitud = DateTime.Parse(fechaRegistro);
+                FechaSolicitud = DateTime.Parse(fechaRegistro);
 
             }catch(FormatException ex)
             {

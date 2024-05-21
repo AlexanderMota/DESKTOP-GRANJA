@@ -1,24 +1,50 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
+using DESKTOP_GRANJA.apiREST;
 using DESKTOP_GRANJA.mensajeria;
 using DESKTOP_GRANJA.modelos;
 using DESKTOP_GRANJA.nav;
 using DESKTOP_GRANJA.vistas;
+using System;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace DESKTOP_GRANJA.vista_modelo
 {
     internal class MainWindowVM : ObservableObject
     {
-        bool tokenRecibido = false;
-        private Solicitud solicitudActual;
-        private Solicitud SolicitudActual { get => solicitudActual; set => SetProperty(ref this.solicitudActual, value); }
+        private TareaService tarServ = new TareaService();
+        private bool tokenRecibido = false;
         private bool TokenRecibido
         {
             get => this.tokenRecibido;
-            set => this.SetProperty(ref this.tokenRecibido, value);
+            set => this.SetProperty(ref tokenRecibido, value);
+        }
+        /*private Tarea? centro;
+        public Tarea? Centro
+        {
+            get => centro;
+            set => SetProperty(ref centro, value);
+        }*/
+        private ObservableCollection<Tarea> superTareas = new ObservableCollection<Tarea>();
+        public ObservableCollection<Tarea>? SuperTareas
+        {
+            get
+            {
+                ObservableCollection<Tarea> supers = new ObservableCollection<Tarea>();
+                foreach (Tarea tarea in superTareas)
+                {
+                    Tarea tar = new Tarea();
+                    tar.Nombre = tarea.Nombre;
+                    tar.Id = tarea.Id;
+                    supers.Add(tar);
+                }
+                return supers;
+            }
+            set => SetProperty(ref superTareas!, value);
         }
         private Navegacion nav;
         private UserControl userControl = new LoginUC();
@@ -32,45 +58,40 @@ namespace DESKTOP_GRANJA.vista_modelo
         public RelayCommand ListaEmpleadosCommand { get; }
         public RelayCommand ListaSolicitudesCommand { get; }
 
-        public MainWindowVM(StackPanel panelNavegacion)
+        public MainWindowVM(Grid panelNavegacion)
         {
-            this.nav = new Navegacion();
-            WeakReferenceMessenger.Default.Register<ConfirmaTokenMessage>(this, (r, m) =>
+            nav = new Navegacion();
+            WeakReferenceMessenger.Default.Register<ConfirmaTokenMessage>(this, async (r, m) =>
             {
                 TokenRecibido = m.Value;
                 if (TokenRecibido)
                 {
+                    SuperTareas = await tarServ.GetSuperTareasAsync(Properties.Settings.Default.Token);
+                    Trace.WriteLine(SuperTareas!.Count);
                     CargaListaTareasUC();
                     panelNavegacion.Visibility = System.Windows.Visibility.Visible;
                 }
             });
-            /*WeakReferenceMessenger.Default.Register<VerSolicitudMessage>(this, (r, m) =>
-            {
-                this.SolicitudActual = m.Value;
-                Trace.WriteLine("Contructor =====> " + m.Value.ToString());
-                WeakReferenceMessenger.Default.Send(new VerSolicitudMessage(this.SolicitudActual));
-            });*/
-            this.ListaTareasCommand = new RelayCommand(CargaListaTareasUC);
-            this.ListaEmpleadosCommand = new RelayCommand(CargaListaEmpleadosUC);
-            this.ListaSolicitudesCommand = new RelayCommand(CargaListaSolicitudesUC);
+
+            ListaTareasCommand = new RelayCommand(CargaListaTareasUC);
+            ListaEmpleadosCommand = new RelayCommand(CargaListaEmpleadosUC);
+            ListaSolicitudesCommand = new RelayCommand(CargaListaSolicitudesUC);
         }
 
-        private void CargaListaSolicitudesUC()
-        {
+        private void CargaListaSolicitudesUC() =>
             this.UserControl = nav.CargaListaSolicitudesUC();
-        }
-        /*
-        private void CargaLoginUC()
-        {
-            this.UserControl = nav.CargaLoginUC();
-        }*/
-        private void CargaListaTareasUC()
-        {
+        private void CargaListaTareasUC() =>
             this.UserControl = nav.CargaListaTareasUC();
-        }
-        private void CargaListaEmpleadosUC()
-        {
+        private void CargaListaEmpleadosUC()=>
             this.UserControl = nav.CargaListaEmpleadosUC();
+        public void SeleccionaCentro( Tarea centro )
+        {
+            /*Properties.Settings.Default.MiCentro = (centro == null) ? 
+                Properties.Settings.Default.MiCentro : centro.Id;
+            Trace.WriteLine("Properties.Settings.Default.Token: ===========>"+ Properties.Settings.Default.MiCentro);*/
+            string idc = (centro == null) ?
+                "" : centro.Id;
+            WeakReferenceMessenger.Default.Send(new CambiaCentroMessage(idc));
         }
     }
 }

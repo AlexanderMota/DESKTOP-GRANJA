@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="LisenciaSyncfusion" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">MzI4MjI2OUAzMjM1MmUzMDJlMzBlTGY4amVaZUR2czR0SjhEbHJaaWJCNEI1L09Bd2VGSjJKdjliWmlqMWlvPQ==;Mgo+DSMBaFt6QHFqVkNrXVNbdV5dVGpAd0N3RGlcdlR1fUUmHVdTRHRbQlhhSX5VckRmWn1dcnM=</Value>
     </Setting>
     <Setting Name="BaseURLApiLocal" Type="System.String" Scope="Application">
       <Value Profile="(Default)">http://localhost:4300/api/</Value>
@@ -12,6 +12,24 @@
       <Value Profile="(Default)">https://api-granja.azurewebsites.net/api/</Value>
     </Setting>
     <Setting Name="Token" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MiId" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MiNombre" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MiRol" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MiEmail" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MiTelefono" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MiApellido" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

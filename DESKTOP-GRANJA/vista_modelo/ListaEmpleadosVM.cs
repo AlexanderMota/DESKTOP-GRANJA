@@ -9,7 +9,7 @@ namespace DESKTOP_GRANJA.vista_modelo
     {
         private EmpleadoService empServ = new EmpleadoService();
         private ObservableCollection<Empleado> listaEmpleados;
-        public ObservableCollection<Empleado> ListaEmpleados
+        public ObservableCollection<Empleado>? ListaEmpleados
         {
             get => listaEmpleados;
             set => SetProperty(ref this.listaEmpleados, value);
@@ -19,6 +19,6 @@ namespace DESKTOP_GRANJA.vista_modelo
         {
             GetAllEmpleadosApi();
         }
-        private async void GetAllEmpleadosApi() => this.ListaEmpleados = await empServ.GetAllEmpleados();
+        private async void GetAllEmpleadosApi() => this.ListaEmpleados = await empServ.GetAllEmpleadosAsync(Properties.Settings.Default.Token);
     }
 }

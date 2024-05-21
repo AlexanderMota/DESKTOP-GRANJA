@@ -25,7 +25,9 @@ namespace DESKTOP_GRANJA.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("MzI4MjI2OUAzMjM1MmUzMDJlMzBlTGY4amVaZUR2czR0SjhEbHJaaWJCNEI1L09Bd2VGSjJKdjliWmlqM" +
+            "WlvPQ==;Mgo+DSMBaFt6QHFqVkNrXVNbdV5dVGpAd0N3RGlcdlR1fUUmHVdTRHRbQlhhSX5VckRmWn1d" +
+            "cnM=")]
         public string LisenciaSyncfusion {
             get {
                 return ((string)(this["LisenciaSyncfusion"]));
@@ -61,5 +63,79 @@ namespace DESKTOP_GRANJA.Properties {
                 this["Token"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MiId {
+            get {
+                return ((string)(this["MiId"]));
+            }
+            set {
+                this["MiId"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MiNombre {
+            get {
+                return ((string)(this["MiNombre"]));
+            }
+            set {
+                this["MiNombre"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MiRol {
+            get {
+                return ((string)(this["MiRol"]));
+            }
+            set {
+                this["MiRol"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MiEmail {
+            get {
+                return ((string)(this["MiEmail"]));
+            }
+            set {
+                this["MiEmail"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MiTelefono {
+            get {
+                return ((string)(this["MiTelefono"]));
+            }
+            set {
+                this["MiTelefono"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MiApellido {
+            get {
+                return ((string)(this["MiApellido"]));
+            }
+            set {
+                this["MiApellido"] = value;
+            }
+        }
+
+        public string MiCentro { get; internal set; }
     }
 }

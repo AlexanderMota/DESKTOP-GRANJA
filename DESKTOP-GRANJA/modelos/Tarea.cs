@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -23,10 +24,11 @@ namespace DESKTOP_GRANJA.modelos
             Baja
         }
         private string _id = "";
+        [JsonProperty("_id")]
         public string Id
         {
-            get => this._id; 
-            set => SetProperty(ref this._id, value); 
+            get => this._id;
+            set => SetProperty(ref this._id, value);
         }
         private int idTarea = 0;
         public int IdTarea
@@ -76,12 +78,7 @@ namespace DESKTOP_GRANJA.modelos
             get => this.terminada;
             set => SetProperty(ref this.terminada, value);
         }
-        private List<RolCantidad> plantilla = new List<RolCantidad> {
-            new RolCantidad {
-                Rol = "",
-                Cantidad = 0
-            }
-        };
+        private List<RolCantidad> plantilla = new List<RolCantidad>();
         public List<RolCantidad> Plantilla
         {
             get => plantilla;

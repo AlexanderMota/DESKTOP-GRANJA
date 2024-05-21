@@ -1,4 +1,5 @@
 ﻿using DESKTOP_GRANJA.vista_modelo;
+using System.Diagnostics;
 using System.Windows.Controls;
 
 namespace DESKTOP_GRANJA.vistas
@@ -8,10 +9,16 @@ namespace DESKTOP_GRANJA.vistas
     /// </summary>
     public partial class DetalleTareaUC : UserControl
     {
+        private DetalleTareaVM vm = new DetalleTareaVM();
         public DetalleTareaUC()
         {
             InitializeComponent();
-            this.DataContext = new DetalleTareaVM();
+            this.DataContext = vm;
+        }
+
+        private void Button_Click_Comentar( object sender, System.Windows.RoutedEventArgs e )
+        {
+            vm.posComentario();
         }
     }
 }

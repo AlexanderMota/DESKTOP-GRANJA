@@ -15,6 +15,7 @@ namespace DESKTOP_GRANJA.apiREST
 {
     internal class TareaService
     {
+        private RestClient client = new RestClient();
         /*private string BaseUrl
         {
             get => base_url;
@@ -32,11 +33,9 @@ namespace DESKTOP_GRANJA.apiREST
         private readonly string _urlSuperTareas;
         private readonly string _urlTareasByIdEmpleado;
         private readonly string _urlAgregaEmpleadoATarea;
-        private readonly string _userToken;
 
         public TareaService()
         {
-            _userToken = Properties.Settings.Default.Token;
             _baseUrl = Properties.Settings.Default.BaseURLApiLocal + "tareas/";
             _urlTareasByIdTarea = _baseUrl + "byid/";
             _urlSubtareas = _baseUrl + "subtareas/";
@@ -44,22 +43,22 @@ namespace DESKTOP_GRANJA.apiREST
             _urlTareasByIdEmpleado = _baseUrl + "empleado/";
             _urlAgregaEmpleadoATarea = _baseUrl + "addempleado/";
         }
-        public async Task<ObservableCollection<Tarea>?> GetTareaByIdAsync( string id/*, string token*/ )
+        public async Task<ObservableCollection<Tarea>?> GetTareaByIdAsync( string userToken, string id/*, string token*/ )
         {
-            var client = new RestClient();
+            //var client = new RestClient();
             var request = new RestRequest($"{ _baseUrl + id }");
-            request.AddHeader("Authorization", _userToken );
+            request.AddHeader("Authorization", userToken );
 
             var restResponse = await client.ExecuteAsync(request);
 
             Trace.WriteLine(restResponse.Content);
-            return JsonConvert.DeserializeObject<ObservableCollection<Tarea>>(restResponse.Content);
+            return JsonConvert.DeserializeObject<ObservableCollection<Tarea>>(restResponse.Content!);
         }
-        public async Task<ObservableCollection<Tarea>> GetAllTareasAsync( /*string token,*/ int pageSize = 10, int pageNum = 1 )
+        public async Task<ObservableCollection<Tarea>?> GetAllTareasAsync( string userToken, int pageSize = 10, int pageNum = 1 )
         {
-            var client = new RestClient();
+            //var client = new RestClient();
             var request = new RestRequest($"{ _baseUrl }");
-            request.AddHeader("Authorization", _userToken );
+            request.AddHeader("Authorization", userToken );
             request.AddParameter("pageSize", pageSize);
             request.AddParameter("pageNum", pageNum);
 
@@ -67,7 +66,7 @@ namespace DESKTOP_GRANJA.apiREST
             try
             {
 
-                /*ObservableCollection<Tarea> ap =*/return JsonConvert.DeserializeObject<ObservableCollection<Tarea>>(restResponse.Content);
+                /*ObservableCollection<Tarea> ap =*/return JsonConvert.DeserializeObject<ObservableCollection<Tarea>>(restResponse.Content!);
                 /*foreach (Tarea t in ap)
                 {
                     Trace.WriteLine(t.Nombre);
@@ -118,15 +117,15 @@ namespace DESKTOP_GRANJA.apiREST
             return JsonConvert.DeserializeObject<Tarea>(content);
         }*/
 
-        public async Task<ObservableCollection<Tarea>> GetTareaByIdEmpleadoAsync( int idEmpleado, int pageSize = 10, int pageNum = 1 )
+        public async Task<ObservableCollection<Tarea>?> GetTareaByIdEmpleadoAsync( string userToken, string idEmpleado, int pageSize = 10, int pageNum = 1 )
         {
             //var response = await _httpClient.GetAsync($"{_urlTareasByIdEmpleado}{idEmpleado}");
             //response.EnsureSuccessStatusCode();
             //var content = await response.Content.ReadAsStringAsync();
             //return JsonConvert.DeserializeObject<ObservableCollection<Tarea>>(content);
-            var client = new RestClient();
+            //var client = new RestClient();
             var request = new RestRequest($"{ _urlTareasByIdEmpleado}{idEmpleado }");
-            request.AddHeader("Authorization", _userToken);
+            request.AddHeader("Authorization", userToken);
             request.AddParameter("pageSize", pageSize);
             request.AddParameter("pageNum", pageNum);
 
@@ -135,7 +134,81 @@ namespace DESKTOP_GRANJA.apiREST
             {
 
                 /*ObservableCollection<Tarea> ap =*/
-                return JsonConvert.DeserializeObject<ObservableCollection<Tarea>>(restResponse.Content);
+                return JsonConvert.DeserializeObject<ObservableCollection<Tarea>>(restResponse.Content!);
+                /*foreach (Tarea t in ap)
+                {
+                    Trace.WriteLine(t.Nombre);
+                }
+                return ap;*/
+            }
+            catch (SocketException ex)
+            {
+                //Trace.WriteLine(ex.Message);
+                return new ObservableCollection<Tarea>();
+            }
+            catch (HttpRequestException ex)
+            {
+                //Trace.WriteLine(ex.Message);
+                return new ObservableCollection<Tarea>();
+            }
+            catch (ArgumentNullException ex)
+            {
+                //Trace.WriteLine(ex.Message);
+                return new ObservableCollection<Tarea>();
+            }
+        }
+        public async Task<ObservableCollection<Tarea>?> GetSuperTareasAsync( string userToken, int pageSize = 10, int pageNum = 1 )
+        {
+            //var client = new RestClient();
+            var request = new RestRequest($"{ _urlSuperTareas}");
+            request.AddHeader("Authorization", userToken);
+            request.AddParameter("pageSize", pageSize);
+            request.AddParameter("pageNum", pageNum);
+
+            var restResponse = await client.ExecuteAsync(request);
+            try
+            {
+
+                /*ObservableCollection<Tarea> ap =*/
+                return JsonConvert.DeserializeObject<ObservableCollection<Tarea>>(restResponse.Content!);
+                /*foreach (Tarea t in ap)
+                {
+                    Trace.WriteLine(t.Nombre);
+                }
+                return ap;*/
+            }
+            catch (SocketException ex)
+            {
+                //Trace.WriteLine(ex.Message);
+                return new ObservableCollection<Tarea>();
+            }
+            catch (HttpRequestException ex)
+            {
+                //Trace.WriteLine(ex.Message);
+                return new ObservableCollection<Tarea>();
+            }
+            catch (ArgumentNullException ex)
+            {
+                //Trace.WriteLine(ex.Message);
+                return new ObservableCollection<Tarea>();
+            }
+        }
+        public async Task<ObservableCollection<Tarea>?> GetSubtareasAsync( string userToken, string idTarea, int pageSize = 20, int pageNum = 1 )
+        {
+            //var client = new RestClient();
+            Trace.WriteLine("_urlSuperTareas: ================> " + _urlSuperTareas);
+            Trace.WriteLine("_userToken: =====================> " + userToken);
+            var request = new RestRequest($"{ _urlSubtareas}{idTarea}");
+            request.AddHeader("Authorization", userToken);
+            request.AddParameter("pageSize", pageSize);
+            request.AddParameter("pageNum", pageNum);
+
+            var restResponse = await client.ExecuteAsync(request);
+            try
+            {
+
+                /*ObservableCollection<Tarea> ap =*/
+                return JsonConvert.DeserializeObject<ObservableCollection<Tarea>>(restResponse.Content!);
                 /*foreach (Tarea t in ap)
                 {
                     Trace.WriteLine(t.Nombre);
@@ -162,22 +235,7 @@ namespace DESKTOP_GRANJA.apiREST
         /// /////////////////////por adaptar
         /// </summary>
         /// <returns></returns>
-        public async Task<ObservableCollection<Tarea>> GetSuperTareasAsync()
-        {
-            var response = await _httpClient.GetAsync(_urlSuperTareas);
-            response.EnsureSuccessStatusCode();
-            var content = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<ObservableCollection<Tarea>>(content);
-        }
 
-        public async Task<ObservableCollection<Tarea>> GetSubtareasAsync( int idTarea, int pageSize = 20, int pageNum = 1 )
-        {
-            var requestUrl = $"{_urlSubtareas}{idTarea}?pageSize={pageSize}&pageNum={pageNum}";
-            var response = await _httpClient.GetAsync(requestUrl);
-            response.EnsureSuccessStatusCode();
-            var content = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<ObservableCollection<Tarea>>(content);
-        }
 
         public async Task<ApiResponse> PostTareaAsync( Tarea tarea, string idSuper = "0b" )
         {

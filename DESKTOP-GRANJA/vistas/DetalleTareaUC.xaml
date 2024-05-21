@@ -7,30 +7,18 @@
              mc:Ignorable="d" >
     <ScrollViewer>
         <StackPanel >
-            <DockPanel LastChildFill="True">
-                <StackPanel DockPanel.Dock="Right" Width="200" MinWidth="150">
-                    <syncfusion:SfDataGrid
-                ItemsSource="{Binding Empleados}" 
-                SelectedItem="{Binding EmpleadoActual}" 
-                ColumnSizer="Star"  
-                AllowFiltering="True" 
-                AutoGenerateColumns="False">
+            <DockPanel Margin="5" LastChildFill="True">
+                <ListBox Width="200" MinWidth="150" DockPanel.Dock="Right" ItemsSource="{Binding Empleados}" SelectedItem="{Binding EmpleadoActual}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="0,0,10,0" Width="80" Text="{Binding Nombre}" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding Rol}" FontStyle="Italic"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
 
-                        <syncfusion:SfDataGrid.Columns>
-                            <syncfusion:GridTextColumn MappingName="Nombre"/>
-                        </syncfusion:SfDataGrid.Columns>
-                    </syncfusion:SfDataGrid>
-                    <ListBox ItemsSource="{Binding Empleados}" SelectedItem="{Binding EmpleadoActual}">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Margin="0,0,10,0" Width="80" Text="{Binding Nombre}" FontWeight="Bold"/>
-                                    <TextBlock Text="{Binding Rol}" FontStyle="Italic"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                </StackPanel>
                 <DockPanel DockPanel.Dock="Left" LastChildFill="True">
 
                     <Grid DockPanel.Dock="Top">
@@ -48,22 +36,28 @@
                             <Button Margin="0,10,10,0" Padding="10,3,10,3">Solicitar</Button>
                         </StackPanel>
                     </Grid>
+                    
                     <StackPanel DockPanel.Dock="Bottom" HorizontalAlignment="Left" Orientation="Horizontal">
                         <Button Margin="10,10,2,10" Padding="10,3,10,3">Editar</Button>
                         <Button Margin="10,10,2,10" Padding="10,3,10,3">Nueva subtarea</Button>
                         <Button Margin="10,10,10,10" Padding="10,3,10,3">Eliminar</Button>
                     </StackPanel>
-                    <TextBlock Height="350" TextWrapping="Wrap" Margin="10,25,10,10" Text="{Binding TareaActual.Descripcion}"></TextBlock>
+
+                    <ScrollViewer VerticalScrollBarVisibility="Hidden" Height="150" Margin="10,25,10,10">
+                        <TextBlock TextWrapping="Wrap" Text="{Binding TareaActual.Descripcion}"></TextBlock>
+                    </ScrollViewer>
 
                 </DockPanel>
-
             </DockPanel>
-            <ListBox ItemsSource="{Binding Subtareas}" SelectedItem="{Binding SubtareaActual}">
+
+            <ListBox Margin="5" ItemsSource="{Binding Subtareas}">
+                
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel Orientation="Horizontal"/>
                     </ItemsPanelTemplate>
                 </ListBox.ItemsPanel>
+                
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <DockPanel LastChildFill="True" Width="300" Margin="15">
@@ -74,9 +68,48 @@
                         </DockPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
+                
             </ListBox>
-        </StackPanel>
 
+            <ListBox MaxHeight="350" Margin="5" ItemsSource="{Binding Comentarios}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <DockPanel HorizontalAlignment="Stretch" LastChildFill="True" Margin="15,5,0,10">
+                            <Grid DockPanel.Dock="Top" Height="25" Margin="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding Nombre}" Grid.Column="0" FontWeight="Bold"/>
+                                <TextBlock HorizontalAlignment="Right" Margin="0,0,15,0" Text="{Binding NombreAutor}" Grid.Column="2" FontWeight="Bold"/>
+                            </Grid>
+                            <DatePicker DockPanel.Dock="Bottom" HorizontalAlignment="Left" Width="120" SelectedDate="{Binding FechaRegistro}" IsEnabled="False" />
+                            <ScrollViewer Margin="0,5,0,10" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled" MinWidth="500" MaxHeight="100">
+                                <TextBlock Padding="0,0,10,0" MinHeight="80" TextWrapping="Wrap" FontStyle="Italic" Text="{Binding Descripcion}"/>
+                            </ScrollViewer>
+                        </DockPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <DockPanel LastChildFill="True" Height="120">
+                <DockPanel LastChildFill="True" DockPanel.Dock="Left" Width="200" Margin="0,0,0,6">
+                    <Button DockPanel.Dock="Bottom" IsEnabled="True" Width="190" Height="25" Content="Comentar" Click="Button_Click_Comentar" ></Button>
+                    <StackPanel VerticalAlignment="Top" Margin="5" Orientation="Horizontal">
+                        <TextBlock Padding="5" Margin="0,0,5,0" Text="Título"></TextBlock>
+                        <TextBox Padding="3" Height="25" Width="145" Text="{Binding ComentarioNuevo.Nombre}"></TextBox>
+                    </StackPanel>
+                </DockPanel>
+                <TextBox TextWrapping="Wrap" Padding="7,3,7,3" Margin="0,5,5,5" Text="{Binding ComentarioNuevo.Descripcion}" DockPanel.Dock="Right"></TextBox>
+            </DockPanel>
+            
+        </StackPanel>
     </ScrollViewer>
-    
 </UserControl>

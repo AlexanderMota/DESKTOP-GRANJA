@@ -15,47 +15,98 @@ namespace DESKTOP_GRANJA.apiREST
 {
     internal class EmpleadoService
     {
-        private string empleadosUrl = "empleados/";
+        private readonly string _baseUrl;
+        private readonly string _urlTareasByIdTarea;
         /*private string BaseUrl
         {
             get => base_url;
             set => base_url = value;
-        }
+        }*/
         public EmpleadoService()
         {
-            this.BaseUrl = Properties.Settings.Default.BaseURLApiLocal;
-        }*/
-        public async Task<ObservableCollection<Empleado>> GetAllEmpleados( /*string token*/ )
+            _baseUrl = Properties.Settings.Default.BaseURLApiLocal+ "empleados/";
+            _urlTareasByIdTarea = _baseUrl + "tarea/";
+        }
+        public async Task<Empleado?> GetEmpleadoByIdAsync( string userToken, string idEmpleado )
         {
             var client = new RestClient();
-            var request = new RestRequest($"{ Properties.Settings.Default.BaseURLApiLocal + empleadosUrl }");
-            request.AddHeader("Authorization", Properties.Settings.Default.Token);
+            var request = new RestRequest($"{ _baseUrl + idEmpleado}");
+            request.AddHeader("Authorization", userToken);
+
+            var restResponse = await client.ExecuteAsync(request);
+            try
+            {
+                return JsonConvert.DeserializeObject<Empleado>(restResponse.Content!);
+            }
+            catch (SocketException ex)
+            {
+                Trace.WriteLine(ex.Message);
+                return new Empleado();
+            }
+            catch (HttpRequestException ex)
+            {
+                Trace.WriteLine(ex.Message);
+                return new Empleado();
+            }
+            catch (ArgumentNullException ex)
+            {
+                Trace.WriteLine(ex.Message);
+                return new Empleado();
+            }
+        }
+        public async Task<ObservableCollection<Empleado>?> GetAllEmpleadosAsync( string userToken/*string token*/ )
+        {
+            var client = new RestClient();
+            var request = new RestRequest($"{ _baseUrl }");
+            request.AddHeader("Authorization", userToken);
             request.AddParameter("pageSize", 10);
 
             var restResponse = await client.ExecuteAsync(request);
             try
             {
-                /*ObservableCollection<Empleado> ap =*/
-                return JsonConvert.DeserializeObject<ObservableCollection<Empleado>>(restResponse.Content);
-                /*foreach (Empleado t in ap)
-                {
-                    Trace.WriteLine(t.Nombre);
-                }
-                return ap;*/
+                return JsonConvert.DeserializeObject<ObservableCollection<Empleado>>(restResponse.Content!);
             }
             catch (SocketException ex)
             {
-                //Trace.WriteLine(ex.Message);
+                Trace.WriteLine(ex.Message);
                 return new ObservableCollection<Empleado>();
             }
             catch (HttpRequestException ex)
             {
-                //Trace.WriteLine(ex.Message);
+                Trace.WriteLine(ex.Message);
                 return new ObservableCollection<Empleado>();
             }
             catch (ArgumentNullException ex)
             {
-                //Trace.WriteLine(ex.Message);
+                Trace.WriteLine(ex.Message);
+                return new ObservableCollection<Empleado>();
+            }
+        }
+        public async Task<ObservableCollection<Empleado>?> GetEmpleadosByTareaAsync( string userToken, string idTarea )
+        {
+            var client = new RestClient();
+            var request = new RestRequest($"{ _urlTareasByIdTarea + idTarea }");
+            request.AddHeader("Authorization", userToken);
+            request.AddParameter("pageSize", 10);
+
+            var restResponse = await client.ExecuteAsync(request);
+            try
+            {
+                return JsonConvert.DeserializeObject<ObservableCollection<Empleado>>(restResponse.Content!);
+            }
+            catch (SocketException ex)
+            {
+                Trace.WriteLine(ex.Message);
+                return new ObservableCollection<Empleado>();
+            }
+            catch (HttpRequestException ex)
+            {
+                Trace.WriteLine(ex.Message);
+                return new ObservableCollection<Empleado>();
+            }
+            catch (ArgumentNullException ex)
+            {
+                Trace.WriteLine(ex.Message);
                 return new ObservableCollection<Empleado>();
             }
         }
