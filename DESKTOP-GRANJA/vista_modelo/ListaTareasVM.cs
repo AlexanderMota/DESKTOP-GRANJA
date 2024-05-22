@@ -39,6 +39,7 @@ namespace DESKTOP_GRANJA.vista_modelo
         }
         private async void GetAllTareasApi(string centro)
         {
+            Trace.WriteLine("ListaTareasVM.GetAllTareasApi(): ========= ");
             this.ListaTareas = await tarServ.GetSubtareasAsync(Properties.Settings.Default.Token, centro);
         }
         public void SfDataGrid_MouseDoubleClick() =>

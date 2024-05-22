@@ -46,7 +46,8 @@
                     <syncfusion:GridTextColumn MappingName="Nombre"/>
                     <syncfusion:GridTextColumn MappingName="Importancia"/>
                     <syncfusion:GridTextColumn MappingName="Fechainicio"/>
-                    <syncfusion:GridTextColumn MappingName="Terminada"/>
+                    <syncfusion:GridTextColumn MappingName="Departamento"/>
+                    <syncfusion:GridTextColumn MappingName="Importancia"/>
                 </syncfusion:SfDataGrid.Columns>
             </syncfusion:SfDataGrid>
         </DockPanel>

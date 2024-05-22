@@ -62,6 +62,13 @@ namespace DESKTOP_GRANJA.vista_modelo
             get => comentarios;
             set => SetProperty(ref comentarios, value);
         }
+        private bool editaTarea = false;
+        public bool EditaTarea
+        {
+            get => editaTarea;
+            set => SetProperty(ref editaTarea, value);
+        }
+
         public DetalleTareaVM() =>
             WeakReferenceMessenger.Default.Register<DetalleTareaMessage>(this, async ( r, m ) => { 
                 TareaActual = m.Value;
@@ -87,6 +94,10 @@ namespace DESKTOP_GRANJA.vista_modelo
         internal void posComentario()
         {
             Trace.WriteLine("posComentario(): ===================> " + ComentarioNuevo.Nombre);
+        }
+        internal void EditarTarea(bool edita)
+        {
+            EditaTarea = edita;
         }
     }
 }

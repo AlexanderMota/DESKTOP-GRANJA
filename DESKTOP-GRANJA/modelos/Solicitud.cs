@@ -16,26 +16,33 @@ namespace DESKTOP_GRANJA.modelos
         [JsonProperty("_id")]
         public string Id
         {
-            get => this._id;
-            set => SetProperty(ref this._id, value);
+            get => _id;
+            set => SetProperty(ref _id, value);
         }
         private string idTarea = ""/* = new Tarea()*/;
         public string IdTarea
         {
-            get => this.idTarea;
-            set => SetProperty(ref this.idTarea, value);
+            get => idTarea;
+            set => SetProperty(ref idTarea, value);
         }
         private string idEmpleado = ""/* = new Empleado()*/;
         public string IdEmpleado
         {
-            get => this.idEmpleado;
-            set => SetProperty(ref this.idEmpleado, value);
+            get => idEmpleado;
+            set => SetProperty(ref idEmpleado, value);
+        }
+        private bool aprobada = false/* = new Empleado()*/;
+        public bool Aprobada
+        {
+            get => aprobada;
+            set => SetProperty(ref aprobada, value);
         }
         private DateTime? fechaRegistro;
+        [JsonProperty("fechaRegistro")]
         public DateTime? FechaSolicitud 
         { 
-            get => this.fechaRegistro; 
-            set => SetProperty(ref this.fechaRegistro, value); 
+            get => fechaRegistro; 
+            set => SetProperty(ref fechaRegistro, value); 
         }
         public Solicitud( string idTarea, string idEmpleado, string fechaRegistro )
         {

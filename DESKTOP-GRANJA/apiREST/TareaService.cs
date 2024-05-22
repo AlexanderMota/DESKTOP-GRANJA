@@ -43,16 +43,16 @@ namespace DESKTOP_GRANJA.apiREST
             _urlTareasByIdEmpleado = _baseUrl + "empleado/";
             _urlAgregaEmpleadoATarea = _baseUrl + "addempleado/";
         }
-        public async Task<ObservableCollection<Tarea>?> GetTareaByIdAsync( string userToken, string id/*, string token*/ )
+        public async Task<Tarea?> GetTareaByIdAsync( string userToken, string id/*, string token*/ )
         {
             //var client = new RestClient();
-            var request = new RestRequest($"{ _baseUrl + id }");
+            var request = new RestRequest($"{ _urlTareasByIdTarea + id }");
             request.AddHeader("Authorization", userToken );
 
             var restResponse = await client.ExecuteAsync(request);
 
             Trace.WriteLine(restResponse.Content);
-            return JsonConvert.DeserializeObject<ObservableCollection<Tarea>>(restResponse.Content!);
+            return JsonConvert.DeserializeObject<Tarea>(restResponse.Content!);
         }
         public async Task<ObservableCollection<Tarea>?> GetAllTareasAsync( string userToken, int pageSize = 10, int pageNum = 1 )
         {
@@ -75,17 +75,17 @@ namespace DESKTOP_GRANJA.apiREST
             }
             catch (SocketException ex)
             {
-                //Trace.WriteLine(ex.Message);
+                Trace.WriteLine(ex.Message);
                 return new ObservableCollection<Tarea>();
             }
             catch (HttpRequestException ex)
             {
-                //Trace.WriteLine(ex.Message);
+                Trace.WriteLine(ex.Message);
                 return new ObservableCollection<Tarea>();
             }
             catch (ArgumentNullException ex)
             {
-                //Trace.WriteLine(ex.Message);
+                Trace.WriteLine(ex.Message);
                 return new ObservableCollection<Tarea>();
             }
         }
@@ -132,28 +132,22 @@ namespace DESKTOP_GRANJA.apiREST
             var restResponse = await client.ExecuteAsync(request);
             try
             {
-
                 /*ObservableCollection<Tarea> ap =*/
                 return JsonConvert.DeserializeObject<ObservableCollection<Tarea>>(restResponse.Content!);
-                /*foreach (Tarea t in ap)
-                {
-                    Trace.WriteLine(t.Nombre);
-                }
-                return ap;*/
             }
             catch (SocketException ex)
             {
-                //Trace.WriteLine(ex.Message);
+                Trace.WriteLine(ex.Message);
                 return new ObservableCollection<Tarea>();
             }
             catch (HttpRequestException ex)
             {
-                //Trace.WriteLine(ex.Message);
+                Trace.WriteLine(ex.Message);
                 return new ObservableCollection<Tarea>();
             }
             catch (ArgumentNullException ex)
             {
-                //Trace.WriteLine(ex.Message);
+                Trace.WriteLine(ex.Message);
                 return new ObservableCollection<Tarea>();
             }
         }
@@ -168,28 +162,22 @@ namespace DESKTOP_GRANJA.apiREST
             var restResponse = await client.ExecuteAsync(request);
             try
             {
-
                 /*ObservableCollection<Tarea> ap =*/
                 return JsonConvert.DeserializeObject<ObservableCollection<Tarea>>(restResponse.Content!);
-                /*foreach (Tarea t in ap)
-                {
-                    Trace.WriteLine(t.Nombre);
-                }
-                return ap;*/
             }
             catch (SocketException ex)
             {
-                //Trace.WriteLine(ex.Message);
+                Trace.WriteLine(ex.Message);
                 return new ObservableCollection<Tarea>();
             }
             catch (HttpRequestException ex)
             {
-                //Trace.WriteLine(ex.Message);
+                Trace.WriteLine(ex.Message);
                 return new ObservableCollection<Tarea>();
             }
             catch (ArgumentNullException ex)
             {
-                //Trace.WriteLine(ex.Message);
+                Trace.WriteLine(ex.Message);
                 return new ObservableCollection<Tarea>();
             }
         }
@@ -217,17 +205,17 @@ namespace DESKTOP_GRANJA.apiREST
             }
             catch (SocketException ex)
             {
-                //Trace.WriteLine(ex.Message);
+                Trace.WriteLine(ex.Message);
                 return new ObservableCollection<Tarea>();
             }
             catch (HttpRequestException ex)
             {
-                //Trace.WriteLine(ex.Message);
+                Trace.WriteLine(ex.Message);
                 return new ObservableCollection<Tarea>();
             }
             catch (ArgumentNullException ex)
             {
-                //Trace.WriteLine(ex.Message);
+                Trace.WriteLine(ex.Message);
                 return new ObservableCollection<Tarea>();
             }
         }

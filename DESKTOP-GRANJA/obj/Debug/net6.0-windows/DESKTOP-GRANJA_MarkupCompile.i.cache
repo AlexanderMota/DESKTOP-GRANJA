@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 E:\Desarrollo\1Proyectos\TFG_DAM\AppDesktopDAMGranja\DESKTOP-GRANJA\App.xaml
-6936069025
+7-1733308041
 1-1974576709
-34685858007
+36791847368
 202-77432905
-MainWindow.xaml;vistas\DetalleTareaUC.xaml;vistas\ListaEmpleadosUC.xaml;vistas\ListaSolicitudesUC.xaml;vistas\ListaTareasUC.xaml;vistas\LoginUC.xaml;
+MainWindow.xaml;vistas\DetalleTareaUC.xaml;vistas\ListaEmpleadosUC.xaml;vistas\ListaSolicitudesUC.xaml;vistas\ListaTareasUC.xaml;vistas\LoginUC.xaml;vistas\ventanas_emergentes\ApiResponseView.xaml;
 
-True
+False
 

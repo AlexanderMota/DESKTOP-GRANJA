@@ -3,14 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:DESKTOP_GRANJA.vistas" xmlns:syncfusion="clr-namespace:Syncfusion.UI.Xaml.Grid;assembly=Syncfusion.SfGrid.WPF"
+             xmlns:local="clr-namespace:DESKTOP_GRANJA.vistas" xmlns:syncfusion="clr-namespace:Syncfusion.UI.Xaml.Grid;assembly=Syncfusion.SfGrid.WPF" 
+             xmlns:vista_modelo="clr-namespace:DESKTOP_GRANJA.vista_modelo" 
+             d:DataContext="{d:DesignInstance Type=vista_modelo:ListaSolicitudesVM}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
         <Style TargetType="Button">
             <Setter Property="Margin" Value="5"/>
             <Style.Triggers>
-                <DataTrigger Binding="{Binding Path=SolicitudSelect}" Value="{x:Null}">
+                <DataTrigger>
                     <Setter Property="IsEnabled" Value="False"/>
                 </DataTrigger>
             </Style.Triggers>
@@ -18,19 +20,20 @@
     </UserControl.Resources>
 
     <DockPanel>
-        <StackPanel Background="Aquamarine" Height="50" DockPanel.Dock="Bottom" Orientation="Horizontal">
-            <Button IsEnabled="True" Height="25" Width="60" Margin="30,0,0,0" Command="{Binding Path=VerSolicitudCommand}">VER</Button>
-        </StackPanel>
+        <!-- <StackPanel Background="Aquamarine" Height="50" DockPanel.Dock="Bottom" Orientation="Horizontal">
+            <Button IsEnabled="True" Height="25" Width="60" Margin="30,0,0,0">VER</Button>
+        </StackPanel> -->
         <syncfusion:SfDataGrid 
-            ItemsSource="{Binding Path=ListaSolicitudes}" 
+            ItemsSource="{Binding Path=ListaSolicitudesComp}" 
             SelectedItem="{Binding Path=SolicitudActual}" 
             ColumnSizer="Star"  
             AllowFiltering="True" 
             AutoGenerateColumns="False">
 
             <syncfusion:SfDataGrid.Columns>
-                <syncfusion:GridTextColumn MappingName="IdTarea"/>
-                <syncfusion:GridTextColumn MappingName="IdEmpleado"/>
+                <syncfusion:GridTextColumn MappingName="tarea.Nombre"/>
+                <syncfusion:GridTextColumn MappingName="empleado.Nombre"/>
+                <syncfusion:GridTextColumn MappingName="Aprobada"/>
                 <syncfusion:GridTextColumn MappingName="FechaSolicitud"/>
             </syncfusion:SfDataGrid.Columns>
         </syncfusion:SfDataGrid>

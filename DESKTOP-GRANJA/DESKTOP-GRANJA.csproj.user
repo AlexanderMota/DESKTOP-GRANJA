@@ -17,6 +17,9 @@
     <Compile Update="vistas\LoginUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="vistas\ventanas_emergentes\ApiResponseView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="vistas\DetalleTareaUC.xaml">
@@ -32,6 +35,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="vistas\LoginUC.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="vistas\ventanas_emergentes\ApiResponseView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

@@ -25,7 +25,7 @@ namespace DESKTOP_GRANJA.vista_modelo
             try
             {
                 ApiResponse ar = await authServ.LogIn(Usu);
-
+                //Trace.WriteLine("LoginVM.Aceptar(): ============");
                 if (ar.Status == 201)
                 {
                     Properties.Settings.Default.Token = ar.Message;
