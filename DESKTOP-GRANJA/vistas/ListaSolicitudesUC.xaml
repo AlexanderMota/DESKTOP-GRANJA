@@ -31,10 +31,11 @@
             AutoGenerateColumns="False">
 
             <syncfusion:SfDataGrid.Columns>
-                <syncfusion:GridTextColumn MappingName="tarea.Nombre"/>
-                <syncfusion:GridTextColumn MappingName="empleado.Nombre"/>
+                <syncfusion:GridTextColumn MappingName="tarea.Nombre" HeaderText="Tarea"/>
+                <syncfusion:GridTextColumn MappingName="empleado.Nombre" HeaderText="Empleado"/>
+                <syncfusion:GridTextColumn MappingName="empleado.Email" HeaderText="Email"/>
                 <syncfusion:GridTextColumn MappingName="Aprobada"/>
-                <syncfusion:GridTextColumn MappingName="FechaSolicitud"/>
+                <syncfusion:GridTextColumn MappingName="FechaSolicitud" HeaderText="Fecha"/>
             </syncfusion:SfDataGrid.Columns>
         </syncfusion:SfDataGrid>
     </DockPanel>

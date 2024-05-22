@@ -34,7 +34,7 @@
             <StackPanel Background="Aquamarine" Height="50" DockPanel.Dock="Bottom" Orientation="Horizontal">
                 <Button Height="25" Command="{Binding Path=Command}">VER</Button>
             </StackPanel>
-            <syncfusion:SfDataGrid MouseDoubleClick="SfDataGrid_MouseDoubleClick"
+            <syncfusion:SfDataGrid MouseDoubleClick="SfDataGrid_MouseDoubleClick" 
                 ItemsSource="{Binding Path=ListaTareas}" 
                 SelectedItem="{Binding Path=TareaActual}" 
                 ColumnSizer="Star"  

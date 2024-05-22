@@ -54,8 +54,18 @@ namespace DESKTOP_GRANJA.vista_modelo
                     //Trace.WriteLine("ListaSolicitudesComp: ==============> "+ sol.Id);
                     Tarea? tar = await tarServ.GetTareaByIdAsync(Properties.Settings.Default.Token, sol.IdTarea);
                     Empleado? emp = await empServ.GetEmpleadoByIdAsync(Properties.Settings.Default.Token, sol.IdEmpleado);
-                    //Trace.WriteLine("ListaSolicitudesComp: ==============> " + emp.Id);
-                    ListaSolicitudesComp.Add(new SolicitudCompleta(sol.Id, tar, emp, sol.Aprobada, sol.FechaSolicitud));
+                    Trace.WriteLine("ListaSolicitudesComp: ==============> " + tar.Id);
+                    if(tar.Id.Length < 1)
+                    {
+                        tar = new Tarea();
+                        tar.Nombre = sol.IdTarea;
+                    }
+                    if (emp.Id.Length < 1)
+                    {
+                        emp = new Empleado();
+                        emp.Nombre = sol.IdEmpleado;
+                    }
+                    ListaSolicitudesComp.Add(new SolicitudCompleta(sol.Id,tar , emp, sol.Aprobada, sol.FechaSolicitud));
                 }
             }
         }
