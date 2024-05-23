@@ -49,22 +49,31 @@
             </ListBox.ItemTemplate>
 
         </ListBox>
-        <syncfusion:SfDataGrid DockPanel.Dock="Right" MouseDoubleClick="SfDataGrid_MouseDoubleClick"
+        <DockPanel DockPanel.Dock="Right">
+            <StackPanel Height="50" DockPanel.Dock="Top" Orientation="Horizontal">
+                <TextBlock Height="20" Margin="10,0,10,0" >Tamaño</TextBlock>
+                <TextBox Width="60" Height="20"></TextBox>
+
+                <Button Height="25" Width="60" Margin="15,0,5,0">Atras</Button>
+                <Button Height="25" Width="60">Siguiente</Button>
+            </StackPanel>
+            <syncfusion:SfDataGrid MouseDoubleClick="SfDataGrid_MouseDoubleClick"
             ItemsSource="{Binding Path=ListaEmpleados}" 
             SelectedItem="{Binding Path=EmpleadoActual}" 
             ColumnSizer="Star"  
             AllowFiltering="True" 
             AutoGenerateColumns="False">
 
-            <syncfusion:SfDataGrid.Columns>
-                <syncfusion:GridTextColumn MappingName="Nombre"/>
-                <syncfusion:GridTextColumn MappingName="Apellidos"/>
-                <syncfusion:GridTextColumn MappingName="Email"/>
-                <syncfusion:GridTextColumn MappingName="Telefono"/>
-                <syncfusion:GridTextColumn MappingName="Rol"/>
-                <syncfusion:GridTextColumn MappingName="CentroTrabajo"/>
-                <syncfusion:GridComboBoxColumn MappingName="Rol" />
-            </syncfusion:SfDataGrid.Columns>
-        </syncfusion:SfDataGrid>
+                <syncfusion:SfDataGrid.Columns>
+                    <syncfusion:GridTextColumn MappingName="Nombre"/>
+                    <syncfusion:GridTextColumn MappingName="Apellidos"/>
+                    <syncfusion:GridTextColumn MappingName="Email"/>
+                    <syncfusion:GridTextColumn MappingName="Telefono"/>
+                    <syncfusion:GridTextColumn MappingName="Rol"/>
+                    <syncfusion:GridTextColumn MappingName="CentroTrabajo"/>
+                    <syncfusion:GridComboBoxColumn MappingName="Rol" />
+                </syncfusion:SfDataGrid.Columns>
+            </syncfusion:SfDataGrid>
+        </DockPanel>
     </DockPanel>
 </UserControl>

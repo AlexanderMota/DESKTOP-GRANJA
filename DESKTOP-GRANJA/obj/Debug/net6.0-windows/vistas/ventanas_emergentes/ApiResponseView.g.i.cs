@@ -53,8 +53,7 @@ namespace DESKTOP_GRANJA.vistas.ventanas_emergentes {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/DESKTOP-GRANJA;V1.0.0.0;component/vistas/ventanas_emergentes/apiresponseview.xam" +
-                    "l", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/DESKTOP-GRANJA;component/vistas/ventanas_emergentes/apiresponseview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\vistas\ventanas_emergentes\ApiResponseView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
