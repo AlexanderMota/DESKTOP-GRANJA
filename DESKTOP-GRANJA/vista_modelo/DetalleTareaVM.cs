@@ -19,7 +19,6 @@ namespace DESKTOP_GRANJA.vista_modelo
         private TareaService tarServ = new TareaService();
 
         private ComentarioService comServ = new ComentarioService();
-        private string numPlant = "";
 
         private Tarea tareaActual = new Tarea();
         public Tarea TareaActual
@@ -27,6 +26,7 @@ namespace DESKTOP_GRANJA.vista_modelo
             get => tareaActual;
             set => SetProperty(ref tareaActual, value);
         }
+        private string numPlant = "";
         public string NumPlant
         {
             get => numPlant;
@@ -50,6 +50,12 @@ namespace DESKTOP_GRANJA.vista_modelo
             get => empleados;
             set => SetProperty(ref empleados, value);
         }
+
+        internal void ShowPopup( string v )
+        {
+            throw new NotImplementedException();
+        }
+
         private Comentario comentarioNuevo = new Comentario();
         public Comentario ComentarioNuevo
         {
@@ -98,6 +104,10 @@ namespace DESKTOP_GRANJA.vista_modelo
         internal void EditarTarea(bool edita)
         {
             EditaTarea = edita;
+        }
+        internal void ShowPopup()
+        {
+            Trace.WriteLine("DetalleTareaVM.ShowPopup(): ===================> " + ComentarioNuevo.Nombre);
         }
     }
 }

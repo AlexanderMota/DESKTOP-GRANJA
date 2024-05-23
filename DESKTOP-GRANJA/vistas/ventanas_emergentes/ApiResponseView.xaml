@@ -5,18 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DESKTOP_GRANJA.vistas.ventanas_emergentes"
         mc:Ignorable="d"
+        ShowInTaskbar="False"
         WindowStyle="None"
         ResizeMode="NoResize"
-        WindowStartupLocation="CenterOwner"
+        Background="White"
+        WindowStartupLocation="CenterScreen"
         BorderThickness="1"
-        Title="ApiResponseView" Height="450" Width="800">
+        Title="Notificación" 
+        Height="300" Width="500">
     <Grid>
-        <StackPanel>
-            <TextBlock Text="Este es un mensaje de notificación." Margin="0,0,0,10"/>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Content="Aceptar" Width="75" Margin="5" Click="AcceptButton_Click"/>
-                <Button Content="Cancelar" Width="75" Margin="5" Click="CancelButton_Click"/>
+        <DockPanel LastChildFill="True">
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Center">
+                <Button Content="Aceptar" Width="75" Margin="0,0,25,20" Click="AcceptButton_Click"/>
+                <Button Content="Cancelar" Width="75" Margin="25,0,0,20" Click="CancelButton_Click"/>
             </StackPanel>
-        </StackPanel>
+            <StackPanel DockPanel.Dock="Top" Margin="10,10,10,5" Orientation="Vertical" VerticalAlignment="Center">
+                <TextBlock Text="{Binding Mensaje}" TextAlignment="Center" FontSize="15" FontWeight="DemiBold" TextWrapping="Wrap"/>
+            </StackPanel>
+        </DockPanel>
     </Grid>
 </Window>

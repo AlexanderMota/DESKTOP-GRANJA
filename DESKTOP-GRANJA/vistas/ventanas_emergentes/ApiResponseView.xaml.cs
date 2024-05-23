@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DESKTOP_GRANJA.vista_modelo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,17 @@ namespace DESKTOP_GRANJA.vistas.ventanas_emergentes
     /// </summary>
     public partial class ApiResponseView : Window
     {
+        private ApiResponseViewVM vm = new ApiResponseViewVM();
         public ApiResponseView()
         {
             InitializeComponent();
+            DataContext = vm;
+        }
+        public ApiResponseView(string msg)
+        {
+            InitializeComponent();
+            vm.Mensaje = msg;
+            DataContext = vm;
         }
         private void AcceptButton_Click( object sender, RoutedEventArgs e )
         {

@@ -8,10 +8,14 @@ namespace DESKTOP_GRANJA.vistas
     /// </summary>
     public partial class ListaSolicitudesUC : UserControl
     {
+        private ListaSolicitudesVM vm = new ListaSolicitudesVM();
         public ListaSolicitudesUC()
         {
             InitializeComponent();
-            this.DataContext = new ListaSolicitudesVM();
+            this.DataContext = vm;
         }
+
+        private void SfDataGrid_MouseDoubleClick( object sender, System.Windows.Input.MouseButtonEventArgs e ) =>
+            vm.SfDataGrid_MouseDoubleClick();
     }
 }

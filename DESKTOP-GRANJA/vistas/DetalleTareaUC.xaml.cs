@@ -17,7 +17,7 @@ namespace DESKTOP_GRANJA.vistas
         public DetalleTareaUC()
         {
             InitializeComponent();
-            this.DataContext = vm;
+            DataContext = vm;
         }
 
         private void Button_Click_Comentar( object sender, System.Windows.RoutedEventArgs e )
@@ -26,7 +26,7 @@ namespace DESKTOP_GRANJA.vistas
         }
         private void VerSubtarea( object sender, System.Windows.Input.MouseButtonEventArgs e )
         {
-            Trace.WriteLine("VerSubtarea: " + sender.ToString());
+            Trace.WriteLine("DetalleTareaUC.VerSubtarea: " + sender.ToString());
         }
 
         private void ListBox_Selected( object sender, System.Windows.RoutedEventArgs e )
@@ -37,32 +37,15 @@ namespace DESKTOP_GRANJA.vistas
             {
                 // Obtiene el DataContext del botón, que es la subtarea
                 Tarea? selectedSubtarea = clickedButton.DataContext as Tarea;
-                if (selectedSubtarea != null)
-                {
-                    // Aquí puedes realizar las acciones necesarias con la subtarea seleccionada
-                    Trace.WriteLine($"Nombre: {selectedSubtarea.Id}\nDescripción: {selectedSubtarea.Descripcion}");
+                if (selectedSubtarea != null) 
                     WeakReferenceMessenger.Default.Send(new DetalleTareaMessage(selectedSubtarea));
-                }
-            }
-        }
-        private void ShowPopup()
-        {
-            ApiResponseView popup = new ApiResponseView();
-            bool? result = popup.ShowDialog();
-
-            if (result == true)
-            {
-                // Acción si el usuario aceptó
-            }
-            else
-            {
-                // Acción si el usuario canceló
+                
             }
         }
         public void Button_Click_Editar( object sender, System.Windows.RoutedEventArgs e )
         {
             //vm.EditarTarea(true);
-            if(vm.EditaTarea == false)
+            if (vm.EditaTarea == false)
             {
                 textoDepartamento.Visibility = System.Windows.Visibility.Collapsed;
                 textoImportancia.Visibility = System.Windows.Visibility.Collapsed;
@@ -85,6 +68,9 @@ namespace DESKTOP_GRANJA.vistas
             }
             else
             {
+
+                vm.ShowPopup();
+
                 textoDepartamento.Visibility = System.Windows.Visibility.Visible;
                 textoImportancia.Visibility = System.Windows.Visibility.Visible;
                 textoTituloTarea.Visibility = System.Windows.Visibility.Visible;

@@ -27,20 +27,20 @@
                             <ColumnDefinition  x:Name="seccionTopPlantilla" Width="85"/>
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0" HorizontalAlignment="Left">
-                            <TextBlock x:Name="textoTituloTarea" Text="{Binding TareaActual.Nombre}" Margin="10" FontSize="15" FontWeight="Bold"></TextBlock>
-                            <TextBox x:Name="inputTituloTarea" Text="{Binding TareaActual.Nombre}" Margin="10" FontSize="15" FontWeight="Bold" Height="25" Visibility="Collapsed"></TextBox>
+                            <TextBlock x:Name="textoTituloTarea" Text="{Binding TareaActual.Nombre}" MinWidth="149" Margin="10" FontSize="15" FontWeight="Bold"></TextBlock>
+                            <TextBox x:Name="inputTituloTarea" Text="{Binding TareaActual.Nombre}" MinWidth="149" Margin="10" FontSize="15" FontWeight="Bold" Height="25" Visibility="Collapsed"></TextBox>
                             <StackPanel Orientation="Horizontal">
                                 <DatePicker x:Name="dateFechaInicio" Width="150" Margin="10,10,0,0" SelectedDate="{Binding TareaActual.Fechainicio}" IsEnabled="False" />
                             </StackPanel>
                         </StackPanel>
                         <DockPanel LastChildFill="True" Grid.Column="1" Margin="0,0,5,0"  >
                             <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right">
-                                <DatePicker x:Name="dateFechaFin" Width="155" SelectedDate="{Binding TareaActual.Fechafin}" IsEnabled="False" Visibility="Collapsed" />
+                                <DatePicker x:Name="dateFechaFin" Width="150" SelectedDate="{Binding TareaActual.Fechafin}" IsEnabled="False" Visibility="Collapsed" />
 
                                 <Button x:Name="botonSolicitarTarea" Width="80" Padding="8,3,8,3" Content="Solicitar" />
                             </StackPanel>
                             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-                                <Button Height="25" Padding="8,3,8,3" x:Name="botonEditaPlantilla" Margin="0,0,15,10" Visibility="Collapsed">Plantilla</Button>
+                                <Button Height="25" Padding="8,3,8,3" x:Name="botonEditaPlantilla" Margin="0,0,10,10" Visibility="Collapsed">Plantilla</Button>
                                 <TextBlock Height="25" Width="80" Text="{Binding NumPlant}" FontWeight="Bold"/>
                             </StackPanel>
                         </DockPanel>
@@ -53,7 +53,7 @@
                             <ComboBoxItem Content="DepartamOpción 2" />
                             <ComboBoxItem Content="DepartamOpción 3" />
                         </ComboBox>
-                        <ComboBox x:Name="combBImportancia" Height="25" Width="100" Margin="10,0,0,0" SelectedItem="{Binding TareaActual.Importancia, Mode=TwoWay}" SelectedValuePath="Content" Visibility="Collapsed">
+                        <ComboBox x:Name="combBImportancia" Height="25" Width="100" Margin="15,0,0,0" SelectedItem="{Binding TareaActual.Importancia, Mode=TwoWay}" SelectedValuePath="Content" Visibility="Collapsed">
                             <ComboBoxItem Content="Crítica" />
                             <ComboBoxItem Content="Alta" />
                             <ComboBoxItem Content="Media" />

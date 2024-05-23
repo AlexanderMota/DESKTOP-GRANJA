@@ -10,9 +10,17 @@ namespace DESKTOP_GRANJA.modelos
     internal class ApiResponse : ObservableObject
     {
         private Int32 status = 0;
-        private String message;
-        public Int32 Status { get { return status; } }
-        public String Message { get { return message; } }
+        public Int32 Status
+        {
+            get => this.status;
+            set => SetProperty(ref this.status, value);
+        }
+        private string message = "";
+        public string Message
+        {
+            get => this.message;
+            set => SetProperty(ref this.message, value);
+        }
         public ApiResponse(int status, String message)
         {
             this.status = status;

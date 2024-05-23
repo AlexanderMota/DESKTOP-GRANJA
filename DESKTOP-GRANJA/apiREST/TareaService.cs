@@ -89,7 +89,20 @@ namespace DESKTOP_GRANJA.apiREST
                 return new ObservableCollection<Tarea>();
             }
         }
+        public async Task<ApiResponse?> PostAsignaEmpleadoTarea(string userToken, string idTarea, string idEmpleado, string idSol = "")
+        {
+            var request = new RestRequest($"{ _urlAgregaEmpleadoATarea }", Method.Post);
+            request.AddHeader("Authorization", userToken);
+            request.AddJsonBody(new {
+                idTarea = idTarea,
+                idEmpleado = idEmpleado,
+                idSolicitud = idSol
+            });
 
+            var restResponse = await client.ExecuteAsync(request);
+
+            return JsonConvert.DeserializeObject<ApiResponse>(restResponse.Content!);
+        }
         /*
         public async Task<ObservableCollection<Tarea>?> GetTareaAsync( string id )
         {

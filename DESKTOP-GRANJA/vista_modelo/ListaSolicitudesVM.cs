@@ -5,6 +5,7 @@ using DESKTOP_GRANJA.apiREST;
 using DESKTOP_GRANJA.mensajeria;
 using DESKTOP_GRANJA.modelos;
 using DESKTOP_GRANJA.nav;
+using DESKTOP_GRANJA.vistas.ventanas_emergentes;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -66,6 +67,25 @@ namespace DESKTOP_GRANJA.vista_modelo
                         emp.Nombre = sol.IdEmpleado;
                     }
                     ListaSolicitudesComp.Add(new SolicitudCompleta(sol.Id,tar , emp, sol.Aprobada, sol.FechaSolicitud));
+                }
+            }
+        }
+        internal void SfDataGrid_MouseDoubleClick() => ShowPopup();
+        private async void ShowPopup()
+        {
+            ApiResponseView popup = new ApiResponseView($"¿Desea aprobar la solicitud de {SolicitudActual.empleado!.Nombre} {SolicitudActual.empleado!.Apellidos} para la tarea '{SolicitudActual.tarea!.Nombre}'?");
+            bool? result = popup.ShowDialog();
+
+            if (result == true)
+            {
+                ApiResponse? res = await tarServ.PostAsignaEmpleadoTarea(Properties.Settings.Default.Token, 
+                    SolicitudActual.tarea.Id, 
+                    SolicitudActual.empleado.Id,
+                    SolicitudActual.IdSolicitud!);
+                if (res != null)
+                {
+                    Trace.WriteLine(res.Message);
+                    if(res.Status < 220) GetAllSolicitudes();
                 }
             }
         }

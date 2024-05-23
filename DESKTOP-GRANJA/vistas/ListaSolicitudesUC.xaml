@@ -23,7 +23,7 @@
         <!-- <StackPanel Background="Aquamarine" Height="50" DockPanel.Dock="Bottom" Orientation="Horizontal">
             <Button IsEnabled="True" Height="25" Width="60" Margin="30,0,0,0">VER</Button>
         </StackPanel> -->
-        <syncfusion:SfDataGrid 
+        <syncfusion:SfDataGrid MouseDoubleClick="SfDataGrid_MouseDoubleClick" 
             ItemsSource="{Binding Path=ListaSolicitudesComp}" 
             SelectedItem="{Binding Path=SolicitudActual}" 
             ColumnSizer="Star"  

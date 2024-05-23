@@ -63,6 +63,7 @@
                 <syncfusion:GridTextColumn MappingName="Telefono"/>
                 <syncfusion:GridTextColumn MappingName="Rol"/>
                 <syncfusion:GridTextColumn MappingName="CentroTrabajo"/>
+                <syncfusion:GridComboBoxColumn MappingName="Rol" />
             </syncfusion:SfDataGrid.Columns>
         </syncfusion:SfDataGrid>
     </DockPanel>

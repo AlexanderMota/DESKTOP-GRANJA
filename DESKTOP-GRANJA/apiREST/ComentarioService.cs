@@ -12,6 +12,7 @@ namespace DESKTOP_GRANJA.apiREST
 {
     internal class ComentarioService
     {
+        private RestClient client = new RestClient();
         private readonly string _baseUrl;
         private readonly string _urlComentarios;
         private readonly string _urlAddComentario;
@@ -23,24 +24,22 @@ namespace DESKTOP_GRANJA.apiREST
         }
         public async Task<ObservableCollection<Comentario>?> GetComentariosByIdTareaAsync( string userToken, string id/*, string token*/ )
         {
-            var client = new RestClient();
             var request = new RestRequest($"{ _urlComentarios + id }");
             request.AddHeader("Authorization", userToken);
 
             var restResponse = await client.ExecuteAsync(request);
 
-            return JsonConvert.DeserializeObject<ObservableCollection<Comentario>>(restResponse.Content);
+            return JsonConvert.DeserializeObject<ObservableCollection<Comentario>>(restResponse.Content!);
         }
         public async Task<ApiResponse?> postComentarioByIdTarea( string userToken, string id, Comentario comment )
         {
-            var client = new RestClient();
             var request = new RestRequest($"{ _urlAddComentario + id }", Method.Post);
             request.AddHeader("Authorization", userToken);
             request.AddJsonBody(comment);
 
             var restResponse = await client.ExecuteAsync(request);
 
-            return JsonConvert.DeserializeObject<ApiResponse>(restResponse.Content);
+            return JsonConvert.DeserializeObject<ApiResponse>(restResponse.Content!);
         }
     }
 }

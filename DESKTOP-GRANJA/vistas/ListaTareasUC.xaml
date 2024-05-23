@@ -31,8 +31,14 @@
             <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
         <DockPanel LastChildFill="True" Grid.Column="0">
+            <StackPanel Height="50" DockPanel.Dock="Top" Orientation="Horizontal">
+                <TextBox Height="20" >Tamaño</TextBox> <TextBlock Width="60" Height="20"></TextBlock>
+                
+                <Button Height="25" Width="60">Atras</Button>
+                <Button Height="25" Width="60">Siguiente</Button>
+            </StackPanel>
             <StackPanel Background="Aquamarine" Height="50" DockPanel.Dock="Bottom" Orientation="Horizontal">
-                <Button Height="25" Command="{Binding Path=Command}">VER</Button>
+                <Button Height="25">VER</Button>
             </StackPanel>
             <syncfusion:SfDataGrid MouseDoubleClick="SfDataGrid_MouseDoubleClick" 
                 ItemsSource="{Binding Path=ListaTareas}" 
