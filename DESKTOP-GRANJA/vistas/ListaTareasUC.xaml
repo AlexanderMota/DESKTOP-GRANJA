@@ -32,10 +32,10 @@
         </Grid.ColumnDefinitions>
         <DockPanel LastChildFill="True" Grid.Column="0">
             <StackPanel Height="50" DockPanel.Dock="Top" Orientation="Horizontal">
-                <TextBlock Height="20" Margin="10,0,10,0" >Tamaño</TextBlock> <TextBox Width="60" Height="20"></TextBox>
+                <TextBlock Height="20" Margin="10,0,10,0" >Tamaño</TextBlock> <TextBox Width="60" Height="20" Text="{Binding PageSize}"></TextBox>
                 
-                <Button Height="25" Width="60" Margin="15,0,5,0">Atras</Button>
-                <Button Height="25" Width="60">Siguiente</Button>
+                <Button Height="25" Width="60" Margin="15,0,5,0" Click="Button_Click_PageNumMenos">Atras</Button>
+                <Button Height="25" Width="60"  Click="Button_Click_PageNumMas">Siguiente</Button>
             </StackPanel>
             <StackPanel Background="Aquamarine" Height="50" DockPanel.Dock="Bottom" Orientation="Horizontal">
                 <Button Height="25">VER</Button>

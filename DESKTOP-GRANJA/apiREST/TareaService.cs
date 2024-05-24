@@ -33,6 +33,7 @@ namespace DESKTOP_GRANJA.apiREST
         private readonly string _urlSuperTareas;
         private readonly string _urlTareasByIdEmpleado;
         private readonly string _urlAgregaEmpleadoATarea;
+        private readonly string _urlAgregaSubtarea;
 
         public TareaService()
         {
@@ -42,8 +43,9 @@ namespace DESKTOP_GRANJA.apiREST
             _urlSuperTareas = _baseUrl + "supertareas/";
             _urlTareasByIdEmpleado = _baseUrl + "empleado/";
             _urlAgregaEmpleadoATarea = _baseUrl + "addempleado/";
+            _urlAgregaSubtarea = _baseUrl + "addsubtarea/";
         }
-        public async Task<Tarea?> GetTareaByIdAsync( string userToken, string id/*, string token*/ )
+        public async Task<object?> GetTareaByIdAsync( string userToken, string id/*, string token*/ )
         {
             //var client = new RestClient();
             var request = new RestRequest($"{ _urlTareasByIdTarea + id }");
@@ -51,10 +53,39 @@ namespace DESKTOP_GRANJA.apiREST
 
             var restResponse = await client.ExecuteAsync(request);
 
-            Trace.WriteLine(restResponse.Content);
-            return JsonConvert.DeserializeObject<Tarea>(restResponse.Content!);
+            //Trace.WriteLine(restResponse.Content);
+            try
+            {
+                return JsonConvert.DeserializeObject<Tarea>(restResponse.Content!);
+            }
+            catch (JsonSerializationException)
+            {
+                try
+                {
+                    return JsonConvert.DeserializeObject<ApiResponse>(restResponse.Content!);
+                }
+                catch (Exception ex)
+                {
+                    return new ApiResponse(406, $"Error parsing response: {ex}");
+                }
+            }
+            catch (SocketException ex)
+            {
+                Trace.WriteLine(ex.Message);
+                return new Tarea();
+            }
+            catch (HttpRequestException ex)
+            {
+                Trace.WriteLine(ex.Message);
+                return new Tarea();
+            }
+            catch (ArgumentNullException ex)
+            {
+                Trace.WriteLine(ex.Message);
+                return new Tarea();
+            }
         }
-        public async Task<ObservableCollection<Tarea>?> GetAllTareasAsync( string userToken, int pageSize = 10, int pageNum = 1 )
+        public async Task<object?> GetAllTareasAsync( string userToken, int pageSize = 10, int pageNum = 1 )
         {
             //var client = new RestClient();
             var request = new RestRequest($"{ _baseUrl }");
@@ -63,15 +94,22 @@ namespace DESKTOP_GRANJA.apiREST
             request.AddParameter("pageNum", pageNum);
 
             var restResponse = await client.ExecuteAsync(request);
+
             try
             {
-
-                /*ObservableCollection<Tarea> ap =*/return JsonConvert.DeserializeObject<ObservableCollection<Tarea>>(restResponse.Content!);
-                /*foreach (Tarea t in ap)
+                return JsonConvert.DeserializeObject<ObservableCollection<Tarea>>(restResponse.Content!);
+            }
+            catch (JsonSerializationException)
+            {
+                try
                 {
-                    Trace.WriteLine(t.Nombre);
+                    var apiResponse = JsonConvert.DeserializeObject<ApiResponse>(restResponse.Content!);
+                    return apiResponse;
                 }
-                return ap;*/
+                catch (Exception ex)
+                {
+                    return new ApiResponse(406, $"Error parsing response: {ex}");
+                }
             }
             catch (SocketException ex)
             {
@@ -88,20 +126,6 @@ namespace DESKTOP_GRANJA.apiREST
                 Trace.WriteLine(ex.Message);
                 return new ObservableCollection<Tarea>();
             }
-        }
-        public async Task<ApiResponse?> PostAsignaEmpleadoTarea(string userToken, string idTarea, string idEmpleado, string idSol = "")
-        {
-            var request = new RestRequest($"{ _urlAgregaEmpleadoATarea }", Method.Post);
-            request.AddHeader("Authorization", userToken);
-            request.AddJsonBody(new {
-                idTarea = idTarea,
-                idEmpleado = idEmpleado,
-                idSolicitud = idSol
-            });
-
-            var restResponse = await client.ExecuteAsync(request);
-
-            return JsonConvert.DeserializeObject<ApiResponse>(restResponse.Content!);
         }
         /*
         public async Task<ObservableCollection<Tarea>?> GetTareaAsync( string id )
@@ -130,7 +154,7 @@ namespace DESKTOP_GRANJA.apiREST
             return JsonConvert.DeserializeObject<Tarea>(content);
         }*/
 
-        public async Task<ObservableCollection<Tarea>?> GetTareaByIdEmpleadoAsync( string userToken, string idEmpleado, int pageSize = 10, int pageNum = 1 )
+        public async Task<object?> GetTareaByIdEmpleadoAsync( string userToken, string idEmpleado, int pageSize = 10, int pageNum = 1 )
         {
             //var response = await _httpClient.GetAsync($"{_urlTareasByIdEmpleado}{idEmpleado}");
             //response.EnsureSuccessStatusCode();
@@ -143,10 +167,23 @@ namespace DESKTOP_GRANJA.apiREST
             request.AddParameter("pageNum", pageNum);
 
             var restResponse = await client.ExecuteAsync(request);
+
+
             try
             {
-                /*ObservableCollection<Tarea> ap =*/
                 return JsonConvert.DeserializeObject<ObservableCollection<Tarea>>(restResponse.Content!);
+            }
+            catch (JsonSerializationException)
+            {
+                try
+                {
+                    var apiResponse = JsonConvert.DeserializeObject<ApiResponse>(restResponse.Content!);
+                    return apiResponse;
+                }
+                catch (Exception ex)
+                {
+                    return new ApiResponse(406, $"Error parsing response: {ex}");
+                }
             }
             catch (SocketException ex)
             {
@@ -164,7 +201,7 @@ namespace DESKTOP_GRANJA.apiREST
                 return new ObservableCollection<Tarea>();
             }
         }
-        public async Task<ObservableCollection<Tarea>?> GetSuperTareasAsync( string userToken, int pageSize = 10, int pageNum = 1 )
+        public async Task<object?> GetSuperTareasAsync( string userToken, int pageSize = 10, int pageNum = 1 )
         {
             //var client = new RestClient();
             var request = new RestRequest($"{ _urlSuperTareas}");
@@ -175,8 +212,19 @@ namespace DESKTOP_GRANJA.apiREST
             var restResponse = await client.ExecuteAsync(request);
             try
             {
-                /*ObservableCollection<Tarea> ap =*/
                 return JsonConvert.DeserializeObject<ObservableCollection<Tarea>>(restResponse.Content!);
+            }
+            catch (JsonSerializationException)
+            {
+                try
+                {
+                    var apiResponse = JsonConvert.DeserializeObject<ApiResponse>(restResponse.Content!);
+                    return apiResponse;
+                }
+                catch (Exception ex)
+                {
+                    return new ApiResponse(406, $"Error parsing response: {ex}");
+                }
             }
             catch (SocketException ex)
             {
@@ -194,27 +242,30 @@ namespace DESKTOP_GRANJA.apiREST
                 return new ObservableCollection<Tarea>();
             }
         }
-        public async Task<ObservableCollection<Tarea>?> GetSubtareasAsync( string userToken, string idTarea, int pageSize = 20, int pageNum = 1 )
+        public async Task<object?> GetSubtareasAsync( string userToken, string idTarea, int pageSize = 20, int pageNum = 1 )
         {
-            //var client = new RestClient();
-            Trace.WriteLine("_urlSuperTareas: ================> " + _urlSuperTareas);
-            Trace.WriteLine("_userToken: =====================> " + userToken);
             var request = new RestRequest($"{ _urlSubtareas}{idTarea}");
             request.AddHeader("Authorization", userToken);
             request.AddParameter("pageSize", pageSize);
             request.AddParameter("pageNum", pageNum);
 
             var restResponse = await client.ExecuteAsync(request);
+
             try
             {
-
-                /*ObservableCollection<Tarea> ap =*/
                 return JsonConvert.DeserializeObject<ObservableCollection<Tarea>>(restResponse.Content!);
-                /*foreach (Tarea t in ap)
+            }
+            catch (JsonSerializationException)
+            {
+                try
                 {
-                    Trace.WriteLine(t.Nombre);
+                    return JsonConvert.DeserializeObject<ApiResponse>(restResponse.Content!); ;
                 }
-                return ap;*/
+                catch (Exception ex)
+                {
+                    Trace.WriteLine(ex.Message);
+                    return new ApiResponse(406, "Error parsing response");
+                }
             }
             catch (SocketException ex)
             {
@@ -232,21 +283,55 @@ namespace DESKTOP_GRANJA.apiREST
                 return new ObservableCollection<Tarea>();
             }
         }
+        public async Task<ApiResponse?> PostTareaAsync( string userToken, Tarea tarea, string idSuper = "0b" )
+        {
+            var request = new RestRequest($"{ _baseUrl }?idSuper={ idSuper }", Method.Post);
+            request.AddHeader("Authorization", userToken);
+            request.AddJsonBody(tarea);
+            //request.AddParameter("idSuper", idSuper);
+
+            var restResponse = await client.ExecuteAsync(request);
+            try
+            {
+                return JsonConvert.DeserializeObject<ApiResponse>(restResponse.Content!);
+            }
+            catch (Exception ex)
+            {
+                return new ApiResponse(400,"ERRROR >>> Error inesperado: =================> "+ex.Message);
+            }
+        }
+        public async Task<ApiResponse?> PostAsignaEmpleadoTarea( string userToken, string idTarea, string idEmpleado, string idSol = "" )
+        {
+            var request = new RestRequest($"{ _urlAgregaEmpleadoATarea }", Method.Post);
+            request.AddHeader("Authorization", userToken);
+            request.AddJsonBody(new
+            {
+                idTarea = idTarea,
+                idEmpleado = idEmpleado,
+                idSolicitud = idSol
+            });
+
+            var restResponse = await client.ExecuteAsync(request);
+
+            return JsonConvert.DeserializeObject<ApiResponse>(restResponse.Content!);
+        }
+        public async Task<ApiResponse?> PatchTareaAsync( string userToken, Tarea tarea )
+        {
+            var request = new RestRequest($"{ _baseUrl}{tarea.Id}", Method.Patch);
+            request.AddHeader("Authorization", userToken);
+            request.AddJsonBody(tarea);
+
+            var restResponse = await client.ExecuteAsync(request);
+
+            return JsonConvert.DeserializeObject<ApiResponse>(restResponse.Content!);
+        }
+
         /// <summary>
         /// /////////////////////por adaptar
         /// </summary>
         /// <returns></returns>
 
 
-        public async Task<ApiResponse> PostTareaAsync( Tarea tarea, string idSuper = "0b" )
-        {
-            //tarea.idTarea = 0;
-            var json = JsonConvert.SerializeObject(tarea);
-            var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
-            var response = await _httpClient.PostAsync($"{_baseUrl}?idSuper={idSuper}", content);
-            response.EnsureSuccessStatusCode();
-            return JsonConvert.DeserializeObject<ApiResponse>(await response.Content.ReadAsStringAsync());
-        }
 
         public async Task<ApiResponse> PostEmpleadoATareaAsync( string idTarea, string idEmpleado, string idSolicitud )
         {
@@ -257,15 +342,6 @@ namespace DESKTOP_GRANJA.apiREST
             return JsonConvert.DeserializeObject<ApiResponse>(await response.Content.ReadAsStringAsync());
         }
 
-        public async Task<ApiResponse> PatchTareaAsync( Tarea tarea )
-        {
-            //tarea.idTarea = 0;
-            var json = JsonConvert.SerializeObject(tarea);
-            var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
-            var response = await _httpClient.PatchAsync($"{_baseUrl}{tarea.Id}", content);
-            response.EnsureSuccessStatusCode();
-            return JsonConvert.DeserializeObject<ApiResponse>(await response.Content.ReadAsStringAsync());
-        }
 
         public async Task<ApiResponse> DeleteTareaAsync( string idTar, int conservaSubs )
         {

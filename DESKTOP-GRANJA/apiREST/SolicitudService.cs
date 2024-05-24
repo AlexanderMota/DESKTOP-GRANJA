@@ -23,7 +23,7 @@ namespace DESKTOP_GRANJA.apiREST
             _baseUrl = Properties.Settings.Default.BaseURLApiLocal + "solicitud/";
             _urlSolicitudById = _baseUrl + "byid/";
         }
-        public async Task<ObservableCollection<Solicitud>?> GetAllSolicitudes( string userToken, int pageSize = 10, int pageNum = 1 )
+        public async Task<object?> GetAllSolicitudes( string userToken, int pageSize = 10, int pageNum = 1 )
         {
             var request = new RestRequest($"{ _baseUrl }");
             request.AddHeader("Authorization", userToken);
@@ -31,10 +31,21 @@ namespace DESKTOP_GRANJA.apiREST
             request.AddParameter("pageNum", pageNum);
 
             var restResponse = await client.ExecuteAsync(request);
+
             try
             {
-                /*ObservableCollection<Tarea> ap =*/
                 return JsonConvert.DeserializeObject<ObservableCollection<Solicitud>>(restResponse.Content!);
+            }
+            catch (JsonSerializationException)
+            {
+                try
+                {
+                    return JsonConvert.DeserializeObject<ApiResponse>(restResponse.Content!);
+                }
+                catch (Exception ex)
+                {
+                    return new ApiResponse(406, $"Error parsing response: {ex}");
+                }
             }
             catch (SocketException ex)
             {

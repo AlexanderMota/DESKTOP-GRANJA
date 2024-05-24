@@ -37,8 +37,6 @@ namespace DESKTOP_GRANJA.vista_modelo
             get => listaSolicitudesComp;
             set => SetProperty(ref this.listaSolicitudesComp, value);
         }
-        //private RelayCommand verSolicitudCommand;
-        //public RelayCommand VerSolicitudCommand { get; }
         public ListaSolicitudesVM()
         {
             GetAllSolicitudes();
@@ -46,15 +44,30 @@ namespace DESKTOP_GRANJA.vista_modelo
         }
         private async void GetAllSolicitudes()
         {
-            ListaSolicitudes = await solServ.GetAllSolicitudes(Properties.Settings.Default.Token);
-            if(ListaSolicitudes != null)
+            var res = await solServ.GetAllSolicitudes(Properties.Settings.Default.Token);
+            if (res is ObservableCollection<Solicitud> solis) ListaSolicitudes = solis;
+            else if (res is ApiResponse apiResponse)
+                Trace.WriteLine($"ListaSolicitudesVM.GetAllSolicitudes(): ===========> {apiResponse.Message}");
+
+
+            if (ListaSolicitudes != null)
             {
                 ListaSolicitudesComp = new ObservableCollection<SolicitudCompleta>();
                 foreach (var sol in ListaSolicitudes)
                 {
-                    //Trace.WriteLine("ListaSolicitudesComp: ==============> "+ sol.Id);
-                    Tarea? tar = await tarServ.GetTareaByIdAsync(Properties.Settings.Default.Token, sol.IdTarea);
-                    Empleado? emp = await empServ.GetEmpleadoByIdAsync(Properties.Settings.Default.Token, sol.IdEmpleado);
+                    Tarea? tar = new Tarea();
+                    var resT = await tarServ.GetTareaByIdAsync(Properties.Settings.Default.Token, sol.IdTarea);
+                    if (resT is Tarea tare) tar = tare;
+                    else if (res is ApiResponse apiResponse)
+                        Trace.WriteLine($"ListaSolicitudesVM.GetAllSolicitudes(): ===========> {apiResponse.Message}");
+
+                    Empleado? emp = new Empleado();
+                    var resE = await empServ.GetEmpleadoByIdAsync(Properties.Settings.Default.Token, sol.IdEmpleado);
+                    if (resE is Empleado empl) emp = empl;
+                    else if (res is ApiResponse apiResponse)
+                        Trace.WriteLine($"ListaSolicitudesVM.GetAllSolicitudes(): ===========> {apiResponse.Message}");
+
+
                     Trace.WriteLine("ListaSolicitudesComp: ==============> " + tar.Id);
                     if(tar.Id.Length < 1)
                     {

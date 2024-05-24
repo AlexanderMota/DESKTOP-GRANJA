@@ -22,14 +22,29 @@ namespace DESKTOP_GRANJA.apiREST
             _urlComentarios = _baseUrl + "comentarios/";
             _urlAddComentario = _baseUrl + "addcomentario/";
         }
-        public async Task<ObservableCollection<Comentario>?> GetComentariosByIdTareaAsync( string userToken, string id/*, string token*/ )
+        public async Task<object?> GetComentariosByIdTareaAsync( string userToken, string id/*, string token*/ )
         {
             var request = new RestRequest($"{ _urlComentarios + id }");
             request.AddHeader("Authorization", userToken);
 
             var restResponse = await client.ExecuteAsync(request);
 
-            return JsonConvert.DeserializeObject<ObservableCollection<Comentario>>(restResponse.Content!);
+            try
+            {
+                return JsonConvert.DeserializeObject<ObservableCollection<Comentario>>(restResponse.Content!);
+            }
+            catch (JsonSerializationException)
+            {
+                try
+                {
+                    var apiResponse = JsonConvert.DeserializeObject<ApiResponse>(restResponse.Content!);
+                    return apiResponse;
+                }
+                catch (Exception ex)
+                {
+                    return new ApiResponse(406, $"Error parsing response: {ex}");
+                }
+            }
         }
         public async Task<ApiResponse?> postComentarioByIdTarea( string userToken, string id, Comentario comment )
         {

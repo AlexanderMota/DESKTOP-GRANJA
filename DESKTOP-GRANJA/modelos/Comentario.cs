@@ -3,6 +3,7 @@ using DESKTOP_GRANJA.apiREST;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -70,7 +71,13 @@ namespace DESKTOP_GRANJA.modelos
         }
         public async void GetNombreAutor()
         {
-            Empleado? autor = await empServ.GetEmpleadoByIdAsync(Properties.Settings.Default.Token, IdAutor);
+            Empleado? autor = new Empleado();
+            var res3 = await empServ.GetEmpleadoByIdAsync(Properties.Settings.Default.Token, IdAutor);
+            if (res3 is Empleado emp) autor = emp;
+            else if (res3 is ApiResponse apiResponse)
+                Trace.WriteLine($"DetalleTareaVM(): ===========> {apiResponse.Message}");
+
+
             NombreAutor = (autor == null) ? "" : autor.Nombre + " " + autor.Apellidos;
 
         }

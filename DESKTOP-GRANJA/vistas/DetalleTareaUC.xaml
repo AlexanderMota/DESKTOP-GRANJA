@@ -8,17 +8,31 @@
     <ScrollViewer>
         <StackPanel >
             <DockPanel Margin="5" LastChildFill="True">
-                <ListBox Width="200" MinWidth="150" DockPanel.Dock="Right" ItemsSource="{Binding Empleados}" SelectedItem="{Binding EmpleadoActual}">
+                <ListBox x:Name="seccionEmpleadosTarea" Width="200" MinWidth="150" DockPanel.Dock="Right" ItemsSource="{Binding Empleados}" SelectedItem="{Binding EmpleadoActual}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
                                 <TextBlock Margin="0,0,10,0" Width="80" Text="{Binding Nombre}" FontWeight="Bold"/>
                                 <TextBlock Text="{Binding Rol}" FontStyle="Italic"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-
+                <StackPanel x:Name="seccionPlantillaTarea" Margin="0,10,0,0" DockPanel.Dock="Right" Width="200" MinWidth="150">
+                    <Button Content="Agregar Rol" Click="Button_Click_AgregaRol" Margin="120,0,0,10" Height="25" Width="80"/>
+                    <ListBox ItemsSource="{Binding TareaActual.Plantilla}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                                    <ComboBox Width="100" Margin="5" SelectedItem="{Binding Rol}" 
+                                        ItemsSource="{Binding DataContext.Roles, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"/>
+                                    <TextBox Width="30"  Text="{Binding Cantidad}"  Margin="5"/>
+                                    <Button Content="X" CommandParameter="{Binding}" Click="Button_Click_QuitaPlantilla" Width="25" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
                 <DockPanel DockPanel.Dock="Left" LastChildFill="True">
 
                     <Grid DockPanel.Dock="Top">
@@ -26,38 +40,37 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition  x:Name="seccionTopPlantilla" Width="85"/>
                         </Grid.ColumnDefinitions>
-                        <StackPanel Grid.Column="0" HorizontalAlignment="Left">
-                            <TextBlock x:Name="textoTituloTarea" Text="{Binding TareaActual.Nombre}" MinWidth="149" Margin="10" FontSize="15" FontWeight="Bold"></TextBlock>
-                            <TextBox x:Name="inputTituloTarea" Text="{Binding TareaActual.Nombre}" MinWidth="149" Margin="10" FontSize="15" FontWeight="Bold" Height="25" Visibility="Collapsed"></TextBox>
+                        <StackPanel  Grid.Column="0" HorizontalAlignment="Left">
+                            <StackPanel Height="25" MinWidth="149" x:Name="textoTituloTarea" Margin="10,10,9,0" Orientation="Horizontal">
+                                <Button Click="Button_Click_VuelveTareaPadre" Height="20" Width="20" Margin="0,2,5,2">
+                                    <Image Source="pack://application:,,,/assets/atras.png" Stretch="Uniform"/>
+                                </Button>
+                                <TextBlock Text="{Binding TareaActual.Nombre}" FontSize="18" FontWeight="Bold"></TextBlock>
+
+                            </StackPanel>
+                            <TextBox x:Name="inputTituloTarea" Text="{Binding TareaActual.Nombre}" MinWidth="149" Margin="10,10,9,0" FontSize="15" FontWeight="Bold" Height="25" Visibility="Collapsed"></TextBox>
                             <StackPanel Orientation="Horizontal">
                                 <DatePicker x:Name="dateFechaInicio" Width="150" Margin="10,10,0,0" SelectedDate="{Binding TareaActual.Fechainicio}" IsEnabled="False" />
                             </StackPanel>
                         </StackPanel>
                         <DockPanel LastChildFill="True" Grid.Column="1" Margin="0,0,5,0"  >
                             <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right">
-                                <DatePicker x:Name="dateFechaFin" Width="150" SelectedDate="{Binding TareaActual.Fechafin}" IsEnabled="False" Visibility="Collapsed" />
+                                <DatePicker x:Name="dateFechaFin" Width="150" SelectedDate="{Binding TareaActual.Fechafin}" IsEnabled="true" Visibility="Collapsed" />
 
                                 <Button x:Name="botonSolicitarTarea" Width="80" Padding="8,3,8,3" Content="Solicitar" />
                             </StackPanel>
                             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-                                <Button Height="25" Padding="8,3,8,3" x:Name="botonEditaPlantilla" Margin="0,0,10,10" Visibility="Collapsed">Plantilla</Button>
-                                <TextBlock Height="25" Width="80" Text="{Binding NumPlant}" FontWeight="Bold"/>
+                                <Button Height="25" Padding="8,3,8,3" x:Name="botonEditaPlantilla" Margin="0,5,10,5" Visibility="Collapsed">Plantilla</Button>
+                                <TextBlock Height="15" Width="80" Text="{Binding NumPlant}" FontWeight="Bold"/>
                             </StackPanel>
                         </DockPanel>
                     </Grid>
 
 
                     <StackPanel DockPanel.Dock="Top" HorizontalAlignment="Left" Orientation="Horizontal" Margin="10,10,0,0">
-                        <ComboBox x:Name="combBDepartamento" Height="25" Width="150" SelectedItem="{Binding TareaActual.Departamento, Mode=TwoWay}" Visibility="Collapsed">
-                            <ComboBoxItem Content="DepartamOpción 1" />
-                            <ComboBoxItem Content="DepartamOpción 2" />
-                            <ComboBoxItem Content="DepartamOpción 3" />
+                        <ComboBox x:Name="combBDepartamento" Height="25" Width="150" ItemsSource="{Binding Departamentos}" SelectedItem="{Binding TareaActual.Departamento, Mode=TwoWay}" Visibility="Collapsed">
                         </ComboBox>
-                        <ComboBox x:Name="combBImportancia" Height="25" Width="100" Margin="15,0,0,0" SelectedItem="{Binding TareaActual.Importancia, Mode=TwoWay}" SelectedValuePath="Content" Visibility="Collapsed">
-                            <ComboBoxItem Content="Crítica" />
-                            <ComboBoxItem Content="Alta" />
-                            <ComboBoxItem Content="Media" />
-                            <ComboBoxItem Content="Baja" />
+                        <ComboBox x:Name="combBImportancia" Height="25" Width="100" Margin="15,0,0,0" ItemsSource="{Binding Importancias}"  SelectedItem="{Binding TareaActual.Importancia, Mode=TwoWay}" Visibility="Collapsed">
                         </ComboBox>
                         <TextBlock x:Name="textoDepartamento" Text="{Binding TareaActual.Departamento}" Height="25" Width="156" Margin="2,0,0,0"></TextBlock>
                         <TextBlock x:Name="textoImportancia" Text="{Binding TareaActual.Importancia}" Height="25" Margin="10,0,0,0" Width="100"></TextBlock>
@@ -65,13 +78,20 @@
                     
                     <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
                         <Button x:Name="botonEditaTarea" Click="Button_Click_Editar" Margin="10,10,2,10" Padding="10,3,10,3">Editar</Button>
-                        <Button Margin="10,10,2,10" Padding="10,3,10,3">Nueva subtarea</Button>
-                        <Button Margin="10,10,10,10" Padding="10,3,10,3">Eliminar</Button>
+                        <Button x:Name="botonGuardaEditaTarea" Click="Button_Click_GuardaTarea" Visibility="Collapsed" Margin="10,10,2,10" Padding="10,3,10,3">Guardar</Button>
+                        <Button x:Name="botonNuevaSubtarea" Margin="10,10,2,10" Click="Button_Click_NuevaSubtarea" Padding="10,3,10,3">Nueva subtarea</Button>
+                        <Button x:Name="botonCancelaEditaTarea" Click="Button_Click_Cancela" Margin="10,10,2,10" Padding="10,3,10,3" Visibility="Collapsed">Cancelar</Button>
+                        <Button x:Name="botonEliminaTarea" Margin="10,10,10,10" Padding="10,3,10,3">Eliminar</Button>
                     </StackPanel>
 
-                    <ScrollViewer  VerticalScrollBarVisibility="Hidden" Height="180" Margin="12,10,10,10">
-                        <TextBlock TextWrapping="Wrap" Text="{Binding TareaActual.Descripcion}"></TextBlock>
-                    </ScrollViewer>
+                    <StackPanel>
+                        <ScrollViewer  x:Name="txtBoDesc" Visibility="Collapsed" VerticalScrollBarVisibility="Hidden" Height="180" Margin="12,10,5,10">
+                            <TextBox AcceptsReturn="True" TextWrapping="Wrap" Text="{Binding TareaActual.Descripcion}"></TextBox>
+                        </ScrollViewer>
+                        <ScrollViewer x:Name="txtBlDesc" VerticalScrollBarVisibility="Hidden" Height="180" Margin="12,10,5,10">
+                            <TextBlock TextWrapping="Wrap" Text="{Binding TareaActual.Descripcion}"></TextBlock>
+                        </ScrollViewer>
+                    </StackPanel>
 
                 </DockPanel>
             </DockPanel>
@@ -86,7 +106,7 @@
                 
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <DockPanel LastChildFill="True" Width="300">
+                        <DockPanel LastChildFill="True" Width="300"  Margin="0,0,0,0">
                             <TextBlock Height="20" DockPanel.Dock="Top" Margin="5,10,0,0" Text="{Binding Nombre}" FontWeight="Bold"/>
                             <StackPanel DockPanel.Dock="Top"  Orientation="Horizontal" Margin="5,10,0,0">
                                 <DatePicker Width="155" SelectedDate="{Binding Fechainicio}" IsEnabled="False" />

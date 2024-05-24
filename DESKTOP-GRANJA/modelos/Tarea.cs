@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -29,12 +30,6 @@ namespace DESKTOP_GRANJA.modelos
         {
             get => this._id;
             set => SetProperty(ref this._id, value);
-        }
-        private int idTarea = 0;
-        public int IdTarea
-        {
-            get => this.idTarea;
-            set => SetProperty(ref this.idTarea, value);
         }
         private string nombre = "";
         public string Nombre
@@ -78,17 +73,16 @@ namespace DESKTOP_GRANJA.modelos
             get => this.terminada;
             set => SetProperty(ref this.terminada, value);
         }
-        private List<RolCantidad> plantilla = new List<RolCantidad>();
-        public List<RolCantidad> Plantilla
+        private ObservableCollection<RolCantidad> plantilla = new ObservableCollection<RolCantidad>();
+        public ObservableCollection<RolCantidad> Plantilla
         {
             get => plantilla;
             set => SetProperty(ref plantilla, value);
         }
-        public Tarea(string _id, int idTarea, string nombre, string descripcion, string importancia, DateTime fechainicio, DateTime fechafin, bool terminada, List<RolCantidad> plantilla)
+        public Tarea(string _id, string nombre, string descripcion, string importancia, DateTime fechainicio, DateTime fechafin, bool terminada, ObservableCollection<RolCantidad> plantilla)
         {
             Trace.WriteLine(_id);
             Id = _id;
-            IdTarea = idTarea;
             Nombre = nombre;
             Descripcion = descripcion;
             Importancia = importancia;

@@ -66,8 +66,10 @@ namespace DESKTOP_GRANJA.vista_modelo
                 TokenRecibido = m.Value;
                 if (TokenRecibido)
                 {
-                    Trace.WriteLine("MainWindowVM.MainWindowVM(): ============> TokenRecibido: "+ TokenRecibido);
-                    SuperTareas = await tarServ.GetSuperTareasAsync(Properties.Settings.Default.Token);
+                    var res = await tarServ.GetSuperTareasAsync(Properties.Settings.Default.Token);
+                    if (res is ObservableCollection<Tarea> tars) SuperTareas = tars;
+                    else if (res is ApiResponse apiResponse)
+                        Trace.WriteLine($"MainWindowVM(): ==================> {apiResponse.Message}");
                     //Trace.WriteLine("MainWindowVM.MainWindowVM(): ============> SuperTareas!.Count("+ SuperTareas!.Count + ")");
                     CargaListaTareasUC();
                     panelNavegacion.Visibility = System.Windows.Visibility.Visible;
@@ -85,13 +87,8 @@ namespace DESKTOP_GRANJA.vista_modelo
             this.UserControl = nav.CargaListaTareasUC();
         private void CargaListaEmpleadosUC()=>
             this.UserControl = nav.CargaListaEmpleadosUC();
-        public void SeleccionaCentro( Tarea centro )
-        {
-            /*Properties.Settings.Default.MiCentro = (centro == null) ? 
-                Properties.Settings.Default.MiCentro : centro.Id;
-            Trace.WriteLine("Properties.Settings.Default.Token: ===========>"+ Properties.Settings.Default.MiCentro);*/
-            string idc = (centro == null) ? "" : centro.Id;
-            WeakReferenceMessenger.Default.Send(new CambiaCentroMessage(idc));
-        }
+        public void SeleccionaCentro( Tarea centro ) =>
+            WeakReferenceMessenger.Default.Send(
+                new CambiaCentroMessage((centro == null) ? "" : centro.Id));
     }
 }

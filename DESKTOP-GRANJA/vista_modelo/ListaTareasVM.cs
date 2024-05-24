@@ -24,6 +24,26 @@ namespace DESKTOP_GRANJA.vista_modelo
             get => listaTareas;
             set => SetProperty(ref this.listaTareas!, value);
         }
+        private int pageSize = 10;
+        public int PageSize
+        {
+            get => pageSize;
+            set => SetProperty(ref pageSize, value);
+        }
+        private int pageNum = 1;
+        public int PageNum { get => pageNum; }
+        public void PageNumMas() {  
+            SetProperty(ref pageNum, pageNum+1);
+            GetSubtareasAsync(Properties.Settings.Default.MiCentro);
+        }
+        public void PageNumMenos()
+        {
+            if (pageNum > 1)
+            {
+                SetProperty(ref pageNum, pageNum-1);
+                GetSubtareasAsync(Properties.Settings.Default.MiCentro);
+            }
+        }
 
         public ListaTareasVM()
         {
@@ -32,15 +52,17 @@ namespace DESKTOP_GRANJA.vista_modelo
                 if(m.Value.Length > 0)
                 {
                     Properties.Settings.Default.MiCentro = m.Value;
-                    GetAllTareasApi(Properties.Settings.Default.MiCentro);
+                    GetSubtareasAsync(Properties.Settings.Default.MiCentro);
                 }
             });
-            GetAllTareasApi(Properties.Settings.Default.MiCentro);
+            GetSubtareasAsync(Properties.Settings.Default.MiCentro);
         }
-        private async void GetAllTareasApi(string centro)
+        private async void GetSubtareasAsync( string centro)
         {
-            Trace.WriteLine("ListaTareasVM.GetAllTareasApi(): ========= ");
-            this.ListaTareas = await tarServ.GetSubtareasAsync(Properties.Settings.Default.Token, centro);
+            var resultado = await tarServ.GetSubtareasAsync(Properties.Settings.Default.Token, centro, PageSize, PageNum);
+            if (resultado is ObservableCollection<Tarea> departs) ListaTareas = departs;
+            else if (resultado is ApiResponse apiResponse)
+                Trace.WriteLine($"DetalleTareaVM.GetDepartamentos(): ===========> {apiResponse.Message}");
         }
         public void SfDataGrid_MouseDoubleClick() =>
             WeakReferenceMessenger.Default.Send(new DetalleTareaMessage(TareaActual));

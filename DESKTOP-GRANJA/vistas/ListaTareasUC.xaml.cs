@@ -19,5 +19,10 @@ namespace DESKTOP_GRANJA.vistas
         private void SfDataGrid_MouseDoubleClick( object sender, 
             System.Windows.Input.MouseButtonEventArgs e ) =>
             vm.SfDataGrid_MouseDoubleClick();
+
+        private void Button_Click_PageNumMenos( object sender, RoutedEventArgs e ) =>
+            vm.PageNumMenos();
+        private void Button_Click_PageNumMas( object sender, RoutedEventArgs e ) =>
+            vm.PageNumMas();
     }
 }
