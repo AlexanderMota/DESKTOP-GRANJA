@@ -35,7 +35,10 @@ namespace DESKTOP_GRANJA.vistas
                 // Obtiene el DataContext del botón, que es la subtarea
                 Tarea? selectedSubtarea = clickedButton.DataContext as Tarea;
                 if (selectedSubtarea != null)
+                {
+                    vm.GuardaTareaPadre();
                     WeakReferenceMessenger.Default.Send(new DetalleTareaMessage(selectedSubtarea));
+                }
 
             }
         }

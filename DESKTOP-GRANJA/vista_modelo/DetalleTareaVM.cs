@@ -113,7 +113,6 @@ namespace DESKTOP_GRANJA.vista_modelo
             GetDepartamentos();
             WeakReferenceMessenger.Default.Register<DetalleTareaMessage>(this, async ( r, m ) =>
             {
-                TareaPadre.Add(TareaActual);
                 TareaActual = m.Value;
                 int n = 0;
                 foreach (var p in TareaActual.Plantilla)
@@ -181,18 +180,20 @@ namespace DESKTOP_GRANJA.vista_modelo
         }
         internal void ShowPopup()
         {
-            Trace.WriteLine("DetalleTareaVM.ShowPopup(): ===================> " + ComentarioNuevo.Nombre);
+            Trace.WriteLine("DetalleTareaVM.ShowPopup(): ===========> " + ComentarioNuevo.Nombre);
         }
         internal void VuelveTareaPadre()
         {
-
             if (TareaPadre.Count > 0 && TareaPadre[TareaPadre.Count - 1].Id != "")
             {
                 Tarea destino = TareaPadre[TareaPadre.Count - 1];
-                TareaPadre.Remove(TareaPadre[TareaPadre.Count - 1]);
+                TareaPadre.RemoveAt(TareaPadre.Count - 1);
+                Trace.WriteLine("DetalleTareaVM.VuelveTareaPadre(): ===========> " + TareaPadre.Count);
                 WeakReferenceMessenger.Default.Send(new DetalleTareaMessage(destino));
             }
         }
+        internal void GuardaTareaPadre() => TareaPadre.Add(TareaActual);
+        
         private async void GetDepartamentos()
         {
             var resultado = await empServ.GetDepartamentosAsync(Properties.Settings.Default.Token);
