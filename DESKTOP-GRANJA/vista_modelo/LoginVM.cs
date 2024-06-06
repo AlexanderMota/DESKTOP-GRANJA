@@ -14,7 +14,7 @@ namespace DESKTOP_GRANJA.vista_modelo
     {
         private AuthService authServ = new AuthService();
 
-        private Usuario usu = new Usuario("admin@mail", "admin");
+        private Usuario usu = new Usuario();
         public Usuario Usu
         {
             get { return usu; }
