@@ -154,10 +154,5 @@ namespace DESKTOP_GRANJA.vistas
         {
             vm.VuelveTareaPadre();
         }
-
-        private void Button_Click_EliminaTarea( object sender, System.Windows.RoutedEventArgs e )
-        {
-
-        }
     }
 }

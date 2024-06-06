@@ -81,7 +81,7 @@
                         <Button x:Name="botonGuardaEditaTarea" Click="Button_Click_GuardaTarea" Visibility="Collapsed" Margin="10,10,2,10" Padding="10,3,10,3">Guardar</Button>
                         <Button x:Name="botonNuevaSubtarea" Margin="10,10,2,10" Click="Button_Click_NuevaSubtarea" Padding="10,3,10,3">Nueva subtarea</Button>
                         <Button x:Name="botonCancelaEditaTarea" Click="Button_Click_Cancela" Margin="10,10,2,10" Padding="10,3,10,3" Visibility="Collapsed">Cancelar</Button>
-                        <Button x:Name="botonEliminaTarea" Click="Button_Click_EliminaTarea" Margin="10,10,10,10" Padding="10,3,10,3">Eliminar</Button>
+                        <Button x:Name="botonEliminaTarea" Margin="10,10,10,10" Padding="10,3,10,3">Eliminar</Button>
                     </StackPanel>
 
                     <StackPanel>

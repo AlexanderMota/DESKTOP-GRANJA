@@ -12,7 +12,7 @@
             <TextBox Text="{Binding Path=Usu.email}"/>
         </inputLayout:SfTextInputLayout>
         <inputLayout:SfTextInputLayout Hint="Password">
-            <PasswordBox PasswordChar="{Binding Path=Usu.password}"/>
+            <TextBox Text="{Binding Path=Usu.password}"/>
         </inputLayout:SfTextInputLayout>
 
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
